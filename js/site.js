@@ -19,7 +19,7 @@ $(document).ready(function () {
         userArea: "updateuserdetails",
         manage: {
             upload: "uploaduserscsv",
-            download: "getuserscsv",
+            download: "usersresport.csv",
             tableRow: "confirmuserdetails",
             getTableRows: "getuserdetailsconfirms"
         },
@@ -226,17 +226,6 @@ $(document).ready(function () {
             goToScreen(p.error);
         });
         xhr.send(JSON.stringify(data));
-
-        //$.ajax({
-        //    url: APIUrl + url,
-        //    data: data,
-        //    dataType: "json",
-        //    type: "post",
-        //    success: callbak,
-        //    error: error || function () {
-        //        goToScreen(p.error);
-        //    }
-        //})
     }
 
     var curScreen = null;
@@ -435,7 +424,7 @@ $(document).ready(function () {
                 if (debug) {
                     throwAlert(s.sections.manageArea.find('h4'), 'הקובץ הועלה בהצלחה!');
                 } else if (evt.target.readyState == FileReader.DONE) {
-                    $.post(config.manage.upload, { file: evt.target.result },
+                    ajaxReq(config.manage.upload, { file: evt.target.result },
                     function (res) {
                         // if OK
                         if (res.message.toLowerCase() == 'success') {
