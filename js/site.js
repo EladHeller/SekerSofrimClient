@@ -22,7 +22,8 @@ $(document).ready(function () {
             download: "usersresport.csv",
             tableRow: "confirmuserdetails",
             getTableRows: "getuserdetailsconfirms"
-        }
+        },
+        logout: "logout"
     };
 
     var s = {
@@ -41,7 +42,8 @@ $(document).ready(function () {
             error: $('#error')
         },
         uploadFile: $('#uploadFile'),
-        messages: $('#messages')
+        messages: $('#messages'),
+        logout: $('#logout')
     };
 
     s.val = [
@@ -195,12 +197,22 @@ $(document).ready(function () {
         }
     ]
 
+    function addLoaderCursor (selector) {
+        $(selector).css('cursor', 'progress !important');
+    }
+
+    function removeCursor(selector) {
+        $(selector).css('cursor', '');
+    }
+
     function ajaxReq(url, data, callbak, error) {
+        addLoaderCursor('*');
         var xhr = new XMLHttpRequest();
         xhr.open('POST', APIUrl + url);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.withCredentials = true;
         xhr.addEventListener('load', function (evt) {
+            removeCursor('*');
             if (evt.target.status === 200) {
                 callbak(JSON.parse(evt.target.response));
             } else {
@@ -209,6 +221,7 @@ $(document).ready(function () {
             }
         });
         xhr.addEventListener('error', error || function (error) {
+            removeCursor('*');
             console.error(error);
             goToScreen(p.error);
         });
@@ -220,15 +233,17 @@ $(document).ready(function () {
     var resolveObj = {
         area: function (res) {
             if (res.user) {
+                s.logout.show('slow');
+
                 if (res.user.isAdmin) {
                     goToScreen(p.manageArea);
                     if (!debug) {
-                        ajaxReq(config.manage.getTableRows, null, setTable);
+                        ajaxReq(p.manageArea.getTableRows, null, setTable);
                     } else {
                         setTable(tableDemo);
                     }
                 } else {
-                    s.sections.userArea.find('h1 span b').text(res.user.firstName);
+                    s.sections.userArea.find('h1 span b').text(res.user.firstName ? " " + res.user.firstName : "");
                     var text;
 
                     if (res.user.award == null || res.user.award == undefined) {
@@ -268,13 +283,23 @@ $(document).ready(function () {
     function centerizeElement(child, parent, horizontalAlign, verticlAlign, horizontalOffset, verticalOffset) {
 
         if (horizontalAlign) {
-            child.css('left', (parent.width() + asInt(parent.css('margin-right')) + asInt(parent.css('margin-left')) -
-                               child.width() - asInt(child.css('margin-right')) - asInt(child.css('margin-left')) + (horizontalOffset || 0)) / 2);
+            var p_marginRight = asInt(parent.css('margin-right'));
+            var p_marginLeft = asInt(parent.css('margin-left'));
+            var c_marginRight = asInt(child.css('margin-right'));
+            var c_marginLeft = asInt(child.css('margin-left'));
+
+            child.css('left', (parent.width() + (isNaN(p_marginRight) ? 0 : p_marginRight) + (isNaN(p_marginLeft) ? 0 : p_marginLeft) -
+                                child.width() - (isNaN(c_marginRight) ? 0 : c_marginRight) - (isNaN(c_marginLeft) ? 0 : c_marginLeft) + (horizontalOffset || 0)) / 2);
         }
 
         if (verticlAlign) {
-            child.css('top', (parent.height() + asInt(parent.css('margin-top')) + asInt(parent.css('margin-bottom')) -
-                               child.height() - asInt(child.css('margin-bottom')) - asInt(child.css('margin-bottom')) + (verticalOffset || 0)) / 2);
+            var p_marginTop = asInt(parent.css('margin-top'));
+            var p_marginBottom = asInt(parent.css('margin-bottom'));
+            var c_marginTop = asInt(child.css('margin-top'));
+            var c_marginBottom = asInt(child.css('margin-bottom'));
+
+            child.css('top', (parent.height() + (isNaN(p_marginTop) ? 0 : p_marginTop) + (isNaN(p_marginBottom) ? 0 : p_marginBottom) -
+                               child.height() - (isNaN(c_marginTop) ? 0 : c_marginTop) - (isNaN(c_marginBottom) ? 0 : c_marginBottom) + (verticalOffset || 0)) / 2);
         }
     };
 
@@ -322,7 +347,7 @@ $(document).ready(function () {
 
         // Centerize & hidden sections
         for (var section in s.sections) {
-            centerizeElement(s.sections[section], s.container, true, true, /*(section == 'welcom' ? 0 : 65)*/40);
+            centerizeElement(s.sections[section], s.container, false, true);
         }
     }
 
@@ -371,7 +396,7 @@ $(document).ready(function () {
         } else {
             var f = document.createElement("form");
             f.setAttribute('method', "post");
-            f.setAttribute('action', APIUrl + action);
+            f.setAttribute('action', action);
 
             var s = document.createElement("input"); //input element, Submit button
             s.setAttribute('type', "submit");
@@ -451,7 +476,7 @@ $(document).ready(function () {
         if (!debug) {
             ajaxReq(config.messages, null, resolve);
         } else {
-            resolve({ messages: messageDemo })
+            resolve(messageDemo)
         }
     }
 
@@ -485,7 +510,7 @@ $(document).ready(function () {
         $("td input").on("focus", function (event) {
             $(event.currentTarget).select();
         });
-    }
+    };
 
     saveData = function(event) {
         function resolve(res) {
@@ -540,6 +565,8 @@ $(document).ready(function () {
     });
 
     (function () {
+        initResponsiveElements();
+
         setTimeout(initResponsiveElements, 0);
 
         goToScreen(debugStartScreen || p.welcom);
@@ -559,6 +586,15 @@ $(document).ready(function () {
 
 
         loadMessages();
+
+        // Logout
+        s.logout.on("click", function (event) {
+            var resolve = function () {
+                goToScreen(p.id);
+            }
+
+            ajaxReq(config.logout, null, resolve);
+        });
 
         // Input auto focus
         $("input").on("focus", function (event) {
