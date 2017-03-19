@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 var saveData;
 $(document).ready(function () {
 
@@ -19,7 +19,7 @@ $(document).ready(function () {
         userArea: "updateuserdetails",
         manage: {
             upload: "uploaduserscsv",
-            download: "usersresport.csv",
+            download: "getuserscsv",
             tableRow: "confirmuserdetails",
             getTableRows: "getuserdetailsconfirms"
         },
@@ -226,6 +226,17 @@ $(document).ready(function () {
             goToScreen(p.error);
         });
         xhr.send(JSON.stringify(data));
+
+        //$.ajax({
+        //    url: APIUrl + url,
+        //    data: data,
+        //    dataType: "json",
+        //    type: "post",
+        //    success: callbak,
+        //    error: error || function () {
+        //        goToScreen(p.error);
+        //    }
+        //})
     }
 
     var curScreen = null;
@@ -424,7 +435,7 @@ $(document).ready(function () {
                 if (debug) {
                     throwAlert(s.sections.manageArea.find('h4'), 'הקובץ הועלה בהצלחה!');
                 } else if (evt.target.readyState == FileReader.DONE) {
-                    ajaxReq(config.manage.upload, { file: evt.target.result },
+                    $.post(config.manage.upload, { file: evt.target.result },
                     function (res) {
                         // if OK
                         if (res.message.toLowerCase() == 'success') {
