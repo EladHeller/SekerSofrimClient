@@ -18,8 +18,8 @@ $(document).ready(function () {
         noDetails: "requestupdateuserdetails",
         userArea: "updateuserdetails",
         manage: {
-            upload: "uploaduserscsv",
-            download: "usersresport.csv",
+            upload: "uploadusers",
+            download: "getusersreport",
             tableRow: "confirmuserdetails",
             getTableRows: "getuserdetailsconfirms"
         },
@@ -390,58 +390,8 @@ $(document).ready(function () {
         document.body.removeChild(element);
     }
 
-    function downloadFile(action) {
-        if (debug) {
-            downloadDemoFile('example.xlsx', '');
-        } else {
-            var f = document.createElement("form");
-            f.setAttribute('method', "post");
-            f.setAttribute('action', APIUrl + action);
-
-            var s = document.createElement("input"); //input element, Submit button
-            s.setAttribute('type', "submit");
-            s.setAttribute('value', "Submit");
-            f.appendChild(s);
-
-            f.style.display = 'none';
-            document.getElementsByTagName('body')[0].appendChild(f);
-            f.submit();
-            document.getElementsByTagName('body')[0].removeChild(f);
-        }
-    }
-
-
     function uploadFile() {
         s.uploadFile.trigger('click');
-    }
-
-    function readFile() {
-        var file = s.uploadFile.prop('files')[0];
-        if (file) {
-            var reader = new FileReader();
-
-            reader.onloadend = function (evt) {
-                if (debug) {
-                    throwAlert(s.sections.manageArea.find('h4'), 'הקובץ הועלה בהצלחה!');
-                } else if (evt.target.readyState == FileReader.DONE) {
-                    ajaxReq(config.manage.upload, { file: evt.target.result },
-                    function (res) {
-                        // if OK
-                        if (res.message.toLowerCase() == 'success') {
-                            throwAlert(s.sections.manageArea.find('h4'), 'הקובץ הועלה בהצלחה!');
-                        } else {
-                            throwAlert(s.sections.manageArea.find('h4'), 'העלאת הקובץ נכשלה.');
-                        }
-                    },
-                    function (data) {
-                        // if error
-                        throwAlert(s.sections.manageArea.find('h4'), 'העלאת הקובץ נכשלה.');
-                    });
-                }
-            };
-
-            reader.readAsText(file);
-        }
     }
 
     function loadMessages() {
@@ -836,15 +786,35 @@ $(document).ready(function () {
         });
 
         s.btn[7].download.on('click', function () {
-            downloadFile(config.manage.download);
+            if (debug) {
+                downloadDemoFile('example.xlsx', '');
+            } else {
+                ajaxReq(config.manage.download, null, function(res){
+                    json2ExcelFile(res, 'users.xlsx');
+                });
+            }
         });
 
         s.val[7].download.on('change', function () {
-            if (s.uploadFile.prop('files')[0].name.split('.').pop().toLowerCase() != 'csv') {
-                throwAlert(s.sections.manageArea.find('h4'), 'ניתן להעלות קבצים בעלי סיומת csv בלבד.');
+            if (s.uploadFile.prop('files')[0].name.split('.').pop().toLowerCase() != 'xlsx') {
+                throwAlert(s.sections.manageArea.find('h4'), 'ניתן להעלות קבצים בעלי סיומת xlsx בלבד.');
                 s.uploadFile.prop('files', '');
             } else {
-                readFile();
+                var file = s.uploadFile.prop('files')[0];
+                excelFile2Json(file,workbookToJson,function(data){
+                    ajaxReq(config.manage.upload,{users:data},function (res) {
+                        // if OK
+                        if (res.message.toLowerCase() == 'success') {
+                            throwAlert(s.sections.manageArea.find('h4'), 'הקובץ הועלה בהצלחה!');
+                        } else {
+                            throwAlert(s.sections.manageArea.find('h4'), 'העלאת הקובץ נכשלה.');
+                        }
+                    },
+                    function (data) {
+                        // if error
+                        throwAlert(s.sections.manageArea.find('h4'), 'העלאת הקובץ נכשלה.');
+                    });
+                });
             }
         });
 
