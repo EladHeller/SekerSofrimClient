@@ -19,6 +19,7 @@ $(document).ready(function () {
         userArea: "updateuserdetails",
         manage: {
             upload: "uploadusers",
+            uploadMessages:'replacemessages',
             download: "getusersreport",
             tableRow: "confirmuserdetails",
             getTableRows: "getuserdetailsconfirms"
@@ -42,6 +43,7 @@ $(document).ready(function () {
             error: $('#error')
         },
         uploadFile: $('#uploadFile'),
+        uploadMessagesFile: $('#uploadMessagesFile'),
         messages: $('#messages'),
         logout: $('#logout')
     };
@@ -86,8 +88,9 @@ $(document).ready(function () {
             confirm: s.sections.noDetails.find('button[to="confirm"]')
         }, {//6
         }, {//7
-            download: s.sections.manageArea.find('button[to="download"]'),
-            upload: s.sections.manageArea.find('button[to="upload"]')
+            download: $('#downloadUsers'),
+            upload: $('#uploadUsers'),
+            uploadMessages : $('#uploadMessages')
         }
     ]
 
@@ -195,7 +198,7 @@ $(document).ready(function () {
             email: '345er@walla.com',
             password: '234234'
         }
-    ]
+    ];
 
     function addLoaderCursor (selector) {
         $(selector).css('cursor', 'progress !important');
@@ -390,8 +393,8 @@ $(document).ready(function () {
         document.body.removeChild(element);
     }
 
-    function uploadFile() {
-        s.uploadFile.trigger('click');
+    function uploadFile(fileInput) {
+        fileInput.trigger('click');
     }
 
     function loadMessages() {
@@ -782,9 +785,11 @@ $(document).ready(function () {
         });
 
         s.btn[7].upload.on('click', function () {
-            uploadFile();
+            uploadFile(s.uploadFile);
         });
-
+        s.btn[7].uploadMessages.on('click', function () {
+            uploadFile(s.uploadMessagesFile);
+        });
         s.btn[7].download.on('click', function () {
             if (debug) {
                 downloadDemoFile('example.xlsx', '');
@@ -794,7 +799,32 @@ $(document).ready(function () {
                 });
             }
         });
-
+        s.uploadMessagesFile.on('change', function () {
+            if (s.uploadMessagesFile.prop('files')[0].name.split('.').pop().toLowerCase() != 'xlsx') {
+                throwAlert(s.sections.manageArea.find('h4'), 'ניתן להעלות קבצים בעלי סיומת xlsx בלבד.');
+                s.uploadMessagesFile.prop('files', '');
+            } else {
+                var file = s.uploadMessagesFile.prop('files')[0];
+                excelFile2Json(file,workbookToArrays,function(data){
+                    data = data.map(function(arr){
+                        return arr[0];
+                    });
+                    ajaxReq(config.manage.uploadMessages,{messages:data},function (res) {
+                        // if OK
+                        if (res.message.toLowerCase() == 'success') {
+                            throwAlert(s.sections.manageArea.find('h4'), 'הקובץ הועלה בהצלחה!');
+                        } else {
+                            throwAlert(s.sections.manageArea.find('h4'), 'העלאת הקובץ נכשלה.');
+                        }
+                    },
+                    function (data) {
+                        // if error
+                        throwAlert(s.sections.manageArea.find('h4'), 'העלאת הקובץ נכשלה.');
+                    });
+                });
+            }
+        });
+        
         s.val[7].download.on('change', function () {
             if (s.uploadFile.prop('files')[0].name.split('.').pop().toLowerCase() != 'xlsx') {
                 throwAlert(s.sections.manageArea.find('h4'), 'ניתן להעלות קבצים בעלי סיומת xlsx בלבד.');

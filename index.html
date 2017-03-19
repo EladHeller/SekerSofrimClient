@@ -154,12 +154,14 @@
                  index="7">
             <h1><span>ברוכים הבאים <b>לממשק הניהול</b>.</span></h1>
             <h4 hidden style="color: #3bb156"></h4>
-            <button to="upload" class="success" title="לחץ להעלאת הקובץ"><span class="glyphicon glyphicon-open"></span>&nbsp;&nbsp;&nbsp;העלה Excel משתמשים</button>
-            <button to="download" class="success" title="לחץ להורדת הקובץ"><span class="glyphicon glyphicon-save"></span>&nbsp;&nbsp;&nbsp;הורד Excel משתמשים</button>
+            <button id="uploadMessages" to="upload" class="success" title="לחץ להעלאת הקובץ"><span class="glyphicon glyphicon-open"></span>&nbsp;&nbsp;&nbsp;העלה Excel הודעות</button>
+            <button id="uploadUsers" to="upload" class="success" title="לחץ להעלאת הקובץ"><span class="glyphicon glyphicon-open"></span>&nbsp;&nbsp;&nbsp;העלה Excel משתמשים</button>
+            <button id="downloadUsers" to="download" class="success" title="לחץ להורדת הקובץ"><span class="glyphicon glyphicon-save"></span>&nbsp;&nbsp;&nbsp;הורד Excel משתמשים</button>
             <br />
             <br />
             <br />
             <input id="uploadFile" hidden type="file" style="display: none"/>
+            <input id="uploadMessagesFile" hidden type="file" style="display: none"/>
             <table class="table table-condensed" style="margin-bottom: 0">
                 <thead>
                     <tr>
