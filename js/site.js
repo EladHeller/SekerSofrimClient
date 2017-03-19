@@ -238,7 +238,7 @@ $(document).ready(function () {
                 if (res.user.isAdmin) {
                     goToScreen(p.manageArea);
                     if (!debug) {
-                        ajaxReq(p.manageArea.getTableRows, null, setTable);
+                        ajaxReq(config.manage.getTableRows, null, setTable);
                     } else {
                         setTable(tableDemo);
                     }
@@ -396,7 +396,7 @@ $(document).ready(function () {
         } else {
             var f = document.createElement("form");
             f.setAttribute('method', "post");
-            f.setAttribute('action', action);
+            f.setAttribute('action', APIUrl + action);
 
             var s = document.createElement("input"); //input element, Submit button
             s.setAttribute('type', "submit");
