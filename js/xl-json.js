@@ -40,7 +40,7 @@ function workbookToArrays(workbook){
     var data = [];
     var currLetter = 'A';
     var currIndex = 1;
-    var lastLetter = 'H'    
+    var lastLetter = 'H';
     while (sheet[currLetter + currIndex]) {
         data[currIndex-1] = data[currIndex-1] || [];
         var currCell = sheet[currLetter + currIndex];
