@@ -254,8 +254,9 @@ $(document).ready(function () {
                     } else if (res.user.award == 0) {
                         text = 'לצערנו סך השאלות ספריך בשנת 2015 לא הגיע לרף המינימאלי הדרוש לקבלת זכאות לתשלומים ממשרד התרבות.';
                     } else {
-                        text = 'אנו שמחים לבשרך שנמצאת זכאי לקבלת תשלומי סופרים בסך ' + res.user.award + ' ₪ על השאלות ספריך בספריות הציבוריות בשנת 2015.';
-                        s.sections.userArea.find('p').show();
+                        text = 'הננו מתכבדים להודיעך כי ע"פ תוצאות סקר הסופרים המעודכן שבוצע בספריות הציבוריות לשנת 2015 מתוכנן לשלם לך סך ' + 
+                        res.user.award + ' ₪, לפני מע"מ.';
+                        s.sections.userArea.find('#win-text').show();
                     }
 
                     s.sections.userArea.find('h3').text(text);
@@ -544,6 +545,7 @@ $(document).ready(function () {
         s.logout.on("click", function (event) {
             var resolve = function () {
                 goToScreen(p.id);
+                s.logout.hide();
             }
 
             ajaxReq(config.logout, null, resolve);
@@ -694,7 +696,7 @@ $(document).ready(function () {
 
         s.btn[2].reset.on("click", function () {
             function resolve(res) {
-                if (res.user && res.user.passwordSend) {
+                if (res.userExist) {
                     throwNewPassword(translateSendPasswordTo(res.sendPasswordTo));
                 } else {
                     goToScreen(p.error);

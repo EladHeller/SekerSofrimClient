@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.4.0/css/bootstrap-rtl.min.css" />
     <link href='https://fonts.googleapis.com/css?family=Assistant' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="./css/site.css?1" />
+    <link rel="stylesheet" href="./css/site.css?3" />
 </head>
 
 <body>
@@ -21,7 +21,10 @@
             <img src="./img/ministryOfCultureAndSport.png"
                  onmouseover="this.src = this.src.replace('ministryOfCultureAndSport', 'ministryOfCultureAndSportHover')" 
                  onmouseout="this.src = this.src.replace('ministryOfCultureAndSportHover', 'ministryOfCultureAndSport')"/>
-                 <span id="logout" title="יציאה" class="glyphicon glyphicon-off" style="display: none"></span>
+            <h2 id="logout" style="display: none">
+                יציאה
+                <span  class="glyphicon glyphicon-off" ></span>
+            </h2>
             <h1><span style="font-weight: 400">סקר</span><span style="font-weight: 700"> סופרים</span></h1>
             <h4><b>טלפון: </b>03-9220099 שלוחה 117 | <b>פקס: </b>03-9220070 | <b>מייל: </b>ssofrim@gmail.com</h4>
         </div>
@@ -108,17 +111,20 @@
         <!-- User area -->
         <section id="userArea"
                  index="6">
-            <h1><span>שלום <b></b>!</span></h1>
+            <h1><span>מידע אישי לסופר <b></b>.</span></h1>
             <h3></h3>
-            <p hidden>
-סכום הזכייה הינו ברוטו וינוכו ממנו מע"מ ומס הכנסה כחוק.
-חברת מידע שיווקי זכתה במכרז לניהול התשלומים לסופרים. לכן הפטור והחשבונית חייבים להיות על שם מידע שיווקי יועצים בע"מ.
-סופרים שהינם עוסקים מורשים, מתבקשים להמציא חשבונית מס בהתאם לסכום שצוין ובתוספת מע"מ בשיעור 17% כחוק. כמו כן, יצרף הסופר אישור על ניהול ספרים + אישור על ניכוי מס במקור (אם הוא מעוניין בכך) וכן עדכון פרטי חשבון הבנק להעברת הכספים.
-סופרים שמסווגים כעוסק פטור מתבקשים להגיש חשבון/קבלה בהתאם לסכום שצוין. כמו כן יצרף הסופר אישור על ניהול ספרים + אישור על ניכוי מס במקור + אישור עוסק פטור וכן עדכון פרטי חשבון הבנק להעברת הכספים.
-סופרים שעיקר הכנסתם היא ממשכורת, מגמלה וכדומה יעבירו הצהרה על כך, כמפורט בהמשך, בצירוף אישור בדבר תיאום מס תקף וכן עדכון פרטי חשבון הבנק להעברת הכספים (במידה ולא יצורף אישור מס, ינוכה המס המרבי לפי הקבוע בחוק.
-אישור מס הכנסה לקביעת שיעור ניכוי המס הינו עבור תמלוגים לסופרים מיועד מידע שיווקי יועצים בע"מ. מס' תיק ניכויים: 939377628.
-            </p>
-            <hr />
+            <div id="win-text" hidden>
+<p>חברת מידע שיווקי (סי.איי.)זכתה במכרז לניהול התשלומים לסופרים. לכן הפטור והחשבונית חייבים להיות על שם  <strong>מידע שיווקי (סי.איי.) יועצים בע"מ.</strong></p>
+<strong style="text-decoration: underline">סופרים שהינם עוסקים מורשים</strong>
+<p>מתבקשים להמציא חשבונית מס בהתאם לסכום שצוין ובתוספת מע"מ בשיעור 17% כחוק. כמו כן, יצרף הסופר אישור על ניהול ספרים + אישור על ניכוי מס במקור (אם הוא מעוניין בכך) וכן עדכון פרטי חשבון הבנק להעברת הכספים.</p>
+<strong style="text-decoration: underline">סופרים שמסווגים כעוסק פטור</strong>
+ <p>מתבקשים להגיש חשבון/קבלה בהתאם לסכום שצוין. כמו כן יצרף הסופר אישור על ניהול ספרים+ אישור על ניכוי מס במקור + אישור עוסק פטור וכן עדכון פרטי חשבון הבנק להעברת הכספים.</p>
+<strong style="text-decoration: underline">סופרים שעיקר הכנסתם היא ממשכורת, מגמלה וכד'</strong>
+<p>יעבירו הצהרה על כך, כמפורט בהמשך, בצירוף אישור בדבר תיאום מס תקף וכן עדכון פרטי חשבון הבנק להעברת הכספים (במידה ולא יצורף אישור מס, ינוכה המס המרבי לפי הקבוע בחוק.</p>
+<p><strong>אישור מס הכנסה לקביעת שיעור ניכוי המס הינו עבור תמלוגים לסופרים מיועד מידע שיווקי (סי.איי.) יועצים בע"מ, מס' תיק ניכויים  938377628. </strong></p>
+            </div>
+            <hr style="margin-bottom: 10px;"/>
+            <h4><small>ניתן לעדכן את הפרטים כאן באופן עצמאי, בסיום יש ללחוץ על סימן הV לשמירת השינויים.</small></h4>
             <table class="table table-condensed" style="margin-bottom: 0">
                 <thead>
                     <tr>
@@ -245,6 +251,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.9.3/xlsx.core.min.js"></script>
     <script src="./js/filesaver.js"></script>
     <script src="./js/xl-json.js?1"></script>
-    <script src="./js/site.js?2"></script>
+    <script src="./js/site.js?4"></script>
 </body>
 </html>

@@ -10,6 +10,9 @@ body {
     background: radial-gradient(ellipse at center, rgb(228, 240, 255) 0%, rgb(159, 211, 255) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80a9d9', endColorstr='#407cad', GradientType=1 );
 }
+h1,h2,h3,h4,h5,h6{
+    font-family: Assistant;
+}
 
 .navbar {
     -webkit-box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.75);
@@ -25,7 +28,7 @@ section button,
 #manageArea #table .glyphicon,
 .navbar h1,
 .navbar h4,
-.navbar .glyphicon-off {
+.navbar h2 {
     -webkit-transition-duration: 0.3s !important;
     -moz-transition-duration:  0.3s !important;
     transition-duration: 0.3s !important;
@@ -165,6 +168,23 @@ h5 {
     margin-right: 30px;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+.navbar h2 {
+    display: inline-table;
+    vertical-align: middle;
+    color: #aaa;
+    margin-top: 20px;
+    margin-left: 10px;
+    vertical-align: -webkit-baseline-middle;
+    vertical-align: -moz-baseline-middle;
+    vertical-align: baseline-middle;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+
+.navbar h2:hover {
+    color: #ededed;
 }
 
 .navbar h1 {
@@ -380,19 +400,6 @@ td .glyphicon {
 
 td .glyphicon:hover {
     color: #1d8266 !important;
-}
-
-.navbar .glyphicon-off {
-    color: #6c6c6c;
-    margin-top: 11px;
-    margin-left: 10px;
-    vertical-align: -webkit-baseline-middle;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.navbar .glyphicon-off:hover {
-    color: #ededed;
 }
 
 table {
