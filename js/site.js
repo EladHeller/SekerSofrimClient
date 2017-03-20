@@ -808,6 +808,8 @@ $(document).ready(function () {
                 excelFile2Json(file,workbookToArrays,function(data){
                     data = data.map(function(arr){
                         return arr[0];
+                    }).filter(function(msg){
+                        return msg;
                     });
                     ajaxReq(config.manage.uploadMessages,{messages:data},function (res) {
                         // if OK
