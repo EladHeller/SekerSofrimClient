@@ -40,12 +40,12 @@ function workbookToArrays(workbook){
     var data = [];
     var currLetter = 'A';
     var currIndex = 1;
-        
+    var lastLetter = 'H'    
     while (sheet[currLetter + currIndex]) {
         data[currIndex-1] = data[currIndex-1] || [];
         var currCell = sheet[currLetter + currIndex];
-        while (currCell) {
-            data[currIndex-1].push(currCell.v);
+        while (currLetter <= lastLetter) {
+            data[currIndex-1].push(currCell ? currCell.v : '');
             currLetter = String.fromCharCode(currLetter.charCodeAt(0)+1);
             currCell = sheet[currLetter + currIndex];
         }
