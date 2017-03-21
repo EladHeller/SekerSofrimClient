@@ -248,7 +248,7 @@ $(document).ready(function () {
                 } else {
                     s.sections.userArea.find('h1 span b').text(res.user.firstName ? " " + res.user.firstName : "");
                     var text;
-
+                    
                     if (res.user.award == null || res.user.award == undefined) {
                         text = 'נכון להיום, טרם התקבלו תוצאות.';
                     } else if (res.user.award == 0) {
@@ -546,6 +546,7 @@ $(document).ready(function () {
             var resolve = function () {
                 goToScreen(p.id);
                 s.logout.hide();
+                s.sections.userArea.find('#win-text').hide();
             }
 
             ajaxReq(config.logout, null, resolve);

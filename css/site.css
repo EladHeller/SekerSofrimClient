@@ -60,7 +60,8 @@ section {
     }
 
     #userArea,
-    #manageArea {
+    #manageArea,
+    #userNotExist {
         width: 70%;
     }
 }
