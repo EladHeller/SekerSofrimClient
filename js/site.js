@@ -398,13 +398,33 @@ $(document).ready(function () {
         fileInput.trigger('click');
     }
 
+     function checkLength(msg) {
+        msg = msg.split(' ');
+        var limit = 100;
+        var str = '';
+
+        for (var i = 0, len = msg.length; i < len; i++) {
+            str += msg[i] + ' ';
+
+            if (str.length > limit) {
+                str = str.replace(new RegExp(' ' + msg[i] + ' $'), '...');
+                break;
+            }
+        }
+
+        return str;
+    }
+
     function loadMessages() {
         function resolve(res) {
             var msg = "";
 
             for (var x = 0; x < 40; x++) {
                 for (var i in res) {
-                    msg += res[i].text + "    |    ";
+                    let currMsg = checkLength(res[i].text);
+                    if (currMsg.trim()){
+                        msg += checkLength(res[i].text) + "    |    ";
+                    }
                 }
             }
 
