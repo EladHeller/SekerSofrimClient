@@ -516,7 +516,7 @@ $(document).ready(function () {
 
     $('#saveUserAreaData').on('click', function (event) {
         function resolve(res) {
-            throwAlert(s.sections.userArea.find('h4'), 'נתוניך העדכניים נשמרו בהצלחה.');
+            throwAlert(s.sections.userArea.find('#msg-to-user'), 'נתוניך העדכניים נשמרו בהצלחה.');
         }
 
         var row = s.sections.userArea.find('tr');
