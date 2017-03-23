@@ -841,10 +841,12 @@ $(document).ready(function () {
                         } else {
                             throwAlert(s.sections.manageArea.find('h4'), 'העלאת הקובץ נכשלה.');
                         }
+                        s.uploadMessagesFile.prop('files', '');
                     },
                     function (data) {
                         // if error
                         throwAlert(s.sections.manageArea.find('h4'), 'העלאת הקובץ נכשלה.');
+                        s.uploadMessagesFile.prop('files', '');
                     });
                 });
             }
@@ -864,10 +866,12 @@ $(document).ready(function () {
                         } else {
                             throwAlert(s.sections.manageArea.find('h4'), 'העלאת הקובץ נכשלה.');
                         }
+                        s.uploadFile.prop('files', '');
                     },
                     function (data) {
                         // if error
                         throwAlert(s.sections.manageArea.find('h4'), 'העלאת הקובץ נכשלה.');
+                        s.uploadFile.prop('files', '');
                     });
                 });
             }
