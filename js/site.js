@@ -825,7 +825,7 @@ $(document).ready(function () {
         s.uploadMessagesFile.on('change', function () {
             if (s.uploadMessagesFile.prop('files')[0].name.split('.').pop().toLowerCase() != 'xlsx') {
                 throwAlert(s.sections.manageArea.find('h4'), 'ניתן להעלות קבצים בעלי סיומת xlsx בלבד.');
-                s.uploadMessagesFile.prop('files', '');
+                s.uploadMessagesFile.val('');
             } else {
                 var file = s.uploadMessagesFile.prop('files')[0];
                 excelFile2Json(file,workbookToArrays,function(data){
@@ -841,12 +841,12 @@ $(document).ready(function () {
                         } else {
                             throwAlert(s.sections.manageArea.find('h4'), 'העלאת הקובץ נכשלה.');
                         }
-                        s.uploadMessagesFile.prop('files', '');
+                        s.uploadMessagesFile.val('');
                     },
                     function (data) {
                         // if error
                         throwAlert(s.sections.manageArea.find('h4'), 'העלאת הקובץ נכשלה.');
-                        s.uploadMessagesFile.prop('files', '');
+                        s.uploadMessagesFile.val('');
                     });
                 });
             }
@@ -855,7 +855,7 @@ $(document).ready(function () {
         s.val[7].download.on('change', function () {
             if (s.uploadFile.prop('files')[0].name.split('.').pop().toLowerCase() != 'xlsx') {
                 throwAlert(s.sections.manageArea.find('h4'), 'ניתן להעלות קבצים בעלי סיומת xlsx בלבד.');
-                s.uploadFile.prop('files', '');
+                s.uploadFile.val('');
             } else {
                 var file = s.uploadFile.prop('files')[0];
                 excelFile2Json(file,workbookToJson,function(data){
@@ -866,12 +866,12 @@ $(document).ready(function () {
                         } else {
                             throwAlert(s.sections.manageArea.find('h4'), 'העלאת הקובץ נכשלה.');
                         }
-                        s.uploadFile.prop('files', '');
+                        s.uploadFile.val('');
                     },
                     function (data) {
                         // if error
                         throwAlert(s.sections.manageArea.find('h4'), 'העלאת הקובץ נכשלה.');
-                        s.uploadFile.prop('files', '');
+                        s.uploadFile.val('');
                     });
                 });
             }
