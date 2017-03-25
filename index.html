@@ -50,23 +50,23 @@
         <!-- Id -->
         <section id="id"
                  index="1">
-            <h1>הזן מספר תעודת זהות</h1>
+            <h1>הזנת מספר תעודת זהות</h1>
             <input class="id" type="text" maxlength="9"/>
             <h5 hidden></h5>
-            <button to="confirm" title="לחץ לאישור תעודת הזהות">אישור</button>
+            <button to="confirm" title="לחיצה לאישור תעודת הזהות">אישור</button>
         </section>
 
 
         <!-- Password -->
         <section id="password"
                  index="2">
-            <h1>הזן סיסמא</h1>
+            <h1>הזנת סיסמא</h1>
             <h4 hidden></h4>
             <br />
             <input type="password" />
             <h5 hidden></h5>
-            <button to="confirm" title="לחץ לאישור הסיסמא">אישור</button>
-            <button class="success" to="reset" title="לחץ לקבלת סיסמא חדשה">שכחתי סיסמא</button>
+            <button to="confirm" title="לחיצה לאישור הסיסמא">אישור</button>
+            <button class="success" to="reset" title="לחיצה לקבלת סיסמא חדשה">שכחתי סיסמא</button>
         </section>
 
 
@@ -74,7 +74,7 @@
         <section id="userNotExist"
                  index="3">
             <h1>פרטי ההזדהות שהזנת אינם תואמים לפרטים שבידנו.</h1>
-            <h4>אם אינך מצליח לגשת לאזור האישי אנא מלא את הפרטים ונסדיר את גישתך בהקדם.</h4>
+            <h4>אם נתקלת בבעייה בגישה לאזור האישי ניתן למלא את הפרטים ונסדיר את גישתך בהקדם.</h4>
             <br />
             <input type="text" maxlength="30" placeholder="שם פרטי" />
             <input type="text" maxlength="30" placeholder="שם משפחה" />
@@ -84,8 +84,8 @@
             <input type="tel" maxlength="10" placeholder="טלפון בבית" />
             <br />
             <h5 hidden></h5>
-            <button to="confirm" title="לחץ לשליחת הפרטים">שלח פרטים</button>
-            <button to="tryAgain" class="success" title="נסה שוב">נסה שוב</button>
+            <button to="confirm" title="לחיצה לשליחת הפרטים">שליחת פרטים</button>
+            <button to="tryAgain" class="success" title="נסיון נוסף">נסיון נוסף</button>
         </section>
 
 
@@ -93,7 +93,7 @@
         <section id="thanksForDetails"
                  index="4">
             <h1>פרטיך נקלטו בהצלחה!</h1>
-            <h4>ניצור עימך קשר בהקדם.</h4>
+            <h4>נעדכן אותך בהקדם.</h4>
         </section>
         
         
@@ -101,7 +101,7 @@
         <section id="noDetails"
                  index="5">
             <h1>אין בידינו את פרטי הקשר שלך לצורך גישה לאתר.</h1>
-            <h4>אנא מלא את הפרטים ונסדיר את גישתך בהקדם.</h4>
+            <h4>ביכולתך למלא את הפרטים ונסדיר את גישתך בהקדם.</h4>
             <br />
             <input type="text" maxlength="30" placeholder="שם פרטי" />
             <input type="text" maxlength="30" placeholder="שם משפחה" />
@@ -111,7 +111,7 @@
             <input type="tel" maxlength="10" placeholder="טלפון בבית" />
             <br />
             <h5 hidden></h5>
-            <button to="confirm" title="לחץ לשליחת הפרטים">שלח פרטים</button>
+            <button to="confirm" title="לחיצה לשליחת הפרטים">שליחת פרטים</button>
         </section>
 
         <!-- User area -->
@@ -141,7 +141,7 @@
                         <th>טלפון נייד</th>
                         <th>טלפון נייח</th>
                         <th>כתובת מייל</th>
-                        <th>שמור</th>
+                        <th>שמירה</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -166,9 +166,9 @@
                  index="7">
             <h1><span>ברוכים הבאים <b>לממשק הניהול</b>.</span></h1>
             <h4 hidden style="color: #3bb156"></h4>
-            <button id="uploadMessages" to="upload" class="success" title="לחץ להעלאת הקובץ"><span class="glyphicon glyphicon-open"></span>&nbsp;&nbsp;&nbsp;העלה Excel הודעות</button>
-            <button id="uploadUsers" to="upload" class="success" title="לחץ להעלאת הקובץ"><span class="glyphicon glyphicon-open"></span>&nbsp;&nbsp;&nbsp;העלה Excel משתמשים</button>
-            <button id="downloadUsers" to="download" class="success" title="לחץ להורדת הקובץ"><span class="glyphicon glyphicon-save"></span>&nbsp;&nbsp;&nbsp;הורד Excel משתמשים</button>
+            <button id="uploadMessages" to="upload" class="success" title="לחיצה להעלאת הקובץ"><span class="glyphicon glyphicon-open"></span>&nbsp;&nbsp;&nbsp;העלה Excel הודעות</button>
+            <button id="uploadUsers" to="upload" class="success" title="לחיצה להעלאת הקובץ"><span class="glyphicon glyphicon-open"></span>&nbsp;&nbsp;&nbsp;העלה Excel משתמשים</button>
+            <button id="downloadUsers" to="download" class="success" title="לחיצה להורדת הקובץ"><span class="glyphicon glyphicon-save"></span>&nbsp;&nbsp;&nbsp;הורד Excel משתמשים</button>
             <br />
             <br />
             <br />
@@ -184,7 +184,7 @@
                         <th>טלפון נייד</th>
                         <th>טלפון נייח</th>
                         <th>כתובת מייל</th>
-                        <th>שמור</th>
+                        <th>שמירה</th>
                     </tr>
                 </thead>
             </table>
@@ -236,11 +236,11 @@
                     <h4 class="modal-title" id="confirmModalLabel" style="font-weight: 700">רק רגע...</h4>
                 </div>
                 <div class="modal-body">
-                    האם אתה בטוח שברצונך לשמור את השינויים?
+                    האם לשמור את השינויים?
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" style="border-radius: 0" data-dismiss="modal">ביטול</button>
-                    <button type="button" class="btn btn-primary" style="border-radius: 0" id="saveUserAreaData" data-dismiss="modal">שמור</button>
+                    <button type="button" class="btn btn-primary" style="border-radius: 0" id="saveUserAreaData" data-dismiss="modal">שמירה</button>
                 </div>
             </div>
         </div>
