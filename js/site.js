@@ -57,16 +57,18 @@ $(document).ready(function () {
         }, { //3
             firstName: $(s.sections.userNotExist.find('input')[0]),
             lastName: $(s.sections.userNotExist.find('input')[1]),
-            email: $(s.sections.userNotExist.find('input')[2]),
-            phone: $(s.sections.userNotExist.find('input')[3]),
-            tel: $(s.sections.userNotExist.find('input')[4]),
+            pseudonym: $(s.sections.userNotExist.find('input')[2]),
+            email: $(s.sections.userNotExist.find('input')[3]),
+            phone: $(s.sections.userNotExist.find('input')[4]),
+            tel: $(s.sections.userNotExist.find('input')[5]),
         }, { //4
         }, { //5
             firstName: $(s.sections.noDetails.find('input')[0]),
             lastName: $(s.sections.noDetails.find('input')[1]),
-            email: $(s.sections.noDetails.find('input')[2]),
-            phone: $(s.sections.noDetails.find('input')[3]),
-            tel: $(s.sections.noDetails.find('input')[4]),
+            pseudonym: $(s.sections.noDetails .find('input')[2]),
+            email: $(s.sections.noDetails.find('input')[3]),
+            phone: $(s.sections.noDetails.find('input')[4]),
+            tel: $(s.sections.noDetails.find('input')[5]),
         }, { //6
         }, { //7
             download: s.sections.manageArea.find('#uploadFile'),
@@ -263,6 +265,7 @@ $(document).ready(function () {
 
                     s.sections.userArea.find('#firstName').val(res.user.firstName);
                     s.sections.userArea.find('#lastName').val(res.user.lastName);
+                    s.sections.userArea.find('#pseudonym').val(res.user.pseudonym);
                     s.sections.userArea.find('#id').val(res.user.ID);
                     s.sections.userArea.find('#password').val(res.user.password);
                     s.sections.userArea.find('#phone').val(res.user.phone);
@@ -469,6 +472,7 @@ $(document).ready(function () {
             tbody.append('<tr type="trTemplate">' +
                             '<td type="firstName"><input value="' + table[i].firstName + '"/></td>' +
                             '<td type="lastName"><input value="' + table[i].lastName + '"/></td>' +
+                            '<td type="pseudonym"><input value="' + table[i].pseudonym + '"/></td>' +
                             '<td type="id"><input value="' + table[i].ID + '" disabled /></td>' +
                             '<td type="password"><input type="password" disabled value="0000000"/></td>' +
                             '<td type="phone"><input value="' + (table[i].phone || '') + '"/></td>' +
@@ -500,6 +504,7 @@ $(document).ready(function () {
         var data = {
             firstName: row.find('[type="firstName"] input').val(),
             lastName: row.find('[type="lastName"] input').val(),
+            pseudonym: row.find('[type="pseudonym"] input').val(),
             //password: row.find('[type="password"] input').val(),
             ID: row.find('[type="id"] input').val(),
             phone: row.find('[type="phone"] input').val(),
@@ -525,6 +530,7 @@ $(document).ready(function () {
             ID: row.find('#id').val(),
             firstName: row.find('#firstName').val(),
             lastName: row.find('#lastName').val(),
+            pseudonym: row.find('#pseudonym').val(),
             password: row.find('#password').val(),
             phone: row.find('#phone').val(),
             tel: row.find('#tel').val(),
@@ -618,6 +624,7 @@ $(document).ready(function () {
             var id = s.val[1].id.val();
             var firstName = s.val[3].firstName.val();
             var lastName = s.val[3].lastName.val();
+            var pseudonym = s.val[3].pseudonym.val();
             var email = s.val[3].email.val();
             var phone = s.val[3].phone.val();
             var tel = s.val[3].tel.val();
@@ -634,6 +641,7 @@ $(document).ready(function () {
             var id = s.val[1].id.val();
             var firstName = s.val[5].firstName.val();
             var lastName = s.val[5].lastName.val();
+            var pseudonym = s.val[5].pseudonym.val();
             var email = s.val[5].email.val();
             var phone = s.val[5].phone.val();
             var tel = s.val[5].tel.val();
@@ -760,6 +768,7 @@ $(document).ready(function () {
                         ID: addZeros(s.val[1].id.val()),
                         firstName: s.val[3].firstName.val(),
                         lastName: s.val[3].lastName.val(),
+                        pseudonym: s.val[3].pseudonym.val(),
                         email: s.val[3].email.val(),
                         phone: s.val[3].phone.val(),
                         tel: s.val[3].tel.val(),
@@ -791,6 +800,7 @@ $(document).ready(function () {
                         ID: addZeros(s.val[1].id.val()),
                         firstName: s.val[5].firstName.val(),
                         lastName: s.val[5].lastName.val(),
+                        pseudonym: s.val[5].pseudonym.val(),
                         email: s.val[5].email.val(),
                         phone: s.val[5].phone.val(),
                         tel: s.val[5].tel.val(),
