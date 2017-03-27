@@ -203,12 +203,12 @@ $(document).ready(function () {
     ];
 
     function addLoaderCursor (selector) {
-        $('.pregress').show();
+        $('.progress').show();
         $('.indeterminate').show();
     }
 
     function removeCursor(selector) {
-        $('.pregress').hide();
+        $('.progress').hide();
         $('.indeterminate').hide();
     }
 
