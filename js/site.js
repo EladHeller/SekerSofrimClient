@@ -203,11 +203,13 @@ $(document).ready(function () {
     ];
 
     function addLoaderCursor (selector) {
-        $(selector).css('cursor', 'progress !important');
+        $('.pregress').show();
+        $('.indeterminate').show();
     }
 
     function removeCursor(selector) {
-        $(selector).css('cursor', '');
+        $('.pregress').hide();
+        $('.indeterminate').hide();
     }
 
     function ajaxReq(url, data, callbak, error) {

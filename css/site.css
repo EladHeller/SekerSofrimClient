@@ -264,56 +264,61 @@ h5 {
 #userArea table td:nth-child(1),
 #manageArea table th:nth-child(1),
 #manageArea table td:nth-child(1) {
-    width: 16%;
+    width: 14%;
 }
 
 #userArea table th:nth-child(2),
 #userArea table td:nth-child(2),
 #manageArea table th:nth-child(2),
 #manageArea table td:nth-child(2) {
-    width: 16%;
+    width: 14%;
 }
 
 #userArea table th:nth-child(3),
 #userArea table td:nth-child(3),
 #manageArea table th:nth-child(3),
 #manageArea table td:nth-child(3) {
-    width: 11%;
+    width: 10%;
 }
 
 #userArea table th:nth-child(4),
 #userArea table td:nth-child(4),
 #manageArea table th:nth-child(4),
 #manageArea table td:nth-child(4) {
-    width: 11%;
+    width: 10%;
 }
 
 #userArea table th:nth-child(5),
 #userArea table td:nth-child(5),
 #manageArea table th:nth-child(5),
 #manageArea table td:nth-child(5) {
-    width: 11%;
+    width: 10%;
 }
 
 #userArea table th:nth-child(6),
 #userArea table td:nth-child(6),
 #manageArea table th:nth-child(6),
 #manageArea table td:nth-child(6) {
-    width: 11%;
+    width: 10%;
 }
 
 #userArea table th:nth-child(7),
 #userArea table td:nth-child(7),
 #manageArea table th:nth-child(7),
 #manageArea table td:nth-child(7) {
-    width: 17%;
+    width: 10%;
 }
-
 #userArea table th:nth-child(8),
 #userArea table td:nth-child(8),
 #manageArea table th:nth-child(8),
 #manageArea table td:nth-child(8) {
-    width: 7%;
+    width: 16%;
+}
+#userArea table th:nth-child(9),
+#userArea table td:nth-child(9),
+#manageArea table th:nth-child(9),
+#manageArea table td:nth-child(9) {
+    width: 6%;
 }
 
 #manageArea table th,
@@ -381,9 +386,9 @@ p {
 .navbar h4 {
     color: #ededed;
     font-size: 12px;
-    display: inline-table;
+    display: inline-block;
     position: absolute;
-    margin-top: 41px;
+    margin-top: 38px;
     margin-right: 10px;
     cursor: default !important;
 }
