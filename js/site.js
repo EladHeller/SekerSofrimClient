@@ -216,7 +216,6 @@ $(document).ready(function () {
         addLoaderCursor('*');
         var xhr = new XMLHttpRequest();
         xhr.open('POST', APIUrl + url);
-        xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.withCredentials = true;
         xhr.addEventListener('load', function (evt) {
             removeCursor('*');
