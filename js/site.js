@@ -1,8 +1,6 @@
 'use strict';
 var saveData;
 $(document).ready(function () {
-
-    var debug = false;
     var debugStartScreen = 0;
     var APIUrl = 'https://7npxc1c5ll.execute-api.us-west-2.amazonaws.com/SekerSofrim/';
     // JavaScript source code
@@ -112,96 +110,6 @@ $(document).ready(function () {
         email: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     };
 
-    var messageDemo = [
-        { text: "שימו לב! רשימת הזוכים תפורסם ב15.8.17", id: 1 },
-        { text: "לידיעת ציבור הסופרים, ניתן להגיש בקשת זכיה לא יאוחר מה-27.9.16", id: 2 },
-        { text: "המסחר בבורסה נסגר בירידות שערים של כ-15% ו4 עשיריות האגורה", id: 3 }
-    ]
-
-    var tableDemo = [
-        {
-            firstName: 'דוד',
-            lastName: 'לוי',
-            ID: '554930982',
-            phone: '058-4365783',
-            tel: '08-9876254',
-            email: 'ftis@walla.com',
-            password: '0000'
-        }, {
-            firstName: 'יוסי',
-            lastName: 'כהן',
-            ID: '982756300',
-            phone: '058-9834711',
-            tel: '08-0918273',
-            email: 'yosicohen@gmail.com',
-            password: '43523523'
-        }, {
-            firstName: 'אהובה',
-            lastName: 'ישראלי',
-            ID: '009827465',
-            phone: '052-01019836',
-            tel: null,
-            email: 'aysraeli@gmail.com',
-            password: '3452416'
-        }, {
-            firstName: 'גברי',
-            lastName: 'אסייג',
-            ID: '3057648333',
-            phone: '057-09827645',
-            tel: '08-82276443',
-            email: 'gavri@net.co.il',
-            password: '98213013'
-        }, {
-            firstName: 'מנחם',
-            lastName: 'שוורץ',
-            ID: '143209867',
-            phone: '053-4365783',
-            tel: '08-9876254',
-            email: 'fgfs@walla.com',
-            password: '10934123'
-        }, {
-            firstName: 'יהודה',
-            lastName: 'עזריאלי',
-            ID: '554930982',
-            phone: '057-01019836',
-            tel: '08-9671238',
-            email: 'dfg.pf@walla.com',
-            password: '23252321'
-        }, {
-            firstName: 'יוסף חיים',
-            lastName: 'טברסקי',
-            ID: '983370019',
-            phone: '058-09827645',
-            tel: '02-9903094',
-            email: 'fsdfsa@walla.com',
-            password: '0992342'
-        }, {
-            firstName: 'יפעת',
-            lastName: 'גולן-בולצמן',
-            ID: '000006711',
-            phone: '052-8265437',
-            tel: null,
-            email: 'topqwees@walla.com',
-            password: '00921321'
-        }, {
-            firstName: 'איגור',
-            lastName: 'ינובסקי',
-            ID: '000462789',
-            phone: '050-0098009',
-            tel: '03-5525463',
-            email: 'ytrxxs@walla.com',
-            password: '12421233'
-        }, {
-            firstName: 'הדר',
-            lastName: 'אוחנה',
-            ID: '833098571',
-            phone: '052-1198276',
-            tel: null,
-            email: '345er@walla.com',
-            password: '234234'
-        }
-    ];
-
     function addLoaderCursor (selector) {
         $('.progress').show();
         $('.indeterminate').show();
@@ -243,11 +151,7 @@ $(document).ready(function () {
 
                 if (res.user.isAdmin) {
                     goToScreen(p.manageArea);
-                    if (!debug) {
-                        ajaxReq(config.manage.getTableRows, null, setTable);
-                    } else {
-                        setTable(tableDemo);
-                    }
+                    ajaxReq(config.manage.getTableRows, null, setTable);
                 } else {
                     s.sections.userArea.find('h1 span b').text(res.user.firstName ? " " + res.user.firstName : "");
                     var text;
@@ -385,19 +289,6 @@ $(document).ready(function () {
         }, timeout || 2000);
     }
 
-    function downloadDemoFile(filename, text) {
-        var element = document.createElement('a');
-        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-        element.setAttribute('download', filename);
-
-        element.style.display = 'none';
-        document.body.appendChild(element);
-
-        element.click();
-
-        document.body.removeChild(element);
-    }
-
     function uploadFile(fileInput) {
         fileInput.trigger('click');
     }
@@ -451,11 +342,7 @@ $(document).ready(function () {
             }, 40);
         }
 
-        if (!debug) {
-            ajaxReq(config.messages, null, resolve);
-        } else {
-            resolve(messageDemo)
-        }
+        ajaxReq(config.messages, null, resolve);
     }
 
     function translateSendPasswordTo(text) {
@@ -513,11 +400,7 @@ $(document).ready(function () {
             email: row.find('[type="email"] input').val()
         }
 
-        if (!debug) {
-            ajaxReq(config.manage.tableRow, data, resolve);
-        } else {
-            resolve({ isSaved: true, ID: data.ID });
-        }
+        ajaxReq(config.manage.tableRow, data, resolve);
     }
 
     $('#saveUserAreaData').on('click', function (event) {
@@ -538,11 +421,7 @@ $(document).ready(function () {
             email: row.find('#email').val()
         }
 
-        if (!debug) {
-            ajaxReq(config.userArea, data, resolve);
-        } else {
-            resolve({ isSaved: true, userId: data.userId });
-        }
+        ajaxReq(config.userArea, data, resolve);
     });
 
     (function () {
@@ -554,15 +433,7 @@ $(document).ready(function () {
 
         // CONFIRM - 0
         setTimeout(function () {
-
-            if (!debug) {
-                ajaxReq(config.authentication, null, resolveObj.area);
-            } else {
-                setTimeout(function () {
-                    if (debugStartScreen == 0) goToScreen(p.id);
-                }, 2000);
-            }
-
+            ajaxReq(config.authentication, null, resolveObj.area);
         }, 2000);
 
 
@@ -674,23 +545,11 @@ $(document).ready(function () {
 
             // CONFIRM - 1
             if (s.btn[1].confirm.hasClass('success')) {
-                if (!debug) {
-                    var data = {
-                        ID: addZeros(s.val[1].id.val())
-                    }
-
-                    ajaxReq(config.id, data, resolve);
-                } else {
-                    // !!! Present
-                    switch (s.val[1].id.val()) {
-                        case ('1111'): resolve({ userExist: true, passwordSend: false, hasPassword: true }); break;
-                        case ('999999999'): resolve({ userExist: true, passwordSend: false, hasPassword: true }); break;
-                        case ('2222'): resolve({ userExist: true, passwordSend: true, hasPassword: false, sendPasswordTo: 'sms' }); break;
-                        case ('3333'): resolve({ userExist: true, passwordSend: true, hasPassword: false, sendPasswordTo: 'email' }); break;
-                        case ('4444'): resolve({ userExist: true, passwordSend: false, hasPassword: true }); break;
-                        default: resolve({ userExist: false, passwordSend: false, hasPassword: false });
-                    }
+                var data = {
+                    ID: addZeros(s.val[1].id.val())
                 }
+
+                ajaxReq(config.id, data, resolve);
             } else {
                 throwAlert(s.sections.id.find('h5'), 'קלט לא תקין. נסה שוב.');
                 s.val[1].id.focus();
@@ -700,24 +559,12 @@ $(document).ready(function () {
         s.btn[2].confirm.on("click", function () {
 
             if (s.btn[2].confirm.hasClass('success')) {
-                if (!debug) {
-                    var data = {
-                        ID: addZeros(s.val[1].id.val()),
-                        password: s.val[2].password.val()
-                    }
-
-                    ajaxReq(config.password.confirm, data, resolveObj.area);
-                } else {
-                    // !!! Present
-                    if (s.val[2].password.val() == '0000') {
-                        switch (s.val[1].id.val()) {
-                            case ('1111'): resolveObj.area({ user: { isAdmin: true } }); break;
-                            default: resolveObj.area({ user: { isAdmin: false, firstName: 'דוד', lastName: 'כהן', ID: '000332321', password: '0000', tel: '02-9964754', phone: '058-2345398', email: 'davidcohen@gmail.com', award: 4651.8 } });
-                        }
-                    } else {
-                        resolveObj.area({ wrongPassword: false });
-                    }
+                var data = {
+                    ID: addZeros(s.val[1].id.val()),
+                    password: s.val[2].password.val()
                 }
+
+                ajaxReq(config.password.confirm, data, resolveObj.area);
             } else {
                 throwAlert(s.sections.password.find('h5'), 'קלט לא תקין. נסה שוב.');
                 s.val[2].password.focus();
@@ -734,16 +581,11 @@ $(document).ready(function () {
             }
 
             if (s.btn[2].reset.hasClass('success')) {
-                if (!debug) {
-                    var data = {
-                        ID: addZeros(s.val[1].id.val())
-                    }
-
-                    ajaxReq(config.password.reset, data, resolve);
-                } else {
-                    // !!! Present
-                    resolve({ isReset: true, hasPassword: 'מייל' });
+                var data = {
+                    ID: addZeros(s.val[1].id.val())
                 }
+
+                ajaxReq(config.password.reset, data, resolve);
             } else {
                 throwAlert(s.sections.password.find('h5'), 'לא ניתן לאפס את הסיסמא.');
                 s.val[2].password.focus();
@@ -764,22 +606,17 @@ $(document).ready(function () {
             }
 
             if (s.btn[3].confirm.hasClass('success')) {
-                if (!debug) {
-                    var data = {
-                        ID: addZeros(s.val[1].id.val()),
-                        firstName: s.val[3].firstName.val(),
-                        lastName: s.val[3].lastName.val(),
-                        pseudonym: s.val[3].pseudonym.val(),
-                        email: s.val[3].email.val(),
-                        phone: s.val[3].phone.val(),
-                        tel: s.val[3].tel.val(),
-                    }
-
-                    ajaxReq(config.userNotExist, data, resolve);
-                } else {
-                    // !!! Present
-                    resolve({ isLeggalDetails: true });
+                var data = {
+                    ID: addZeros(s.val[1].id.val()),
+                    firstName: s.val[3].firstName.val(),
+                    lastName: s.val[3].lastName.val(),
+                    pseudonym: s.val[3].pseudonym.val(),
+                    email: s.val[3].email.val(),
+                    phone: s.val[3].phone.val(),
+                    tel: s.val[3].tel.val(),
                 }
+
+                ajaxReq(config.userNotExist, data, resolve);
             } else {
                 throwAlert(s.sections.userNotExist.find('h5'), 'קלט לא תקין. נסה שוב.');
                 s.val[3].firstName.focus();
@@ -796,22 +633,17 @@ $(document).ready(function () {
             }
 
             if (s.btn[5].confirm.hasClass('success')) {
-                if (!debug) {
-                    var data = {
-                        ID: addZeros(s.val[1].id.val()),
-                        firstName: s.val[5].firstName.val(),
-                        lastName: s.val[5].lastName.val(),
-                        pseudonym: s.val[5].pseudonym.val(),
-                        email: s.val[5].email.val(),
-                        phone: s.val[5].phone.val(),
-                        tel: s.val[5].tel.val(),
-                    }
-
-                    ajaxReq(config.noDetails, data, resolve);
-                } else {
-                    // !!! Present
-                    resolve({ isLeggalDetails: true });
+                var data = {
+                    ID: addZeros(s.val[1].id.val()),
+                    firstName: s.val[5].firstName.val(),
+                    lastName: s.val[5].lastName.val(),
+                    pseudonym: s.val[5].pseudonym.val(),
+                    email: s.val[5].email.val(),
+                    phone: s.val[5].phone.val(),
+                    tel: s.val[5].tel.val(),
                 }
+
+                ajaxReq(config.noDetails, data, resolve);
             } else {
                 throwAlert(s.sections.noDetails.find('h5'), 'קלט לא תקין. נסה שוב.');
                 s.val[5].firstName.focus();
@@ -825,13 +657,9 @@ $(document).ready(function () {
             uploadFile(s.uploadMessagesFile);
         });
         s.btn[7].download.on('click', function () {
-            if (debug) {
-                downloadDemoFile('example.xlsx', '');
-            } else {
-                ajaxReq(config.manage.download, null, function(res){
-                    json2ExcelFile(res, 'users.xlsx');
-                });
-            }
+            ajaxReq(config.manage.download, null, function(res){
+                json2ExcelFile(res, 'users.xlsx');
+            });
         });
         s.uploadMessagesFile.on('change', function () {
             if (s.uploadMessagesFile.prop('files')[0].name.split('.').pop().toLowerCase() != 'xlsx') {
