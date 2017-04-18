@@ -360,7 +360,7 @@ $(document).ready(function () {
             tbody.append('<tr type="trTemplate">' +
                             '<td type="firstName"><input value="' + table[i].firstName + '"/></td>' +
                             '<td type="lastName"><input value="' + table[i].lastName + '"/></td>' +
-                            '<td type="pseudonym"><input value="' + table[i].pseudonym || '' + '"/></td>' +
+                            '<td type="pseudonym"><input value="' + (table[i].pseudonym || '') + '"/></td>' +
                             '<td type="id"><input value="' + table[i].ID + '" disabled /></td>' +
                             '<td type="password"><input type="password" disabled value="0000000"/></td>' +
                             '<td type="phone"><input value="' + (table[i].phone || '') + '"/></td>' +
