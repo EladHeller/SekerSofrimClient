@@ -153,7 +153,7 @@ $(document).ready(function () {
                     goToScreen(p.manageArea);
                     ajaxReq(config.manage.getTableRows, null, setTable);
                 } else {
-                    s.sections.userArea.find('h1 span b').text(res.user.firstName ? " " + res.user.firstName : "");
+                    s.sections.userArea.find('h2 span b').text(res.user.firstName ? " " + res.user.firstName : "");
                     var text;
                     
                     if (res.user.award == null || res.user.award == undefined) {
@@ -166,7 +166,7 @@ $(document).ready(function () {
                         s.sections.userArea.find('#win-text').show();
                     }
 
-                    s.sections.userArea.find('h3').text(text);
+                    s.sections.userArea.find('#win-text-price').text(text);
 
                     s.sections.userArea.find('#firstName').val(res.user.firstName);
                     s.sections.userArea.find('#lastName').val(res.user.lastName);
