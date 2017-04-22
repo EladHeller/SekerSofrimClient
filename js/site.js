@@ -475,7 +475,7 @@ $(document).ready(function () {
 
         // #Id Inputs success input
         s.val[1].id.on("keyup", function () {
-            if (s.val[1].id.val().length >= 4) {
+            if (s.val[1].id.val().length >= 3) {
                 s.btn[1].confirm.addClass('success');
             } else {
                 s.btn[1].confirm.removeClass('success');
@@ -501,7 +501,7 @@ $(document).ready(function () {
             var phone = s.val[3].phone.val();
             var tel = s.val[3].tel.val();
 
-            if (id.length >= 4 && firstName && lastName && email && (tel.length > 8 || phone.length > 8)) {
+            if (id.length >= 3 && firstName && lastName && email && (tel.length > 8 || phone.length > 8)) {
                 s.btn[3].confirm.addClass('success');
             } else {
                 s.btn[3].confirm.removeClass('success');
@@ -518,7 +518,7 @@ $(document).ready(function () {
             var phone = s.val[5].phone.val();
             var tel = s.val[5].tel.val();
 
-            if (id.length >= 4 && firstName && lastName && email && (tel.length > 8 || phone.length > 8)) {
+            if (id.length >= 3 && firstName && lastName && email && (tel.length > 8 || phone.length > 8)) {
                 s.btn[5].confirm.addClass('success');
             } else {
                 s.btn[5].confirm.removeClass('success');
