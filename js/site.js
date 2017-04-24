@@ -162,7 +162,7 @@ $(document).ready(function () {
                         text = 'לצערנו סך השאלות ספריך בשנת 2015 לא הגיע לרף המינימאלי הדרוש לקבלת זכאות לתשלומים ממשרד התרבות.';
                     } else {
                         text = 'הננו מתכבדים להודיעך כי ע"פ תוצאות סקר הסופרים המעודכן שבוצע בספריות הציבוריות לשנת 2015 מתוכנן לשלם לך סך ' + 
-                        res.user.award + ' ₪, לפני מע"מ.';
+                        Number(res.user.award).toFixed(2) + ' ₪, לפני מע"מ.';
                         s.sections.userArea.find('#win-text').show();
                     }
 
@@ -464,7 +464,7 @@ $(document).ready(function () {
 
         // Inputs validate numeric
         $('input.id, input[type="tel"]').on("keypress", function (event) {
-            if (!/^[0-9]*$/gm.test(event.key)) {
+            if ((event.key.length === 1) && !/^[0-9]*$/gm.test(event.key)) {
                 event.preventDefault();
             };
         });
