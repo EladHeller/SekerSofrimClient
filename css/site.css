@@ -60,6 +60,8 @@ section {
     }
 
     #userArea,
+    #userNotExist,
+    #noDetails,
     #manageArea{
         width: 70%;
     }
@@ -67,6 +69,7 @@ section {
 @media (max-width: 767px) {
     section,
     #userArea,
+    #noDetails,
     #manageArea {
         width: 90%;
     }
@@ -74,12 +77,15 @@ section {
 @media (max-width: 1299px) {
     #userArea,
     #userNotExist,
+    #noDetails,
     #manageArea {
         width: 90%;
     }
 }
 @media (min-width: 1300px) {
     #userArea,
+    #userNotExist,
+    #noDetails,
     #manageArea {
         width: 70%;
     }
