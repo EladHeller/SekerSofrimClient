@@ -469,10 +469,6 @@ $(document).ready(function () {
             };
         });
 
-        $('input.id').on('keyup', function (event) {
-            //$('input.id').val(event.currentTarget.value);
-        });
-
         // #Id Inputs success input
         s.val[1].id.on("keyup", function () {
             if (s.val[1].id.val().length >= 3) {

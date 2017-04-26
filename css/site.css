@@ -60,12 +60,10 @@ section {
     }
 
     #userArea,
-    #manageArea,
-    #userNotExist {
+    #manageArea{
         width: 70%;
     }
 }
-
 @media (max-width: 767px) {
     section,
     #userArea,
@@ -73,7 +71,19 @@ section {
         width: 90%;
     }
 }
-
+@media (max-width: 1299px) {
+    #userArea,
+    #userNotExist,
+    #manageArea {
+        width: 90%;
+    }
+}
+@media (min-width: 1300px) {
+    #userArea,
+    #manageArea {
+        width: 70%;
+    }
+}
 .hide {
     opacity: 0;
 }
