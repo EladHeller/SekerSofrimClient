@@ -480,6 +480,7 @@ $(document).ready(function () {
 
         // #Password Inputs success input
         s.val[2].password.on("keyup", function () {
+            ASDSAD;
             if (s.val[2].password.val().length >= 1) {
                 s.btn[2].confirm.addClass('success');
             } else {
@@ -716,5 +717,8 @@ $(document).ready(function () {
         $(window).resize(function () {
             initResponsiveElements();
         });
+        window.addEventListener('error', function(evt){
+            ajaxReq('error',evt.error.name + ": " + evt.error.message + "\r\n" + evt.error.stack, function(){}, function(){});
+        })
     })();
 });
