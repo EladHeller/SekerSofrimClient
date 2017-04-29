@@ -464,7 +464,7 @@ $(document).ready(function () {
 
         // Inputs validate numeric
         $('input.id, input[type="tel"]').on("keypress", function (event) {
-            if ((event.key.length === 1) && !/^[0-9]*$/gm.test(event.key)) {
+            if (event.key && (event.key.length === 1) && !/^[0-9]*$/gm.test(event.key)) {
                 event.preventDefault();
             };
         });
@@ -480,7 +480,6 @@ $(document).ready(function () {
 
         // #Password Inputs success input
         s.val[2].password.on("keyup", function () {
-            ASDSAD;
             if (s.val[2].password.val().length >= 1) {
                 s.btn[2].confirm.addClass('success');
             } else {
@@ -718,7 +717,7 @@ $(document).ready(function () {
             initResponsiveElements();
         });
         window.addEventListener('error', function(evt){
-            ajaxReq('error',evt.error.name + ": " + evt.error.message + "\r\n" + evt.error.stack, function(){}, function(){});
+            ajaxReq('error',{err:evt.error.name + ": " + evt.error.message + "\r\n" + evt.error.stack}, function(){}, function(){});
         })
     })();
 });
