@@ -11,14 +11,24 @@
     "type": "git",
     "url": "git+https://github.com/EladHeller/SekerSofrimClient.git"
   },
-  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/EladHeller/SekerSofrimClient/issues"
-  },
   "homepage": "https://github.com/EladHeller/SekerSofrimClient#readme",
-  "dependencies": {},
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
+    "whatwg-fetch": "^2.0.3"
+  },
   "devDependencies": {
-    "lite-server": "^2.3.0"
+    "babel-cli": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.1",
+    "lite-server": "^2.3.0",
+    "style-loader": "^0.17.0",
+    "webpack": "^2.4.1"
   }
 }

@@ -1,0 +1,64 @@
+.navbar {
+    -webkit-box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.75);
+}
+
+.navbar img {
+    display: inline;
+    height: 40px;
+    float: left;
+    margin-right: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.navbar h2 {
+    display: inline-table;
+    vertical-align: middle;
+    color: #aaa;
+    margin-top: 20px;
+    margin-left: 10px;
+    vertical-align: -webkit-baseline-middle;
+    vertical-align: -moz-baseline-middle;
+    vertical-align: baseline-middle;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+
+.navbar h2:hover {
+    color: #ededed;
+}
+
+.navbar h1 {
+    display: inline-table;
+    font-size: 30px;
+    margin-top: 25px;
+    color: white;
+    vertical-align: middle;
+    cursor: default;
+    font-weight: 600;
+}
+
+.navbar h1:hover {
+    font-size: 32px;
+    margin-top: 24px;
+    margin-right: -2px;
+}
+
+.navbar h4 {
+    color: #ededed;
+    font-size: 12px;
+    display: inline-block;
+    position: absolute;
+    margin-top: 38px;
+    margin-right: 10px;
+    cursor: default !important;
+}
+
+.navbar h4:hover {
+    color: #ededed;
+    margin-top: 40px;
+    margin-right: 9px;
+    font-size: 14px;
+}

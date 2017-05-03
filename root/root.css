@@ -1,3 +1,6 @@
+h1,h2,h3,h4,h5,h6{
+    font-family: Assistant;
+}
 body {
     font-family: Assistant !important;
 
@@ -9,12 +12,6 @@ body {
     background: -ms-radial-gradient(center, ellipse cover, rgb(228, 240, 255) 0%, rgb(159, 211, 255) 100%);
     background: radial-gradient(ellipse at center, rgb(228, 240, 255) 0%, rgb(159, 211, 255) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80a9d9', endColorstr='#407cad', GradientType=1 );
-}
-
-.navbar {
-    -webkit-box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 10px -1px rgba(0,0,0,0.75);
 }
 
 .navbar a,
@@ -174,48 +171,6 @@ h5 {
     right: 0;
     margin-top: 5px;
     color: #ff4d4d;
-}
-
-.navbar img {
-    display: inline;
-    height: 40px;
-    float: left;
-    margin-right: 30px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-.navbar h2 {
-    display: inline-table;
-    vertical-align: middle;
-    color: #aaa;
-    margin-top: 20px;
-    margin-left: 10px;
-    vertical-align: -webkit-baseline-middle;
-    vertical-align: -moz-baseline-middle;
-    vertical-align: baseline-middle;
-    font-size: 17px;
-    cursor: pointer;
-}
-
-
-.navbar h2:hover {
-    color: #ededed;
-}
-
-.navbar h1 {
-    display: inline-table;
-    font-size: 30px;
-    margin-top: 25px;
-    color: white;
-    vertical-align: middle;
-    cursor: default;
-    font-weight: 600;
-}
-
-.navbar h1:hover {
-    font-size: 32px;
-    margin-top: 24px;
-    margin-right: -2px;
 }
 
 #userArea h4 span {
@@ -395,23 +350,6 @@ p {
 #manageArea [type="password"] input:hover,
 #userArea input#id:hover {
     cursor: default !important;
-}
-
-.navbar h4 {
-    color: #ededed;
-    font-size: 12px;
-    display: inline-block;
-    position: absolute;
-    margin-top: 38px;
-    margin-right: 10px;
-    cursor: default !important;
-}
-
-.navbar h4:hover {
-    color: #ededed;
-    margin-top: 40px;
-    margin-right: 9px;
-    font-size: 14px;
 }
 
 td .glyphicon {
