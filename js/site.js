@@ -142,7 +142,7 @@ $(document).ready(function () {
         xhr.send(JSON.stringify(data));
     }
     function showError(error){
-        error = error || {''};
+        error = error || '';
         var errorContainer = document.getElementById('error-message');
         if (error&&error.target&&error.target.status === 0) {
             errorContainer.innerHTML = '<h4>הינכם גולשים , ככל הנראה, באתר מראה.</h4><h4>עיברו לכתובת <a>https://ssofrim.com</a></h4>';
