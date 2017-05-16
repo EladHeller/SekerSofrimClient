@@ -131,15 +131,32 @@ $(document).ready(function () {
                 callbak(JSON.parse(evt.target.response));
             } else {
                 console.error(evt.target.response);
-                goToScreen(p.error);
+                showError(evt.target.response);
             }
         });
         xhr.addEventListener('error', error || function (error) {
             removeCursor('*');
             console.error(error);
-            goToScreen(p.error);
+            showError(error);
         });
         xhr.send(JSON.stringify(data));
+    }
+    function showError(error){
+        error = error || {''};
+        var errorContainer = document.getElementById('error-message');
+        if (error&&error.target&&error.target.status === 0) {
+            errorContainer.innerHTML = '<h4>הינכם גולשים , ככל הנראה, באתר מראה.</h4><h4>עיברו לכתובת <a>https://ssofrim.com</a></h4>';
+        } else if(error && error.errorMessage === "You don't have permissions for this action") {
+            errorContainer.innerHTML = '<h4>אין לך הרשאות לביצוע הפעולה.</h4><h4>נסו להתנתק ולהיכנס מחדש. או למחוק עוגיות ולהיכנס מחדש.</h4>';
+        } else if(error && error.errorMessage === "You need to log on for this action") {
+            errorContainer.innerHTML = '<h4>כדי לבצע פעולה זו יש להתחבר לאתר.</h4><h4>אם הדפדפן שלכם לא מאפשר עוגיות אנא אפשרו אותן כעת.</h4>';
+        } else if(error && error.errorMessage === "Missing final '@domain'") {
+            errorContainer.innerHTML = '<h4>כתובת הדואר האלקטרוני ששמורה אצלנו איננה נכונה.</h4><h4>אנא פנה אלינו על מנת לעדכן את כתובת המייל שלך.</h4>';
+
+        } else {
+            errorContainer.innerHTML='<h4>חלה תקלה במהלך הניווט באתר.</h4><h4>נסה שוב מאוחר יותר.</h4>';
+        }
+        goToScreen(p.error);
     }
 
     var curScreen = null;
@@ -572,7 +589,7 @@ $(document).ready(function () {
                 if (res.userExist) {
                     throwNewPassword(translateSendPasswordTo(res.sendPasswordTo));
                 } else {
-                    goToScreen(p.error);
+                    showError();
                 }
             }
 
@@ -597,7 +614,7 @@ $(document).ready(function () {
                 if (res.isLeggalDetails) {
                     goToScreen(p.thanksForDetails);
                 } else {
-                    goToScreen(p.error);
+                    showError();
                 }
             }
 
@@ -624,7 +641,7 @@ $(document).ready(function () {
                 if (res.isLeggalDetails) {
                     goToScreen(p.thanksForDetails);
                 } else {
-                    goToScreen(p.error);
+                    showError();
                 }
             }
 
