@@ -144,18 +144,18 @@ $(document).ready(function () {
     function showError(error){
         error = error || '';
         var errorContainer = document.getElementById('error-message');
-        if (error&&error.target&&error.target.status === 0) {
-            errorContainer.innerHTML = '<h4>הינכם גולשים , ככל הנראה, באתר מראה.</h4><h4>עיברו לכתובת <a>https://ssofrim.com</a></h4>';
-        } else if(error && error.errorMessage === "You don't have permissions for this action") {
-            errorContainer.innerHTML = '<h4>אין לך הרשאות לביצוע הפעולה.</h4><h4>נסו להתנתק ולהיכנס מחדש. או למחוק עוגיות ולהיכנס מחדש.</h4>';
-        } else if(error && error.errorMessage === "You need to log on for this action") {
-            errorContainer.innerHTML = '<h4>כדי לבצע פעולה זו יש להתחבר לאתר.</h4><h4>אם הדפדפן שלכם לא מאפשר עוגיות אנא אפשרו אותן כעת.</h4>';
-        } else if(error && error.errorMessage === "Missing final '@domain'") {
-            errorContainer.innerHTML = '<h4>כתובת הדואר האלקטרוני ששמורה אצלנו איננה נכונה.</h4><h4>אנא פנה אלינו על מנת לעדכן את כתובת המייל שלך.</h4>';
-
-        } else {
             errorContainer.innerHTML='<h4>חלה תקלה במהלך הניווט באתר.</h4><h4>נסה שוב מאוחר יותר.</h4>';
-        }
+        try{
+            if (error&&error.target&&error.target.status === 0) {
+                errorContainer.innerHTML = '<h4>הינכם גולשים , ככל הנראה, באתר מראה.</h4><h4>עיברו לכתובת <a>https://ssofrim.com</a></h4>';
+            } else if(error && JSON.parse(error).errorMessage === "You don't have permissions for this action") {
+                errorContainer.innerHTML = '<h4>אין לך הרשאות לביצוע הפעולה.</h4><h4>נסו להתנתק ולהיכנס מחדש. או למחוק עוגיות ולהיכנס מחדש.</h4>';
+            } else if(error && JSON.parse(error).errorMessage === "You need to log on for this action") {
+                errorContainer.innerHTML = '<h4>כדי לבצע פעולה זו יש להתחבר לאתר.</h4><h4>אם הדפדפן שלכם לא מאפשר עוגיות אנא אפשרו אותן כעת.</h4>';
+            } else if(error && JSON.parse(error).errorMessage === "Missing final '@domain'") {
+                errorContainer.innerHTML = '<h4>כתובת הדואר האלקטרוני ששמורה אצלנו איננה נכונה.</h4><h4>אנא פנה אלינו על מנת לעדכן את כתובת המייל שלך.</h4>';
+            }
+        } catch(e){}
         goToScreen(p.error);
     }
 
