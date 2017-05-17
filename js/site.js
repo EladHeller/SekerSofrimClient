@@ -146,7 +146,7 @@ $(document).ready(function () {
         var errorContainer = document.getElementById('error-message');
             errorContainer.innerHTML='<h4>חלה תקלה במהלך הניווט באתר.</h4><h4>נסה שוב מאוחר יותר.</h4>';
         try{
-            if (error&&error.target&&error.target.status === 0) {
+            if (error && error.target && error.target.status === 403) {
                 errorContainer.innerHTML = '<h4>הינכם גולשים , ככל הנראה, באתר מראה.</h4><h4>עיברו לכתובת <a>https://ssofrim.com</a></h4>';
             } else if(error && JSON.parse(error).errorMessage === "You don't have permissions for this action") {
                 errorContainer.innerHTML = '<h4>אין לך הרשאות לביצוע הפעולה.</h4><h4>נסו להתנתק ולהיכנס מחדש. או למחוק עוגיות ולהיכנס מחדש.</h4>';
