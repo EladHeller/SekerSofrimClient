@@ -6,11 +6,18 @@
 
 #ci-marketing-logo{
     background-image: url('../img/ciMarketing.png');
+    background-size: cover;
+    width: 77px;
 }
-
+#minister-of-culture-logo{
+    background-image: url('../img/ministryOfCultureAndSport.png');
+    background-size: cover;
+    width: 77px;
+}
 .navbar img, .navbar .logo-image {
     display: inline;
-    height: 40px;
+    height: 50px;
+    width: 50px;
     float: left;
     margin-right: 30px;
     margin-top: 20px;
