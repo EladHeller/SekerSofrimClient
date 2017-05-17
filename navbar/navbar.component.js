@@ -3,12 +3,8 @@ const Navbar = () => {
     return <nav className="navbar navbar-inverse navbar-fixed-top">
         <div className="container">
             <div id="ci-marketing-logo" className="logo-image"></div>
-                {/*onMouseOver={this.src = this.src.replace('ciMarketing', 'ciMarketingHover')} 
-                onMouseDown={this.src = this.src.replace('ciMarketingHover', 'ciMarketing')}/>*/}
             <div id="minister-of-culture-logo" className="logo-image"></div>
-                {/*onMouseOver={this.src = this.src.replace('ministryOfCultureAndSport', 'ministryOfCultureAndSportHover')} 
-                onMouseDown={this.src = this.src.replace('ministryOfCultureAndSportHover', 'ministryOfCultureAndSport')}/>*/}
-            <h2 id="logout" style={{display: 'none'}}>
+            <h2 id="logout">
                 יציאה
                 <span  className="glyphicon glyphicon-off" ></span>
             </h2>

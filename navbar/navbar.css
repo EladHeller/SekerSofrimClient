@@ -6,15 +6,20 @@
 
 #ci-marketing-logo{
     background-image: url('../img/ciMarketing.png');
-    background-size: cover;
     width: 77px;
 }
 #minister-of-culture-logo{
     background-image: url('../img/ministryOfCultureAndSport.png');
-    background-size: cover;
-    width: 77px;
+    width: 180px;
+}
+#ci-marketing-logo:hover{
+    background-image: url('../img/ciMarketingHover.png');
+}
+#minister-of-culture-logo:hover{
+    background-image: url('../img/ministryOfCultureAndSportHover.png');
 }
 .navbar img, .navbar .logo-image {
+    background-size: cover;
     display: inline;
     height: 50px;
     width: 50px;
