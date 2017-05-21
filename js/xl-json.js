@@ -22,7 +22,7 @@ function workbookToJson(workbook){
         var currIndex = 2;
         
         var currCell = sheet[currLetter + currIndex];
-        while (currIndex <= maxRow || currCell) {
+        while ((currIndex <= maxRow) || currCell) {
             if(currIndex > maxRow){
                 maxRow = currIndex;
             }
