@@ -16,13 +16,16 @@ function workbookToJson(workbook){
 
     var data = [];
     var currLetter = 'A';
-    
-    while (sheet[currLetter + '1']) {
+    var maxRow = 0;
+    while (currLetter < 'K') {
         var currKey = sheet[currLetter + '1'].v;
         var currIndex = 2;
         
         var currCell = sheet[currLetter + currIndex];
-        while (currCell) {
+        while (currIndex <= maxRow || currCell) {
+            if(currIndex > maxRow){
+                maxRow = currIndex;
+            }
             data[currIndex-2] = data[currIndex-2] || {};
             data[currIndex-2][currKey] = currCell.v;
             currIndex++;
