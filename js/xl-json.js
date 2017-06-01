@@ -27,7 +27,9 @@ function workbookToJson(workbook){
                 maxRow = currIndex;
             }
             data[currIndex-2] = data[currIndex-2] || {};
-            data[currIndex-2][currKey] = currCell && currCell.v;
+            var value = currCell && currCell.v;
+            value = value || '';
+            data[currIndex-2][currKey] = value;
             currIndex++;
             currCell = sheet[currLetter + currIndex];
         }
