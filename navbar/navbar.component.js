@@ -1,10 +1,12 @@
 import React from 'react';
-const Navbar = () => {
+const Navbar = ({isLoggedIn, loggingOut}) => {
+    const logOutStyle ={};
+    logOutStyle.display = isLoggedIn ? 'inline-table' : 'none';
     return <nav className="navbar navbar-inverse navbar-fixed-top">
         <div className="container">
             <div id="ci-marketing-logo" className="logo-image"></div>
             <div id="minister-of-culture-logo" className="logo-image"></div>
-            <h2 id="logout">
+            <h2 id="logout" style={logOutStyle} onClick={loggingOut}>
                 יציאה
                 <span  className="glyphicon glyphicon-off" ></span>
             </h2>

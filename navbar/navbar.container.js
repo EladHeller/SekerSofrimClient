@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
 import Navbar from './navbar.component';
+import { connect } from 'react-redux';
+import {userLoggingOut} from './navbar.actions';
 import {} from './navbar.css';
 
 class NavbarContainer extends Component {
     render(){
-        return <Navbar>
+        return <Navbar isLoggedIn={this.props.isLoggedIn} loggingOut={this.props.userLoggingOut}>
         </Navbar>;
     }
 }
 
-export default NavbarContainer;
+const mapStateToProps = (state) => {
+    return {
+        isLoggedIn: state.user.isLoggedIn
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        userLoggingOut: ()=>dispatch(userLoggingOut())
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavbarContainer);
