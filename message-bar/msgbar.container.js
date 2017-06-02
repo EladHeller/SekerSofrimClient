@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MessagesBar from './msgbar.component';
 import { connect } from 'react-redux';
 //import {userLoggingOut} from './navbar.actions';
-//import {} from './navbar.css';
+import {} from './msgbar.css';
 
 
 class MessageBarContainer extends Component {

@@ -1,18 +1,10 @@
 import React from 'react';
 const MessagesBar = ({messages})=> {
-    var msgText = "";
-
-    for (let x = 0; x < 40; x++) {
-        for (let msg in messages) {
-            let currMsg = checkLength(msg);
-            if (currMsg.trim()){
-                msgText += checkLength(msg) + "    |    ";
-            }
-        }
-    }
-
+    const msgText = getMsgBarText(messages);
+    const messagesStyle = getMessageStyle(msgText);
+    
     return <div>
-        <div id="messages" hidden data-toggle="modal" data-target="#messagesModal"></div>
+        <div id="messages" style={messagesStyle} data-toggle="modal" data-target="#messagesModal">{msgText}</div>
         <div className="modal fade" id="messagesModal" tabIndex="-1" role="dialog" aria-labelledby="messagesModalLabel">
             <div className="modal-dialog" role="document">
                 <div className="modal-content" style={{'borderRadius': 0}}>
@@ -32,6 +24,25 @@ const MessagesBar = ({messages})=> {
             </div>
         </div>
     </div>
+}
+const getMsgBarText = (messages)=>{
+    let msgText = '';
+    for (let x = 0; x < 40; x++) {
+        for (let msg of messages) {
+            let currMsg = checkLength(msg);
+            if (currMsg.trim()){
+                msgText += checkLength(msg) + "    |    ";
+            }
+        }
+    }
+    return msgText;
+}
+const getMessageStyle= (msgText)=>{
+    const messagesStyle ={};
+    if (!msgText){
+        messagesStyle.display = 'none';
+    }
+    return messagesStyle;
 }
 const checkLength = (msg) =>{
     msg = msg.split(' ');

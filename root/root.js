@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import {} from './root.css';
+//import {} from './root.css';
 import configureStore from '../store/configureStore';
 import Navbar from '../navbar/navbar.container';
 import MsgBar from '../message-bar/msgbar.container';
-
+import "babel-polyfill";
 const initialStore = {
         user : {
                 isLoggedIn : true,
