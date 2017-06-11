@@ -27,13 +27,11 @@ const MessagesBar = ({messages})=> {
 }
 const getMsgBarText = (messages)=>{
     let msgText = '';
-    for (let x = 0; x < 40; x++) {
-        for (let msg of messages) {
-            let currMsg = checkLength(msg);
-            if (currMsg.trim()){
-                msgText += checkLength(msg) + "    |    ";
-            }
-        }
+    const splitMessages = messages.map(splitMessage)
+        .filter(msg=>msg);
+    for (let x = 0; msgText < window.outerWidth; x++) {
+        const msg = splitMessages[x % splitMessages.length];        
+        msgText += checkLength(msg) + "    |    ";
     }
     return msgText;
 }
@@ -44,21 +42,20 @@ const getMessageStyle= (msgText)=>{
     }
     return messagesStyle;
 }
-const checkLength = (msg) =>{
-    msg = msg.split(' ');
-    var limit = 100;
-    var str = '';
+const splitMessage = (msg, limit) =>{
+    const words = msg.split(' ');
+    let str = '';
 
-    for (var i = 0, len = msg.length; i < len; i++) {
-        str += msg[i] + ' ';
-
-        if (str.length > limit) {
-            str = str.replace(new RegExp(' ' + msg[i] + ' $'), '...');
+    for (let word of words) {
+        if ((str.length  + word.length )> limit) {
+            str += '...';
             break;
+        } else {
+            str += word + ' ';
         }
     }
 
-    return str;
+    return str.trim();
 }
 
 export default MessagesBar;
