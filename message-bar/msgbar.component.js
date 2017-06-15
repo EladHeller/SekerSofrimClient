@@ -27,11 +27,11 @@ const MessagesBar = ({messages})=> {
 }
 const getMsgBarText = (messages)=>{
     let msgText = '';
-    const splitMessages = messages.map(splitMessage)
+    const splitMessages = messages.map((msg)=>splitMessage(msg,100))
         .filter(msg=>msg);
-    for (let x = 0; msgText < window.outerWidth; x++) {
+    for (let x = 0; msgText.length < window.outerWidth; x++) {
         const msg = splitMessages[x % splitMessages.length];        
-        msgText += checkLength(msg) + "    |    ";
+        msgText += msg + "    |    ";
     }
     return msgText;
 }
@@ -47,7 +47,7 @@ const splitMessage = (msg, limit) =>{
     let str = '';
 
     for (let word of words) {
-        if ((str.length  + word.length )> limit) {
+        if ((str.length  + word.length ) > limit) {
             str += '...';
             break;
         } else {
