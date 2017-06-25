@@ -14,11 +14,11 @@
     color: rgba(23, 17, 59, 0.87);
     font-weight: 300;
     cursor: pointer;
-    animation: carousel 30s linear infinite, fadein 2s;
-    -webkit-animation: carousel 30s linear infinite, fadein 2s;
-       -moz-animation: carousel 30s linear infinite, fadein 2s;
-        -ms-animation: carousel 30s linear infinite, fadein 2s;
-         -o-animation: carousel 30s linear infinite, fadein 2s;
+    animation: carousel 60s linear infinite, fadein 2s;
+    -webkit-animation: carousel 60s linear infinite, fadein 2s;
+       -moz-animation: carousel 60s linear infinite, fadein 2s;
+        -ms-animation: carousel 60s linear infinite, fadein 2s;
+         -o-animation: carousel 60s linear infinite, fadein 2s;
 }
 ::-webkit-scrollbar {
     display:none;
@@ -60,29 +60,29 @@
 
 @keyframes carousel {
     0%    { left: 0; }
-  100%  { left: -100%; }
+  100%  { left: -2500px; }
 }
 
     /* Firefox < 16 */
     @-moz-keyframes carousel {
         0%    { left: 0; }
-    100%  { left: -100%; }
+    100%  { left: -2500px; }
     }
 
     /* Safari, Chrome and Opera > 12.1 */
     @-webkit-keyframes carousel {
         0%    { left: 0; }
-    100%  { left: -100%; }
+    100%  { left: -2500px; }
     }
 
     /* Internet Explorer */
     @-ms-keyframes carousel {
         0%    { left: 0; }
-    100%  { left: -100%; }
+    100%  { left: -2500px; }
     }
 
     /* Opera < 12.1 */
     @-o-keyframes carousel {
         0%    { left: 0; }
-    100%  { left: -100%; }
+    100%  { left: -2500px; }
     }
