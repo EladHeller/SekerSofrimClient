@@ -3,8 +3,10 @@ import { combineReducers } from 'redux';
 import {user} from '../navbar/navbar.reducers';
 import {messages} from '../message-bar/msgbar.reduecer';
 import {ui} from '../root/root.reducers';
+import {station} from '../navigator/navigator.reducers';
 export default combineReducers({
     user,
     messages,
-    ui
+    ui,
+    station
 });

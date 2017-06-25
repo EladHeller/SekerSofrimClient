@@ -1,0 +1,21 @@
+#route-navigator {
+    transition-duration: 1s !important;
+        -webkit-transition-duration: 1s !important;
+        -moz-transition-duration:  1s !important;
+        -o-transition-duration: 1s !important;
+    transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+    animation: fadein 2s;
+        -o-animation: fadein 2s;
+        -ms-animation: fadein 2s;
+        -moz-animation: fadein 2s;
+        -webkit-animation: fadein 2s;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    position: absolute;
+    z-index: 222;
+    width:90%;
+}

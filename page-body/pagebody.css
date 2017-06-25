@@ -1,6 +1,9 @@
 .page-body {
-    width:200vw;
-    height:200vh;
+    width:100%;
+    height:100%;
+    position: absolute;
+    left:0%;
+    top:0%;
     background: rgb(228, 240, 255);
     background: -moz-radial-gradient(center, ellipse cover, rgb(228, 240, 255) 0%, rgb(159, 211, 255) 100%);
     background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgb(228, 240, 255)), color-stop(100%, rgb(159, 211, 255)));

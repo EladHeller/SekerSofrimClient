@@ -3,7 +3,7 @@ const MessagesBar = ({messages})=> {
     const msgText = getMsgBarText(messages);
     const messagesStyle = getMessageStyle(msgText);
     
-    return <div>
+    return <div id="messages-container">
         <div id="messages" style={messagesStyle} data-toggle="modal" data-target="#messagesModal">{msgText}</div>
         <div className="modal fade" id="messagesModal" tabIndex="-1" role="dialog" aria-labelledby="messagesModalLabel">
             <div className="modal-dialog" role="document">

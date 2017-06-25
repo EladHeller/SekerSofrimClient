@@ -24,6 +24,9 @@ const initialStore = {
     ui :{
         windowHeight: window.outerHeight,
         windowWidth: window.outerWidth
+    },
+    station:{
+        stationName: 'Welcome'
     }
 };
 
