@@ -2,7 +2,7 @@ import React from 'react';
 import config from '../common/config';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import {screenResize, fetchConnectedUser} from './root.actions';
+import {fetchConnectedUser} from './root.actions';
 import configureStore from '../store/configureStore';
 import Navbar from '../navbar/navbar.container';
 import MsgBar from '../message-bar/msgbar.container';
@@ -20,11 +20,7 @@ const Index = <Provider store={store}>
     </div>
 </Provider>;
 render(Index, document.getElementById('root'));
+
 setTimeout(()=>{
     store.dispatch(fetchConnectedUser(config.rest.serverUrl + config.rest.getConnectedUser));
-});
-window.addEventListener('resize', () => {
-    setTimeout(()=>{
-        store.dispatch(screenResize(window.outerHeight, window.outerWidth));
-    });
 });

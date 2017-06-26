@@ -7,10 +7,6 @@ const initialStore = {
         'הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה',
         'בדיקה אחרת סתם',
     ], 
-    ui :{
-        windowHeight: window.outerHeight,
-        windowWidth: window.outerWidth
-    },
     station:{
         stationName: 'Welcome'
     }

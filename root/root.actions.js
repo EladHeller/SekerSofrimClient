@@ -7,15 +7,8 @@ export const loadingData =(bool)=>{
         type: types.loadingData,
         isLoading:bool
     }
-}
-
-export const screenResize = (height, width) => {
-    return {
-        type: types.windowResize,
-        windowHeight: height,
-        windowWidth: width
-    };
 };
+
 export const fetchConnectedUserSuccess =(user)=>{
     return {
         type:types.fetchUserSuccess,
