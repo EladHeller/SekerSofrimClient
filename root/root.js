@@ -1,37 +1,18 @@
 import React from 'react';
+import config from '../common/config';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import {screenResize} from './root.actions';
+import {screenResize, fetchConnectedUser} from './root.actions';
 import configureStore from '../store/configureStore';
 import Navbar from '../navbar/navbar.container';
 import MsgBar from '../message-bar/msgbar.container';
 import PageBody from '../page-body/pagebody.container';
+import initialStore from './initialStore'
 import './root.css';
 import "babel-polyfill";
 
-const initialStore = {
-    user : {
-        isLoggedIn : true,
-        userId: '301617692',
-        firstName: 'משה',
-        lastName: 'כהן'
-    },
-    messages : [
-        'בדיקה בדיקה בדיקה',
-        'הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה',
-        'בדיקה אחרת סתם',
-    ], 
-    ui :{
-        windowHeight: window.outerHeight,
-        windowWidth: window.outerWidth
-    },
-    station:{
-        stationName: 'Welcome'
-    }
-};
-
 const store = configureStore(initialStore);
-const Index =<Provider store={store}>
+const Index = <Provider store={store}>
     <div>
         <Navbar></Navbar>
         <PageBody></PageBody>
@@ -39,7 +20,9 @@ const Index =<Provider store={store}>
     </div>
 </Provider>;
 render(Index, document.getElementById('root'));
-
+setTimeout(()=>{
+    store.dispatch(fetchConnectedUser(config.rest.serverUrl + config.rest.getConnectedUser));
+});
 window.addEventListener('resize', () => {
     setTimeout(()=>{
         store.dispatch(screenResize(window.outerHeight, window.outerWidth));

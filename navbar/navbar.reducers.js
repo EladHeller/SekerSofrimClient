@@ -5,7 +5,19 @@ export function user(state = {}, action) {
             return {
                 isLoggedIn:false
             };
+        case types.fetchUserSuccess:
+            return fetchUserSuccess(state,action);
         default:
             return state;
+    }
+}
+
+const fetchUserSuccess = (state, action)=>{
+    if (action.user) {
+        return action.user;
+    } else {
+        return {
+            isLoggedIn:false
+        };
     }
 }
