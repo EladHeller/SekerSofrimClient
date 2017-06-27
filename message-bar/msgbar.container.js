@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MessagesBar from './msgbar.component';
 import { connect } from 'react-redux';
 import config from '../common/config';
-//import {userLoggingOut} from './navbar.actions';
+import {messagesFetchData} from './msgbar.actions';
 import './msgbar.css';
 
 
@@ -18,7 +18,7 @@ class MessageBarContainer extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchData: (url) => console.log//dispatch(itemsFetchData(url))
+        fetchData: (url) => dispatch(messagesFetchData(url))
     };
 };
 

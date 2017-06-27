@@ -4,6 +4,10 @@ const types = {
     loadingData: 'LOADING_DATA',
     fetchUserSuccess:'FETCH_USER_SUCCESS',
     fetchUserFailed:'FETCH_USER_FAILED',
+    fetchMessagesSuccess:'FETCH_MESSAGES_SUCCESS',
+    fetchMessagesFailed:'FETCH_MESSAGES_FAILED',
+    fetchSuccess:'FETCH_SUCCES',
+    fetchFailed:'FETCH_FAILED',
     hasError:'HAS_ERROR'
 };
 
