@@ -6,6 +6,7 @@ const types = {
     fetchUserFailed:'FETCH_USER_FAILED',
     fetchMessagesSuccess:'FETCH_MESSAGES_SUCCESS',
     fetchMessagesFailed:'FETCH_MESSAGES_FAILED',
+    successIdLogin : 'SUCCESS_ID_LOGIN',
     fetchSuccess:'FETCH_SUCCES',
     fetchFailed:'FETCH_FAILED',
     hasError:'HAS_ERROR'

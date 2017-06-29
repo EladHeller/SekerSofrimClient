@@ -1,7 +1,7 @@
 import types from '../common/types';
 import { dispatch } from 'redux';
 import FetchAction from '../helpers/fetch.action';
-import {isMockMode} from '../common/config';
+import config from '../common/config';
 class MessagesFetchAction extends FetchAction{
     fetchSuccess(messages){
         return {
@@ -17,16 +17,12 @@ class MessagesFetchAction extends FetchAction{
     }
 }
 
-if (isMockMode) {
-    MessagesFetchAction.fetchData = ()=>{
-        return {
-            type:types.fetchMessagesSuccess,
-            messages:[
-                'בדיקה בדיקה בדיקה',
-                'הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה',
-                'בדיקה אחרת סתם',
-            ]
-        };
+if (config.isMockMode) {
+    MessagesFetchAction.prototype.fetchData = ()=>{
+        return this.fetchSuccess([
+                {text:'בדיקה בדיקה בדיקה'},
+                {text:'הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה'},
+                {text:'בדיקה אחרת סתם'}]);
     };
 }
 

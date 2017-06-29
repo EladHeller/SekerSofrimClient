@@ -1,6 +1,6 @@
 import types  from '../common/types';
 import FetchAction from '../helpers/fetch.action';
-import {isMockMode} from '../common/config';
+import config from '../common/config';
 import {dispatch } from 'redux';
 class UserFetchAction extends FetchAction{
     fetchSuccess(result){
@@ -10,12 +10,9 @@ class UserFetchAction extends FetchAction{
         };
     }
 }
-if (isMockMode) {
-    MessagesFetchAction.fetchData = ()=>{
-        return {
-            type:types.fetchUserSuccess,
-            user:undefined
-        };
+if (config.isMockMode) {
+    UserFetchAction.prototype.fetchData = ()=>{
+          return this.fetchSuccess({user:undefined});
     };
 }
 

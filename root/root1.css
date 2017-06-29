@@ -89,67 +89,6 @@ section {
     opacity: 0;
 }
 
-section input {
-    background: rgba(0,0,0,0);
-    margin-top: 10px;
-    width: 100%;
-    font-size: 22px;
-    outline: none;
-    border: none;
-    border-bottom: 1px solid;
-    border-bottom-color: rgba(130, 130, 130, 0.60);
-    text-align: center;
-}
-
-section input:hover:not(:focus) {
-    border-bottom-color: #545454;
-    cursor: pointer;
-}
-
-section input:focus {
-    border-bottom-color: #313131 !important;
-    outline: -webkit-focus-ring-color auto 0px;
-}
-
-
-section button {
-    padding: 0 15px;
-    margin: 0 8px;
-    width: auto;
-    max-width: 120px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.80);
-    border: none;
-    border-radius: 80px;
-    margin-top: 40px;
-    cursor: not-allowed;
-    color: #b4b4b4;
-}
-
-section button.success {
-    background: #46e0b5;
-    color: white;
-}
-
-section button.success:hover {
-    cursor: pointer;
-    background: #67f1cb;
-}
-
-section button:active,
-section button:focus {
-    outline: none;
-}
-
-section button.success:active {
-    background: #98ead3;
-}
-
-section h1,
-section input {
-    color: #2d0836;
-}
-
 #userNotExist input,
 #noDetails input {
     width: 20% !important;

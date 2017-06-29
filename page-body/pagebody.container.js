@@ -6,15 +6,13 @@ import './pagebody.css';
 
 class PageBodyContainer extends Component {
     render(){
-        return <PageBody windowHeight={this.props.windowHeight} windowWidth={this.props.windowWidth}>
+        return <PageBody>
         </PageBody>;
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        windowHeight : state.ui.windowHeight,
-        windowWidth : state.ui.windowWidth
     };
 };
 

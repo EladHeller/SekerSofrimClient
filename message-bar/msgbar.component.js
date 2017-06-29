@@ -27,11 +27,13 @@ const MessagesBar = ({messages})=> {
 }
 const getMsgBarText = (messages)=>{
     let msgText = '';
-    const splitMessages = messages.map((msg)=>splitMessage(msg,100))
-        .filter(msg=>msg);
-    for (let x = 0; msgText.length < 5000; x++) {
-        const msg = splitMessages[x % splitMessages.length];        
-        msgText += msg + "    |    ";
+    if (messages && messages.length){
+        const splitMessages = messages.map((msg)=>splitMessage(msg,100))
+            .filter(msg=>msg);
+        for (let x = 0; msgText.length < 5000; x++) {
+            const msg = splitMessages[x % splitMessages.length];        
+            msgText += msg + "    |    ";
+        }
     }
     return msgText;
 }

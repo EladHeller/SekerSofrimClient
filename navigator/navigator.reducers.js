@@ -6,7 +6,7 @@ export const station = (state = {}, action) => {
     switch (action.type) {
         case types.userLoggingOut:
             newState = {
-                station:stations.ID
+                stationName:stations.ID
             };
             break;
         case types.fetchUserSuccess:
@@ -23,15 +23,15 @@ const fetchUserSuccess=(action)=>{
     let newState;
     if (!action.user) {
         newState = {
-            station:stations.ID
+            stationName:stations.ID
         };
     } else if (action.user.isAdmin) {
         newState = {
-            station:stations.AdminArea
+            stationName:stations.AdminArea
         };
     } else {
         newState = {
-            station:stations.UserArea
+            stationName:stations.UserArea
         };
     }
     return newState;
