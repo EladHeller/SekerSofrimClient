@@ -11,7 +11,7 @@ class UserFetchAction extends FetchAction{
     }
 }
 if (config.isMockMode) {
-    UserFetchAction.prototype.fetchData = ()=>{
+    UserFetchAction.prototype.fetchData = function(){
           return this.fetchSuccess({user:undefined});
     };
 }

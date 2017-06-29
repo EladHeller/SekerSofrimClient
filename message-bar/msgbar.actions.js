@@ -18,7 +18,7 @@ class MessagesFetchAction extends FetchAction{
 }
 
 if (config.isMockMode) {
-    MessagesFetchAction.prototype.fetchData = ()=>{
+    MessagesFetchAction.prototype.fetchData = function(){
         return this.fetchSuccess([
                 {text:'בדיקה בדיקה בדיקה'},
                 {text:'הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה'},

@@ -11,8 +11,8 @@ class IdLoginFetch extends FetchAction{
     }
 }
 if (config.isMockMode) {
-    UserFetchAction.prototype.fetchData = ()=>{
-        return fetchSuccess({
+    UserFetchAction.prototype.fetchData = function(){
+        return this.fetchSuccess({
             userExist: true,
             hasPassword: true,
             passwordSend: true,
