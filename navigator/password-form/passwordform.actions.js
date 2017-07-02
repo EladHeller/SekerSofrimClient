@@ -42,9 +42,9 @@ if (config.isMockMode) {
     };
 }
 
-export const fetchSubmit=(url,password)=>{
+export const fetchSubmit=(url,password, ID)=>{
     const fetchAction = new PasswordLoginFetch();
-    return fetchAction.fetchData(url,'POST',{password});
+    return fetchAction.fetchData(url,'POST',{password, ID});
 }
 export const resetPassword=(url, ID)=>{
     const fetchAction = new PasswordLoginFetch();
