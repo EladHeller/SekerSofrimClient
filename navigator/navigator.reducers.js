@@ -10,7 +10,10 @@ export const station = (state = {}, action) => {
             };
             break;
         case types.fetchUserSuccess:
-            newState = fetchUserSuccess(action);
+            newState = fetchUserSuccess(action.user);
+            break;
+        case types.successIdLogin:
+            newState = successIdLogin(action.loginDetails);
             break;
         default:
             newState = state;
@@ -19,13 +22,13 @@ export const station = (state = {}, action) => {
     return newState;
 }
 
-const fetchUserSuccess=(action)=>{
+const fetchUserSuccess=(user)=>{
     let newState;
-    if (!action.user) {
+    if (!user) {
         newState = {
             stationName:stations.ID
         };
-    } else if (action.user.isAdmin) {
+    } else if (user.isAdmin) {
         newState = {
             stationName:stations.AdminArea
         };
@@ -36,3 +39,17 @@ const fetchUserSuccess=(action)=>{
     }
     return newState;
 };
+
+const successIdLogin = (loginDetails)=>{
+    let newState;
+    if (!loginDetails.userExist || !loginDetails.hasPassword){
+        newState = {
+            stationName:stations.UserDetails
+        };
+    } else {
+        newState = {
+            stationName:stations.Password
+        };
+    }
+    return newState;
+}

@@ -11,7 +11,7 @@ class IdLoginFetch extends FetchAction{
     }
 }
 if (config.isMockMode) {
-    UserFetchAction.prototype.fetchData = function(){
+    IdLoginFetch.prototype.fetchData = function(){
         return this.fetchSuccess({
             userExist: true,
             hasPassword: true,
@@ -21,7 +21,14 @@ if (config.isMockMode) {
     };
 }
 
-export const fetchConnectedUser = (url)=>{
-    const fetchAction = new UserFetchAction();
-    return fetchAction.fetchData(url,'POST');
+export const fetchSubmit=(url,ID)=>{
+    const fetchAction = new IdLoginFetch();
+    return fetchAction.fetchData(url,'POST',{ID});
+}
+
+export const idTextChanged=(id)=>{
+    return {
+        type:types.idTextChanged,
+        idText: id
+    };
 }
