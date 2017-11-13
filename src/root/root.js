@@ -4,9 +4,9 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import {fetchConnectedUser} from './root.actions';
 import configureStore from '../store/configureStore';
-import Navbar from '../navbar/navbar.container';
-import MsgBar from '../message-bar/msgbar.container';
-import PageBody from '../page-body/pagebody.container';
+import Navbar from '../components/navbar/navbar.container';
+import MsgBar from '../components/message-bar/msgbar.container';
+import PageBody from '../components/page-body/pagebody.container';
 import initialStore from './initialStore'
 import './root.css';
 import "babel-polyfill";

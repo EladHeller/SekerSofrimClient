@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PasswordForm from './passwordform.component';
 import { connect } from 'react-redux';
-import config from '../../common/config';
+import config from '../../../common/config';
 import {resetPassword, fetchSubmit,passwordTextChanged} from './passwordform.actions';
 
 class PasswordFormContainer extends Component {

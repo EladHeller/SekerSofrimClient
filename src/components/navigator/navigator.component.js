@@ -2,7 +2,7 @@ import React from 'react';
 import Welcome from './welcome/welcome.component';
 import ID from './id-form/idform.container';
 import Password from './password-form/passwordform.container';
-import stations from '../common/stations';
+import stations from '../../common/stations';
 
 const RoutesNavigator = ({station}) => {
     let route;

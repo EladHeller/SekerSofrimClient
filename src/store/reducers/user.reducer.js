@@ -1,4 +1,4 @@
-import types from '../common/types'
+import types from '../../common/types'
 export function user(state = {}, action) {
     switch (action.type) {
         case types.userLoggingOut:

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import IdForm from './idform.component';
 import { connect } from 'react-redux';
-import config from '../../common/config';
+import config from '../../../common/config';
 import {fetchSubmit,idTextChanged} from './idform.actions';
 
 class IdFormContainer extends Component {

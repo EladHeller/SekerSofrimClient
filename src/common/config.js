@@ -17,6 +17,6 @@ export default {
         },
         logout: "logout"
     },
-    isMockMode: false
+    isMockMode: true
 };
 

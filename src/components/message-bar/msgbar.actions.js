@@ -1,7 +1,8 @@
-import types from '../common/types';
+import types from '../../common/types';
 import { dispatch } from 'redux';
-import FetchAction from '../helpers/fetch.action';
-import config from '../common/config';
+import FetchAction from '../../helpers/fetch.action';
+import config from '../../common/config';
+
 class MessagesFetchAction extends FetchAction{
     fetchSuccess(messages){
         return {

@@ -5,18 +5,18 @@
 }
 
 #ci-marketing-logo{
-    background-image: url('../img/ciMarketing.png');
+    background-image: url('../../assets/img/ciMarketing.png');
     width: 77px;
 }
 #minister-of-culture-logo{
-    background-image: url('../img/ministryOfCultureAndSport.png');
+    background-image: url('../../assets/img/ministryOfCultureAndSport.png');
     width: 180px;
 }
 #ci-marketing-logo:hover{
-    background-image: url('../img/ciMarketingHover.png');
+    background-image: url('../../assets/img/ciMarketingHover.png');
 }
 #minister-of-culture-logo:hover{
-    background-image: url('../img/ministryOfCultureAndSportHover.png');
+    background-image: url('../../assets/img/ministryOfCultureAndSportHover.png');
 }
 .navbar img, .navbar .logo-image {
     background-size: cover;

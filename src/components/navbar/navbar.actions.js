@@ -1,4 +1,4 @@
-const types = require('../common/types');
+const types = require('../../common/types');
 
 export function userLoggingOut() {
     return {

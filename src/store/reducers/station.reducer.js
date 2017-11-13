@@ -1,5 +1,5 @@
-import types from '../common/types';
-import stations from '../common/stations';
+import types from '../../common/types';
+import stations from '../../common/stations';
 
 export const station = (state = {}, action) => {
     let newState;

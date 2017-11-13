@@ -1,4 +1,4 @@
-import types from '../common/types'
+import types from '../../common/types'
 
 export function messages(state = [], action) {
     switch (action.type) {

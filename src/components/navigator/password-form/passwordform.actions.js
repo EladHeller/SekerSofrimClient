@@ -1,6 +1,6 @@
-import types  from '../../common/types';
-import FetchAction from '../../helpers/fetch.action';
-import config from '../../common/config';
+import types  from '../../../common/types';
+import FetchAction from '../../../helpers/fetch.action';
+import config from '../../../common/config';
 import {dispatch } from 'redux';
 class PasswordLoginFetch extends FetchAction{
     fetchSuccess(result){
