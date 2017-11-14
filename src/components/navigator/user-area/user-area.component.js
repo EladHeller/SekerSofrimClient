@@ -3,7 +3,7 @@ import React from 'react';
 const UserArea = ({user}) => {
     return (
     <section id="userArea">
-        <h2><span>מידע אישי לסופר <b>{userName}</b>.</span></h2>
+        <h2><span>מידע אישי לסופר <b>{user.firstName}</b>.</span></h2>
         <h4 id="win-text-price"></h4>
         <div id="win-text" hidden>
             <p>חברת מידע שיווקי (סי.איי.) יועצים בע"מ זכתה במכרז לניהול התשלומים לסופרים. לכן הפטור והחשבונית חייבים להיות על שם  <strong>מידע שיווקי (סי.איי.) יועצים בע"מ.</strong></p>

@@ -15,6 +15,9 @@ export const station = (state = {}, action) => {
         case types.successIdLogin:
             newState = successIdLogin(action.loginDetails);
             break;
+        case types.successPasswordLogin:
+            newState = fetchUserSuccess(action.user);
+            break;
         default:
             newState = state;
             break;
