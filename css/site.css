@@ -427,3 +427,7 @@ td .glyphicon:hover {
 table {
     margin: auto !important;
 }
+
+#details-table > tbody > tr>  td, #details-table > thead >tr> th{
+    border: 1px solid #aaa;
+}
