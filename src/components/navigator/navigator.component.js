@@ -2,6 +2,7 @@ import React from 'react';
 import Welcome from './welcome/welcome.component';
 import ID from './id-form/idform.container';
 import Password from './password-form/passwordform.container';
+import UserArea from './user-area/user-area.container';
 import stations from '../../common/stations';
 
 const RoutesNavigator = ({station}) => {
@@ -17,6 +18,8 @@ const RoutesNavigator = ({station}) => {
             route = <Password></Password>;
             break;
         case stations.UserArea:
+            route = <UserArea></UserArea>
+            break;
         case stations.AdminArea:
         case stations.UserDetails:
         default:

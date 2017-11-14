@@ -6,7 +6,7 @@ import {} from './user-area.actions';
 
 class UserAreaContainer extends Component {
     render(){
-        return <UserAreaComponent >
+        return <UserAreaComponent user={this.props.user} year={config.year}>
         </UserAreaComponent>;
     }
 }
@@ -23,4 +23,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PasswordFormContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(UserAreaContainer);

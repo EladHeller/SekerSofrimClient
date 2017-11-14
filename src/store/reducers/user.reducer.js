@@ -1,4 +1,6 @@
 import types from '../../common/types';
+import * as _ from 'lodash';
+
 export function user(state = {}, action) {
     switch (action.type) {
         case types.userLoggingOut:
@@ -6,15 +8,19 @@ export function user(state = {}, action) {
                 isLoggedIn:false
             };
         case types.fetchUserSuccess:
-            return fetchUserSuccess(state,action);
+            return fetchUserSuccess(state, action.user);
+            break;
+        case types.successPasswordLogin:
+            return fetchUserSuccess(state, action.loginDetails.user);
+            break;
         default:
             return state;
     }
 }
 
-const fetchUserSuccess = (state, action)=>{
-    if (action.user) {
-        return action.user;
+const fetchUserSuccess = (state, user)=>{
+    if (user) {
+        return Object.assign({isLoggedIn:true},user);
     } else {
         return {
             isLoggedIn:false
