@@ -112,21 +112,12 @@ h5 {
     color: #ff4d4d;
 }
 
-#userArea h4 span {
-    color: #4a68ad;
-    padding: 0 10px;
-}
-
 #manageArea button[to="upload"],
 #manageArea button[to="download"] {
     max-width: 200px !important;
 }
 
-#userArea table {
-    max-width: 900px;
-    max-height: 200px;
-    overflow: scroll;
-}
+
 
 #manageArea #table {
     margin: auto;

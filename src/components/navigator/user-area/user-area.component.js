@@ -19,7 +19,7 @@ const UserArea = ({user, year}) => {
         {priceArea}
         <hr style={{marginBottom: '10px',marginTop:'10px'}}/>
         <h4><small>ניתן לעדכן את הפרטים כאן באופן עצמאי, בסיום יש ללחוץ על סימן הV לשמירת השינויים.</small></h4>
-        <table className="table table-condensed" style={{marginBottom: '0px'}}>
+        <table className="table table-condensed details-table" style={{marginBottom: '0px'}}>
             <thead>
                 <tr>
                     <th>שם פרטי</th>

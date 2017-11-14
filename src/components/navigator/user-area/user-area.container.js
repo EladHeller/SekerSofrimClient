@@ -3,6 +3,7 @@ import UserAreaComponent from './user-area.component';
 import { connect } from 'react-redux';
 import config from '../../../common/config';
 import {} from './user-area.actions';
+import './user-area.css';
 
 class UserAreaContainer extends Component {
     render(){
