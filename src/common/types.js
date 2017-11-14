@@ -11,6 +11,7 @@ const types = {
     successResetPassword :'SUCCESS_RESET_PASSWORD',
     idTextChanged : 'ID_TEXT_CHANGED',
     passwordTextChanged : 'PASSWORD_TEXT_CHANGED',
+    successChangeUserDetails:'SUCCESS_CHANGE_USER_DETAILS',
     fetchSuccess:'FETCH_SUCCES',
     fetchFailed:'FETCH_FAILED',
     hasError:'HAS_ERROR'
