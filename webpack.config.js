@@ -11,6 +11,19 @@ module.exports = {
     devtool:'#inline-source-maps',
     module: {
         loaders: [
+            {
+                test: /\.scss$/,
+                use: [{
+                    loader: "style-loader"
+                }, {
+                    loader: "css-loader"
+                }, {
+                    loader: "sass-loader",
+                    options: {
+                        includePaths: ["absolute/path/a", "absolute/path/b"]
+                    }
+                }]
+            },
             { 
                 test: /\.js$/,
                 exclude: /(node_modules)/,

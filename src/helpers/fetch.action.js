@@ -33,8 +33,8 @@ class FetchAction {
                 }
                 return response;
             })
-            .then((response) => response.json())
-            .then((result) => dispatch(this.fetchSuccess(result)))
+            .then(response => response.json())
+            .then(result => dispatch(this.fetchSuccess(result)))
             .catch(() => dispatch(this.fetchFailed(true)));
         };
     }

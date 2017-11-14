@@ -12,7 +12,15 @@ class UserFetchAction extends FetchAction{
 }
 if (config.isMockMode) {
     UserFetchAction.prototype.fetchData = function(){
-          return this.fetchSuccess({user:undefined});
+          return this.fetchSuccess({user:{award: 3000,
+            firstName: 'משה',
+            lastName:'כהן',
+            pseudonym:'המחבר',
+            ID:'123',
+            password:'1111',
+            phone:'0541231231',
+            tel:'029929911',
+            email: 'a@a.c'}});
     };
 }
 

@@ -1,0 +1,9 @@
+@import '../../../common/style/details-table.scss';
+#userArea h4 span {
+    color: #4a68ad;
+    padding: 0 10px;
+}
+
+#userArea input#id:hover {
+    cursor: default !important;
+}
