@@ -1,21 +1,21 @@
 import React from 'react';
 
-const PasswordForm = ({isCanSubmit, textChanged, submit, passwordSendTo}) => {
+const PasswordForm = ({isCanSubmit, textChanged, submit, passwordSendTo, resetPassword}) => {
     let passwordText ='';
     let passwordSendToDisplay = passwordSendTo && (passwordSendTo === 'email' ? 'דואר האלקטרוני' : 'נייד');
-    let passwordSendToText = passwordSendTo && `סיסמה חדשה נשלחה אליך ל${passwordSendToDisplay}.`;
+    let passwordSendToText = passwordSendTo && `סיסמה חדשה נשלחה ל${passwordSendToDisplay} שלך.`;
     const onTextInput = (proxy, event) =>{
         passwordText = proxy.target.value.trim();
         textChanged(passwordText);
     };
     const btnSubmitClicked = (proxy, event)=>{
         submit(passwordText);
-    }
+    };
     const keyPressed = (proxy, event)=>{
         if (isCanSubmit && proxy.charCode === 13){
             submit(passwordText);
         }
-    }
+    };
     return (
     <section id="password-form">
             <h1>הזנת סיסמא</h1>
@@ -26,7 +26,7 @@ const PasswordForm = ({isCanSubmit, textChanged, submit, passwordSendTo}) => {
             {isCanSubmit ?<button onClick={btnSubmitClicked} className="success" to="confirm" title="לחיצה לאישור הסיסמא">אישור</button>
             :<button disabled="disabled" to="confirm" title="לחיצה לאישור הסיסמא">אישור</button>
             }
-            <button className="success" to="reset" title="לחיצה לקבלת סיסמא חדשה">שכחתי סיסמא</button>
+            <button onClick={resetPassword} className="success" to="reset" title="לחיצה לקבלת סיסמא חדשה">שכחתי סיסמא</button>
         </section>
     );
 }

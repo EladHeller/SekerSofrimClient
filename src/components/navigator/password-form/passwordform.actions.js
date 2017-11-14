@@ -12,10 +12,12 @@ class PasswordLoginFetch extends FetchAction{
 }
 class ResetPasswordFetch extends FetchAction{
     fetchSuccess(result){
-        return {
+        const obj = {
             type:types.successResetPassword,
             loginDetails: result
         };
+        console.log(obj);
+        return obj;
     }
 }
 if (config.isMockMode) {
@@ -47,7 +49,7 @@ export const fetchSubmit=(url,password, ID)=>{
     return fetchAction.fetchData(url,'POST',{password, ID});
 }
 export const resetPassword=(url, ID)=>{
-    const fetchAction = new PasswordLoginFetch();
+    const fetchAction = new ResetPasswordFetch();
     return fetchAction.fetchData(url,'POST',{ID});
 }
 
