@@ -1,11 +1,12 @@
-import types  from '../../../common/types';
+import {successChangeUserDetails}  from '../../../common/types';
 import FetchAction from '../../../helpers/fetch.action';
 import config from '../../../common/config';
 import {dispatch } from 'redux';
+
 class ChangeDetailsFetch extends FetchAction{
     fetchSuccess(result){
         return {
-            type:types.successChangeUserDetails,
+            type:successChangeUserDetails,
             changeDetailsResponse: result
         };
     }
