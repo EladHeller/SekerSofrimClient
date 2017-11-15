@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navigator from './navigator.component';
 import { connect } from 'react-redux';
-import './navigator.css';
+import './navigator.scss';
 
 class NavigatorContainer extends Component {
     render(){
