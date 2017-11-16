@@ -2,6 +2,42 @@ body {
     overflow: hidden;    
 }
 
+@media (min-width: 768px) {
+    section {
+        width: 30%;
+    }
+
+    #userArea,
+    #userNotExist,
+    #noDetails,
+    #manageArea{
+        width: 70%;
+    }
+}
+@media (max-width: 767px) {
+    section,
+    #userArea,
+    #noDetails,
+    #manageArea {
+        width: 90%;
+    }
+}
+@media (max-width: 1299px) {
+    #userArea,
+    #userNotExist,
+    #noDetails,
+    #manageArea {
+        width: 90%;
+    }
+}
+@media (min-width: 1300px) {
+    #userArea,
+    #userNotExist,
+    #noDetails,
+    #manageArea {
+        width: 70%;
+    }
+}
 
 @keyframes fadein {
     from { opacity: 0; }

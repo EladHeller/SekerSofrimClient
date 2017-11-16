@@ -27,52 +27,8 @@ section {
     text-align: center;
 }
 
-section {
-    position: absolute;
-    z-index: 222;
-    opacity: 0;
-    display: none;
-    margin: auto;
-    right: 0;
-    left: 0;
-}
 
-@media (min-width: 768px) {
-    section {
-        width: 30%;
-    }
 
-    #userArea,
-    #userNotExist,
-    #noDetails,
-    #manageArea{
-        width: 70%;
-    }
-}
-@media (max-width: 767px) {
-    section,
-    #userArea,
-    #noDetails,
-    #manageArea {
-        width: 90%;
-    }
-}
-@media (max-width: 1299px) {
-    #userArea,
-    #userNotExist,
-    #noDetails,
-    #manageArea {
-        width: 90%;
-    }
-}
-@media (min-width: 1300px) {
-    #userArea,
-    #userNotExist,
-    #noDetails,
-    #manageArea {
-        width: 70%;
-    }
-}
 .hide {
     opacity: 0;
 }
@@ -104,8 +60,6 @@ h5 {
 #manageArea button[to="download"] {
     max-width: 200px !important;
 }
-
-
 
 #manageArea #table {
     margin: auto;
