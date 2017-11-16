@@ -1,4 +1,4 @@
-#route-navigator {
+#route-navigator > section {
     transition-duration: 1s !important;
         -webkit-transition-duration: 1s !important;
         -moz-transition-duration:  1s !important;
@@ -19,65 +19,65 @@
     z-index: 222;
     width:90%;
     margin: auto;
-}
 
-#route-navigator input {
-    background: rgba(0,0,0,0);
-    margin-top: 10px;
-    width: 100%;
-    font-size: 22px;
-    outline: none;
-    border: none;
-    border-bottom: 1px solid;
-    border-bottom-color: rgba(130, 130, 130, 0.60);
-    text-align: center;
-}
+     input {
+        background: rgba(0,0,0,0);
+        margin-top: 10px;
+        width: 100%;
+        font-size: 22px;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid;
+        border-bottom-color: rgba(130, 130, 130, 0.60);
+        text-align: center;
+    }
 
-#route-navigator input:hover:not(:focus) {
-    border-bottom-color: #545454;
-    cursor: pointer;
-}
+     input:hover:not(:focus) {
+        border-bottom-color: #545454;
+        cursor: pointer;
+    }
 
-#route-navigator input:focus {
-    border-bottom-color: #313131 !important;
-    outline: -webkit-focus-ring-color auto 0px;
-}
+     input:focus {
+        border-bottom-color: #313131 !important;
+        outline: -webkit-focus-ring-color auto 0px;
+    }
 
 
-#route-navigator button {
-    padding: 0 15px;
-    margin: 0 8px;
-    width: auto;
-    max-width: 120px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.80);
-    border: none;
-    border-radius: 80px;
-    margin-top: 40px;
-    cursor: not-allowed;
-    color: #b4b4b4;
-}
+     button {
+        padding: 0 15px;
+        margin: 0 8px;
+        width: auto;
+        max-width: 120px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.80);
+        border: none;
+        border-radius: 80px;
+        margin-top: 40px;
+        cursor: not-allowed;
+        color: #b4b4b4;
+    }
 
-#route-navigator button.success {
-    background: #46e0b5;
-    color: white;
-}
+     button.success {
+        background: #46e0b5;
+        color: white;
+    }
 
-#route-navigator button.success:hover {
-    cursor: pointer;
-    background: #67f1cb;
-}
+     button.success:hover {
+        cursor: pointer;
+        background: #67f1cb;
+    }
 
-#route-navigator button:active,
-#route-navigator button:focus {
-    outline: none;
-}
+     button:active,
+     button:focus {
+        outline: none;
+    }
 
-#route-navigator button.success:active {
-    background: #98ead3;
-}
+     button.success:active {
+        background: #98ead3;
+    }
 
-#route-navigator h1,
-#route-navigator input {
-    color: #2d0836;
+     h1,
+     input {
+        color: #2d0836;
+    }
 }
