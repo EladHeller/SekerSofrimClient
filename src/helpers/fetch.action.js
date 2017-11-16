@@ -1,4 +1,5 @@
 const types = require('../common/types');
+import config  from '../common/config';
 import { dispatch } from 'redux';
 
 class FetchAction {
@@ -24,7 +25,7 @@ class FetchAction {
 
     fetchData (url, method ='GET', body = undefined) {
         return (dispatch) => {
-            const fetchRequest = new Request(url,{method,body});
+            const fetchRequest = new Request(config.rest.serverUrl + url,{method,body});
             dispatch(this.loadingData(true));
             fetch(fetchRequest).then((response) => {
                 dispatch(this.loadingData(false));

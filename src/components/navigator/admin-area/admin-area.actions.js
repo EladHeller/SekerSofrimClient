@@ -16,7 +16,7 @@ if (config.isMockMode) {
     }
 }
 
-export const fetchUploadMessages=(url,messages)=>{
+export const fetchUploadMessages=(messages)=>{
     const fetchAction = new UploadMessagesFetch();
     return fetchAction.fetchData(url,'POST',messages);
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 
-const UserArea = ({user, year}) => {
-    console.log(user);
+const UserArea = ({user, year, userDetailsChanged}) => {
     let priceArea;
     if (user.award > 0) {
         priceArea = <div>
@@ -35,14 +34,14 @@ const UserArea = ({user, year}) => {
             </thead>
             <tbody>
                 <tr>
-                    <td><input id="firstName"/>{user.firstName}</td>
-                    <td><input id="lastName"/>{user.lastName}</td>
-                    <td><input id="pseudonym"/>{user.pseudonym}</td>
-                    <td><input id="id" disabled />{user.ID}</td>
-                    <td><input id="password"/>{user.password}</td>
-                    <td><input id="phone"/>{user.phone}</td>
-                    <td><input id="tel"/>{user.tel}</td>
-                    <td><input id="email"/>{user.email}</td>
+                    <td><input onChange={userDetailsChange} id="firstName" value={user.firstName}/></td>
+                    <td><input onChange={userDetailsChange} id="lastName" value={user.lastName}/></td>
+                    <td><input onChange={userDetailsChange} id="pseudonym" value={user.pseudonym}/></td>
+                    <td><input onChange={userDetailsChange} id="id" disabled value={user.ID}/></td>
+                    <td><input readonly id="password" value={user.password}/></td>
+                    <td><input onChange={userDetailsChange} id="phone" value={user.phone}/></td>
+                    <td><input onChange={userDetailsChange} id="tel" value={user.tel}/></td>
+                    <td><input onChange={userDetailsChange} id="email" value={user.email}/></td>
                     <td data-toggle="modal" data-target="#confirmModal"><span className="glyphicon glyphicon-saved"></span></td>
                 </tr>
             </tbody>

@@ -2,19 +2,20 @@ import React, { Component } from 'react';
 import UserAreaComponent from './user-area.component';
 import { connect } from 'react-redux';
 import config from '../../../common/config';
-import {} from './user-area.actions';
+import {fetchChangeDetails} from './user-area.actions';
 import './user-area.scss';
 
 class UserAreaContainer extends Component {
     render(){
-        return <UserAreaComponent user={this.props.user} year={config.year}>
+        return <UserAreaComponent user={this.props.user} year={config.year} userDetailsChanged={userDetailsChanged}>
         </UserAreaComponent>;
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        changeDetails:()=>dispatch(resetPassword(config.rest.serverUrl + config.rest.resetPassword))
+        userDetailsChanged:dispatch(userDetailsChanged()),
+        changeDetails:()=>dispatch(fetchChangeDetails())
     };
 };
 

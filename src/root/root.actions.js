@@ -24,7 +24,7 @@ if (config.isMockMode) {
     };
 }
 
-export const fetchConnectedUser = (url)=>{
+export const fetchConnectedUser = ()=>{
     const fetchAction = new UserFetchAction();
-    return fetchAction.fetchData(url,'POST');
+    return fetchAction.fetchData(config.rest.getConnectedUser,'POST');
 }

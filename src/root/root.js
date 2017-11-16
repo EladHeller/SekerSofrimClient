@@ -8,7 +8,7 @@ import Navbar from '../components/navbar/navbar.container';
 import MsgBar from '../components/message-bar/msgbar.container';
 import PageBody from '../components/page-body/pagebody.container';
 import initialStore from './initialStore'
-import './root.css';
+import './root.scss';
 import "babel-polyfill";
 
 const store = configureStore(initialStore);
@@ -22,5 +22,5 @@ const Index = <Provider store={store}>
 render(Index, document.getElementById('root'));
 
 setTimeout(()=>{
-    store.dispatch(fetchConnectedUser(config.rest.serverUrl + config.rest.getConnectedUser));
+    store.dispatch(fetchConnectedUser());
 });

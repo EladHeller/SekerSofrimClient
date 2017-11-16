@@ -21,9 +21,9 @@ if (config.isMockMode) {
     };
 }
 
-export const fetchSubmit=(url,ID)=>{
+export const fetchSubmit=(ID)=>{
     const fetchAction = new IdLoginFetch();
-    return fetchAction.fetchData(url,'POST',{ID});
+    return fetchAction.fetchData(config.rest.idLogin, 'POST', {ID});
 }
 
 export const idTextChanged=(id)=>{

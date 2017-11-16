@@ -12,13 +12,13 @@ class MessageBarContainer extends Component {
         </MessagesBar>;
     }
     componentDidMount(){
-        this.props.fetchData(config.rest.serverUrl + config.rest.getMessages);
+        this.props.fetchData();
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchData: (url) => dispatch(messagesFetchData(url))
+        fetchData: (url) => dispatch(messagesFetchData())
     };
 };
 

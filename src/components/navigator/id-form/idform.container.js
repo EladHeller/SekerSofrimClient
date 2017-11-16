@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch) => {
             while (id.length < 9) {
                 id = '0' + id;
             }
-            dispatch(fetchSubmit(config.rest.serverUrl + config.rest.idLogin,id));
+            dispatch(fetchSubmit(id));
         },
         textChanged:(id)=>dispatch(idTextChanged(id))
     };

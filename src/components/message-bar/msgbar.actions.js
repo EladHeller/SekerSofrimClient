@@ -3,7 +3,7 @@ import { dispatch } from 'redux';
 import FetchAction from '../../helpers/fetch.action';
 import config from '../../common/config';
 
-class MessagesFetchAction extends FetchAction{
+class MessagesFetchAction extends FetchAction {
     fetchSuccess(messages){
         return {
             type:types.fetchMessagesSuccess,
@@ -27,7 +27,7 @@ if (config.isMockMode) {
     };
 }
 
-export const messagesFetchData = (url)=>{
+export const messagesFetchData = ()=>{
     const fetchRequest = new MessagesFetchAction();
-    return fetchRequest.fetchData(url,'POST');
+    return fetchRequest.fetchData(config.rest.getMessages ,'POST');
 }

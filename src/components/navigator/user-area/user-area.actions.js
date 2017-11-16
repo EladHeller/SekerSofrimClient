@@ -3,7 +3,7 @@ import FetchAction from '../../../helpers/fetch.action';
 import config from '../../../common/config';
 import {dispatch } from 'redux';
 
-class ChangeDetailsFetch extends FetchAction{
+class ChangeDetailsFetch extends FetchAction {
     fetchSuccess(result){
         return {
             type:successChangeUserDetails,
@@ -17,7 +17,7 @@ if (config.isMockMode) {
     }
 }
 
-export const fetchChangeDetails=(url,userDetails)=>{
+export const fetchChangeDetails=(userDetails)=>{
     const fetchAction = new ChangeDetailsFetch();
-    return fetchAction.fetchData(url,'POST',userDetails);
+    return fetchAction.fetchData(config.rest.updateUserDetails,'POST',userDetails);
 }

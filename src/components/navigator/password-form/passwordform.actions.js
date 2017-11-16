@@ -44,13 +44,13 @@ if (config.isMockMode) {
     };
 }
 
-export const fetchSubmit=(url,password, ID)=>{
+export const fetchSubmit=(password, ID)=>{
     const fetchAction = new PasswordLoginFetch();
-    return fetchAction.fetchData(url,'POST',{password, ID});
+    return fetchAction.fetchData(config.rest.passwordLogin, 'POST', {password, ID});
 }
-export const resetPassword=(url, ID)=>{
+export const resetPassword=(ID)=>{
     const fetchAction = new ResetPasswordFetch();
-    return fetchAction.fetchData(url,'POST',{ID});
+    return fetchAction.fetchData(config.rest.resetPassword, 'POST', {ID});
 }
 
 export const passwordTextChanged=(password)=>{

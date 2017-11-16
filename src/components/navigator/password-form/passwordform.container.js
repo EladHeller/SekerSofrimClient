@@ -14,10 +14,10 @@ class PasswordFormContainer extends Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         submit:(password)=>{
-            dispatch(fetchSubmit(config.rest.serverUrl + config.rest.passwordLogin,password));
+            dispatch(fetchSubmit());
         },
         textChanged:(password)=>dispatch(passwordTextChanged(password)),
-        resetPassword:()=>dispatch(resetPassword(config.rest.serverUrl + config.rest.resetPassword))
+        resetPassword:()=>dispatch(resetPassword())
     };
 };
 
