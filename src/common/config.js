@@ -1,6 +1,12 @@
+const env = 'development';
+
+const serverUrl = env === 'development' ? 
+    'https://1tmm0szfph.execute-api.us-west-2.amazonaws.com/seker_sofrim_test/' : 
+    'https://7npxc1c5ll.execute-api.us-west-2.amazonaws.com/SekerSofrim/';
+
 export default {
     rest:{
-        serverUrl: 'https://1tmm0szfph.execute-api.us-west-2.amazonaws.com/seker_sofrim_test/',//https://7npxc1c5ll.execute-api.us-west-2.amazonaws.com/SekerSofrim/',
+        serverUrl,
         getConnectedUser:'getconnecteduser',
         getMessages:'getmessages',
         idLogin: "idlogin",
