@@ -1,7 +1,3 @@
-h1,h2,h3,h4,h5,h6{
-    font-family: Assistant;
-}
-
 .navbar a,
 section input,
 section button,
@@ -26,8 +22,6 @@ section {
 .container.body {
     text-align: center;
 }
-
-
 
 .hide {
     opacity: 0;
@@ -180,30 +174,8 @@ h5 {
     margin: 0;
 }
 
-h3, p {
-    max-width: 900px;
-    margin: auto;
-}
-
-p {
-    white-space: pre-wrap;
-    text-align: justify;
-}
-
 #manageArea [type="id"] input:hover,
 #manageArea [type="password"] input:hover,
 #userArea input#id:hover {
     cursor: default !important;
-}
-
-td .glyphicon {
-    color: #2cb28d;
-}
-
-td .glyphicon:hover {
-    color: #1d8266 !important;
-}
-
-table {
-    margin: auto !important;
 }

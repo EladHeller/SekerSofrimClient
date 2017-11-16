@@ -2,6 +2,32 @@ body {
     overflow: hidden;    
 }
 
+h1,h2,h3,h4,h5,h6{
+    font-family: Assistant;
+}
+h3, p {
+    max-width: 900px;
+    margin: auto;
+}
+
+p {
+    white-space: pre-wrap;
+    text-align: justify;
+}
+
+
+td .glyphicon {
+    color: #2cb28d;
+}
+
+td .glyphicon:hover {
+    color: #1d8266 !important;
+}
+
+table {
+    margin: auto !important;
+}
+
 @media (min-width: 768px) {
     section {
         width: 30%;
@@ -66,3 +92,6 @@ body {
     @-o-keyframes fadein {
         from { opacity: 0; }
     }
+
+
+/* todo */
