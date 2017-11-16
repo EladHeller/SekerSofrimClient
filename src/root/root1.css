@@ -41,15 +41,6 @@ section {
     color: rgba(255, 255, 255, 0.9) !important;
 }
 
-h5 {
-    position: absolute;
-    margin: auto;
-    left: 0;
-    right: 0;
-    margin-top: 5px;
-    color: #ff4d4d;
-}
-
 #manageArea button[to="upload"],
 #manageArea button[to="download"] {
     max-width: 200px !important;

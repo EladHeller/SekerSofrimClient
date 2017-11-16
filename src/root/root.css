@@ -14,7 +14,14 @@ p {
     white-space: pre-wrap;
     text-align: justify;
 }
-
+h5 {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    margin-top: 5px;
+    color: #ff4d4d;
+}
 
 td .glyphicon {
     color: #2cb28d;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PageBody from './pagebody.component';
 import { connect } from 'react-redux';
-import './pagebody.css';
+import './pagebody.scss';
 
 
 class PageBodyContainer extends Component {

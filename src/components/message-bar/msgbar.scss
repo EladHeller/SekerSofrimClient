@@ -3,39 +3,39 @@
     position: fixed;
     bottom: 0px;
     left: 0px;
-}
-#messages {
-    overflow:hidden;
-    left: 0px;
-    white-space:pre;
-    position: fixed;
-    bottom: 0px;
-    font-size: 16px;
-    background: rgba(0,0,0,.1);
-    border-top: solid 1px rgba(0,0,0,0.15);
-    box-shadow: rgba(0,0,0,.15) 0 5px 10px 0 inset;
-        -webkit-box-shadow: rgba(0,0,0,.15) 0 5px 10px 0 inset;
-        -moz-box-shadow: rgba(0,0,0,.15) 0 5px 10px 0 inset;
-    padding: 7px;
-    color: rgba(23, 17, 59, 0.87);
-    font-weight: 300;
-    cursor: pointer;
-    animation: carousel 60s linear infinite, fadein 2s;
-      -webkit-animation: carousel 60s linear infinite, fadein 2s;
-       -moz-animation: carousel 60s linear infinite, fadein 2s;
-        -ms-animation: carousel 60s linear infinite, fadein 2s;
-         -o-animation: carousel 60s linear infinite, fadein 2s;
-}
-::-webkit-scrollbar {
-    display:none;
-}
+    
+    #messages {
+        overflow:hidden;
+        left: 0px;
+        white-space:pre;
+        position: fixed;
+        bottom: 0px;
+        font-size: 16px;
+        background: rgba(0,0,0,.1);
+        border-top: solid 1px rgba(0,0,0,0.15);
+        box-shadow: rgba(0,0,0,.15) 0 5px 10px 0 inset;
+            -webkit-box-shadow: rgba(0,0,0,.15) 0 5px 10px 0 inset;
+            -moz-box-shadow: rgba(0,0,0,.15) 0 5px 10px 0 inset;
+        padding: 7px;
+        color: rgba(23, 17, 59, 0.87);
+        font-weight: 300;
+        cursor: pointer;
+        animation: carousel 60s linear infinite, fadein 2s;
+        -webkit-animation: carousel 60s linear infinite, fadein 2s;
+        -moz-animation: carousel 60s linear infinite, fadein 2s;
+            -ms-animation: carousel 60s linear infinite, fadein 2s;
+            -o-animation: carousel 60s linear infinite, fadein 2s;
+    }
+    ::-webkit-scrollbar {
+        display:none;
+    }
 
-#messages:hover {
-    border-top: solid 1px rgba(0,0,0,0.35);
-    background: rgba(0,0,0,.2);
-    color: rgba(23, 17, 59, 1);
+    #messages:hover {
+        border-top: solid 1px rgba(0,0,0,0.35);
+        background: rgba(0,0,0,.2);
+        color: rgba(23, 17, 59, 1);
+    }
 }
-
 
 @keyframes carousel {
     0%    { left: 0; }
