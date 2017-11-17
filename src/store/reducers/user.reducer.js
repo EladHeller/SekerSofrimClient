@@ -13,6 +13,9 @@ export function user(state = {}, action) {
         case types.successPasswordLogin:
             return fetchUserSuccess(state, action.loginDetails.user);
             break;
+        case types.userDetailsChanged:
+            return action.userDetails;
+            break;
         default:
             return state;
     }

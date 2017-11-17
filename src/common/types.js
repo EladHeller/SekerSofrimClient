@@ -11,6 +11,7 @@ const types = {
     successUploadMessages : 'SUCCESS_UPLOAD_MESSAGES',
     successResetPassword :'SUCCESS_RESET_PASSWORD',
     idTextChanged : 'ID_TEXT_CHANGED',
+    userDetailsChanged : 'USER_DETAILS_CHANGED',
     passwordTextChanged : 'PASSWORD_TEXT_CHANGED',
     successChangeUserDetails:'SUCCESS_CHANGE_USER_DETAILS',
     fetchSuccess:'FETCH_SUCCES',
