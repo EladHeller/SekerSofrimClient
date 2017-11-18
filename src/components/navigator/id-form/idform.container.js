@@ -13,15 +13,17 @@ class IdFormContainer extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        submit:(id)=>{
-            while (id.length < 9) {
-                id = '0' + id;
-            }
-            dispatch(fetchSubmit(id));
-        },
-        textChanged:(id)=>dispatch(idTextChanged(id))
+        submit:id=>dispatch(fetchSubmit(padID(id))),
+        textChanged:id=>dispatch(idTextChanged(padID(id)))
     };
 };
+
+const padID=(ID)=>{
+    while (ID.length < 9) {
+        ID = '0' + ID;
+    }
+    return ID;
+}
 
 const mapStateToProps = (state) => {
     return {

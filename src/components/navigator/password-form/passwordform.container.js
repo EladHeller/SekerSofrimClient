@@ -6,17 +6,16 @@ import {resetPassword, fetchSubmit,passwordTextChanged} from './passwordform.act
 
 class PasswordFormContainer extends Component {
     render(){
-        return <PasswordForm passwordSendTo={this.props.passwordSendTo} textChanged={this.props.textChanged} submit={this.props.submit} isCanSubmit={this.props.isCanSubmit} resetPassword={this.props.resetPassword}>
+        return <PasswordForm passwordSendTo={this.props.passwordSendTo} textChanged={this.props.textChanged} submit={this.props.submit.bind(null,this.props.ID)} isCanSubmit={this.props.isCanSubmit} resetPassword={this.props.resetPassword}>
         </PasswordForm>;
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
+    const that = this;
     return {
-        submit:(password)=>{
-            dispatch(fetchSubmit());
-        },
-        textChanged:(password)=>dispatch(passwordTextChanged(password)),
+        submit:(ID,password)=> dispatch(fetchSubmit(password, ID)),
+        textChanged:password=>dispatch(passwordTextChanged(password)),
         resetPassword:()=>dispatch(resetPassword())
     };
 };
@@ -24,7 +23,8 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
     return {
         isCanSubmit:state.passwordLogin.isCanSubmit,
-        passwordSendTo: state.passwordLogin.passwordSendTo
+        passwordSendTo: state.passwordLogin.passwordSendTo,
+        ID: state.idLogin.ID
     };
 };
 

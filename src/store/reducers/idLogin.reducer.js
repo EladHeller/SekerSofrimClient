@@ -11,13 +11,15 @@ export const idLogin=(state ={}, action)=>{
 };
 
 const idTextChanged=(idText)=>{
-    if (idText && idText.match(/^\d{3,9}$/)){
+    if (idText && idText.match(/(?=^0{0,6}[1-9]{3,9}$)(?=^\d{9}$)/)){
         return {
-            isCanSubmit:true
+            isCanSubmit:true,
+            ID:idText
         }
     } else {
         return {
-            isCanSubmit:false
+            isCanSubmit:false,
+            ID:idText
         }
     }
 };

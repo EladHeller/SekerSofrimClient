@@ -25,7 +25,7 @@ class FetchAction {
 
     fetchData (url, method ='GET', body = undefined) {
         return (dispatch) => {
-            const fetchRequest = new Request(config.rest.serverUrl + url,{method,body});
+            const fetchRequest = new Request(config.rest.serverUrl + url,{method,body:JSON.stringify(body), credentials:'include'});
             dispatch(this.loadingData(true));
             fetch(fetchRequest).then((response) => {
                 dispatch(this.loadingData(false));
