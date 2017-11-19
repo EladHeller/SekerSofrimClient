@@ -50,4 +50,4 @@ const adminArea = ({changeDetailsRequests}) => {
     </section>
     );
 }
-export default UserArea;
+export default adminArea;

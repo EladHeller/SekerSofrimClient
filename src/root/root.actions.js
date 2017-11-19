@@ -15,6 +15,7 @@ if (config.isMockMode) {
           return this.fetchSuccess({user:{award: 3000,
             firstName: 'משה',
             lastName:'כהן',
+            isAdmin:true,
             pseudonym:'המחבר',
             ID:'123',
             password:'1111',

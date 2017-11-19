@@ -22,4 +22,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserAreaContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(AdminAreaContainer);
