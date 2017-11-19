@@ -18,6 +18,7 @@ const UserArea = ({user, year, userDetailsChanged}) => {
         <h2><span>מידע אישי לסופר <b>{user.firstName}</b>.</span></h2>
         {priceArea}
         <hr style={{marginBottom: '10px',marginTop:'10px'}}/>
+        <h2 style={{margin:'0px 0px 0px 0px'}}><small style={{color:'black'}}>בכדי לעדכן את שמות ספריך <a href="https://docs.google.com/forms/d/e/1FAIpQLSdkdDEgzh6zvmkUXlPu2ZKhegJGebwWSxtV3ZNtP1wXKbfwyw/viewform?usp=sf_link" target="_blank">לחץ כאן</a>.</small></h2>
         <h4><small>ניתן לעדכן את הפרטים כאן באופן עצמאי, בסיום יש ללחוץ על סימן הV לשמירת השינויים.</small></h4>
         <UserDetailsTable user={user} userDetailsChanged={userDetailsChanged}></UserDetailsTable>
         <h4 id="msg-to-user"></h4>
@@ -30,7 +31,7 @@ const getWinDetails = ()=> {
         <div>
             <div id="win-text">
                 <p>בכדי לממש את זכאותך עליך להמציא לידנו את המסמכים הבאים:</p>
-                <table id="win-details-table">
+                <table className="details-table">
                     <thead>
                         <tr>
                             <th>באם הינך:</th>
