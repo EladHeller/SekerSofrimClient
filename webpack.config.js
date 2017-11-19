@@ -1,5 +1,7 @@
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = { 
     entry: {
         index: path.resolve("./src/root/root.js")
@@ -61,6 +63,7 @@ module.exports = {
         ]
     },
     plugins : [
+        new HtmlWebpackPlugin({hash: true,template:'./index.html' })
         //new webpack.optimize.UglifyJsPlugin()
     ]
 };
