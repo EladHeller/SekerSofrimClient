@@ -7,7 +7,7 @@ import './admin-area.scss';
 
 class AdminAreaContainer extends Component {
     render(){
-        return <AdminAreaComponent>
+        return <AdminAreaComponent changeDetailsRequests={[]}>
         </AdminAreaComponent>;
     }
 }
