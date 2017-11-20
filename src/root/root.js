@@ -9,6 +9,9 @@ import MsgBar from '../components/message-bar/msgbar.container';
 import PageBody from '../components/page-body/pagebody.container';
 import initialStore from './initialStore'
 import './root.scss';
+import '../assets/style/bootstrap-rtl.css';
+import '../assets/style/bootstrap.min.css';
+import '../assets/style/fonts.css';
 import "babel-polyfill";
 
 const store = configureStore(initialStore);
