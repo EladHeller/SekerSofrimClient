@@ -37,8 +37,13 @@ module.exports = {
                 test: /\.html$/, loader: "html-loader" 
             }, { 
                 test: /\.css$/, loader: "style-loader!css-loader" 
+            }, { 
+                test: /\.(eot|woff2|woff|ttf)$/i, 
+                loader: "file-loader?context=src/assets&name=/assets/[path][name].[ext]",
+                exclude: /node_modules/,
+                include: __dirname,
             },{
-                test: /\.(jpe?g|png|gif|svg|eot|woff2|woff|ttf)$/i,
+                test: /\.(jpe?g|png|gif|svg)$/i,
                 loaders: ['file-loader?context=src/assets&name=/assets/[path][name].[ext]', {
                     loader: 'image-webpack-loader',
                     query: {
