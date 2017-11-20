@@ -39,7 +39,7 @@ module.exports = {
                 test: /\.css$/, loader: "style-loader!css-loader" 
             },{
                 test: /\.(jpe?g|png|gif|svg|eot|woff2|woff|ttf)$/i,
-                loaders: ['file-loader?context=src/&name=/[path][name].[ext]', {
+                loaders: ['file-loader?context=src/assets&name=/assets/[path][name].[ext]', {
                     loader: 'image-webpack-loader',
                     query: {
                         mozjpeg: {
