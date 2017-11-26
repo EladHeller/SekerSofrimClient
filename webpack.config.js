@@ -1,8 +1,9 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-module.exports = { 
+const env = process.env.NODE_ENV;
+const isProduction = env === 'production';
+const webpackConfig = { 
     entry: {
         index: path.resolve("./src/root/root.js")
     },
@@ -10,7 +11,6 @@ module.exports = {
         path: path.resolve('./dist/'),
         filename: "[name].js"
     },
-    devtool:'#inline-source-maps',
     module: {
         loaders: [
             {
@@ -20,10 +20,7 @@ module.exports = {
                 }, {
                     loader: "css-loader"
                 }, {
-                    loader: "sass-loader",
-                    options: {
-                        includePaths: ["absolute/path/a", "absolute/path/b"]
-                    }
+                    loader: "sass-loader"
                 }]
             },
             { 
@@ -69,6 +66,13 @@ module.exports = {
     },
     plugins : [
         new HtmlWebpackPlugin({hash: true,template:'./index.html' })
-        //new webpack.optimize.UglifyJsPlugin()
     ]
 };
+
+if (!isProduction) {
+    webpackConfig.devtool = '#inline-source-maps';
+} else {
+    webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin());
+}
+
+module.exports =webpackConfig;
