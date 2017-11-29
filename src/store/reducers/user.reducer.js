@@ -14,7 +14,7 @@ export function user(state = {}, action) {
             return fetchUserSuccess(state, action.loginDetails.user);
             break;
         case types.userDetailsChanged:
-            return action.userDetails;
+            return Object.assign({},action.user);
             break;
         default:
             return state;

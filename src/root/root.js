@@ -23,7 +23,4 @@ const Index = <Provider store={store}>
     </div>
 </Provider>;
 render(Index, document.getElementById('root'));
-
-setTimeout(()=>{
-    store.dispatch(fetchConnectedUser());
-});
+store.dispatch(fetchConnectedUser());
