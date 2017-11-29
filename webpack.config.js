@@ -37,7 +37,6 @@ const webpackConfig = {
             }, { 
                 test: /\.(eot|woff2|woff|ttf)$/i, 
                 loader: "file-loader?context=src/assets&name=/assets/[path][name].[ext]",
-                exclude: /node_modules/,
                 include: __dirname,
             },{
                 test: /\.(jpe?g|png|gif|svg)$/i,
@@ -59,7 +58,6 @@ const webpackConfig = {
                         }
                     }
                 }],
-                exclude: /node_modules/,
                 include: __dirname,
             }
         ]
