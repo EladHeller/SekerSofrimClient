@@ -1,5 +1,8 @@
 @import '../../../common/style/details-table.scss';
 #userArea {
+    p {
+        margin: 0 0 0 0 !important;
+    }
     h4 span {
         color: #4a68ad;
         padding: 0 10px;
