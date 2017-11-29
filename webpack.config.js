@@ -65,7 +65,7 @@ const webpackConfig = {
         ]
     },
     plugins : [
-        new HtmlWebpackPlugin({hash: true,template:'./index.html' })
+        new HtmlWebpackPlugin({hash: true,template:'./src/index.html' })
     ]
 };
 
