@@ -5,7 +5,7 @@ const env = process.env.NODE_ENV;
 const isProduction = env === 'production';
 const webpackConfig = { 
     entry: {
-        index: path.resolve("./src/root/root.js")
+        index: path.resolve('./src/index.js')
     },
     output: {
         path: path.resolve('./dist/'),
@@ -77,4 +77,4 @@ if (!isProduction) {
     webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin());
 }
 
-module.exports =webpackConfig;
+module.exports = webpackConfig;

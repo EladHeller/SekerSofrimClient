@@ -1,5 +1,5 @@
-const types = require('../common/types');
-import config  from '../common/config';
+const types = require('../../common/types');
+import config  from '../../common/config';
 import { dispatch } from 'redux';
 
 class FetchAction {

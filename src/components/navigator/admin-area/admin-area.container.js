@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AdminAreaComponent from './admin-area.component';
 import { connect } from 'react-redux';
 import config from '../../../common/config';
-import {fetchUploadMessages} from './admin-area.actions';
+import {fetchUploadMessages} from '../../../store/actions/admin-area.actions';
 import './admin-area.scss';
 
 class AdminAreaContainer extends Component {

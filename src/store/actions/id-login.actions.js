@@ -1,7 +1,8 @@
-import types  from '../../../common/types';
-import FetchAction from '../../../helpers/fetch.action';
-import config from '../../../common/config';
+import types  from '../../common/types';
+import FetchAction from './fetch.action';
+import config from '../../common/config';
 import {dispatch } from 'redux';
+
 class IdLoginFetch extends FetchAction{
     fetchSuccess(result){
         return {
@@ -21,7 +22,7 @@ if (config.isMockMode) {
     };
 }
 
-export const fetchSubmit=(ID)=>{
+export const fetchIdLogin=(ID)=>{
     const fetchAction = new IdLoginFetch();
     return fetchAction.fetchData(config.rest.idLogin, 'POST', {ID});
 }

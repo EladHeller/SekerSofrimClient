@@ -1,6 +1,6 @@
-import {successUploadMessages}  from '../../../common/types';
-import FetchAction from '../../../helpers/fetch.action';
-import config from '../../../common/config';
+import {successUploadMessages}  from '../../common/types';
+import FetchAction from './fetch.action';
+import config from '../../common/config';
 import {dispatch } from 'redux';
 class UploadMessagesFetch extends FetchAction{
     fetchSuccess(result){

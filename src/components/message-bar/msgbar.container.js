@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MessagesBar from './msgbar.component';
 import { connect } from 'react-redux';
 import config from '../../common/config';
-import {messagesFetchData} from './msgbar.actions';
+import { messagesFetchData } from '../../store/actions/messages.actions';
 import './msgbar.scss';
 
 

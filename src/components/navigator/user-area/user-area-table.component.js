@@ -1,6 +1,7 @@
 import React from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-const UserDetailsTable=({user, userDetailsChanged})=>{
+const UserDetailsTable=({user, userDetailsChanged, modalOpen, toggleModal})=>{
     const userPropChanged= (evt)=>{
         user[evt.target.id] = evt.target.value;
         userDetailsChanged(user);
@@ -31,11 +32,21 @@ const UserDetailsTable=({user, userDetailsChanged})=>{
                         <td><input onChange={userPropChanged} id="phone" value={user.phone}/></td>
                         <td><input onChange={userPropChanged} id="tel" value={user.tel}/></td>
                         <td><input onChange={userPropChanged} id="email" value={user.email}/></td>
-                        <td data-toggle="modal" data-target="#confirm-modal"><span className="glyphicon glyphicon-saved"></span></td>
+                        <td onClick={toggleModal}><span className="glyphicon glyphicon-saved"></span></td>
                     </tr>
                 </tbody>
             </table>
-            <div className="modal fade" id="confirm-modal" tabIndex="-1" role="dialog" aria-labelledby="confirmModalLabel">
+            <Modal isOpen={modalOpen} toggle={toggleModal}>
+                <ModalHeader toggle={toggleModal}>Modal title</ModalHeader>
+                <ModalBody>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </ModalBody>
+                <ModalFooter>
+                    <Button color="primary" onClick={toggleModal}>Do Something</Button>{' '}
+                    <Button color="secondary" onClick={toggleModal}>Cancel</Button>
+                </ModalFooter>
+          </Modal>
+            {/* <div className="modal fade" id="confirm-modal" tabIndex="-1" role="dialog" aria-labelledby="confirmModalLabel">
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -51,7 +62,7 @@ const UserDetailsTable=({user, userDetailsChanged})=>{
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };

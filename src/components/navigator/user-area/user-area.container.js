@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import UserAreaComponent from './user-area.component';
 import { connect } from 'react-redux';
 import config from '../../../common/config';
-import {fetchChangeDetails, changeUserDetails} from './user-area.actions';
+import {fetchChangeDetails, changeUserDetails} from '../../../store/actions/user.actions';
 import './user-area.scss';
 
 class UserAreaContainer extends Component {
     render(){
-        return <UserAreaComponent user={this.props.user} year={config.year} userDetailsChanged={this.props.userDetailsChanged}>
+        return <UserAreaComponent modalOpen={this.props.modalOpen} toggleModal={this.props.toggleModal} user={this.props.user} year={config.year} userDetailsChanged={this.props.userDetailsChanged}>
         </UserAreaComponent>;
     }
 }
