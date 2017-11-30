@@ -63,7 +63,11 @@ const webpackConfig = {
         ]
     },
     plugins : [
-        new HtmlWebpackPlugin({hash: true,template:'./src/index.html' })
+        new HtmlWebpackPlugin({hash: true,template:'./src/index.html' }),
+        new webpack.ProvidePlugin({
+            jQuery: 'jquery',
+            $: 'jquery'
+        })
     ]
 };
 

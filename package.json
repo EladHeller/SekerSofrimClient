@@ -16,6 +16,8 @@
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1",
+    "little-loader": "^0.2.0",
     "lodash": "^4.17.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
@@ -23,6 +25,7 @@
     "reactstrap": "^5.0.0-alpha.4",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
+    "save-as": "^0.1.8",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
