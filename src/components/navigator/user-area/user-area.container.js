@@ -3,6 +3,7 @@ import UserAreaComponent from './user-area.component';
 import { connect } from 'react-redux';
 import config from '../../../common/config';
 import {fetchChangeDetails, changeUserDetails} from '../../../store/actions/user.actions';
+import { toggleChangeUserDetailsModal } from '../../../store/actions/ui.actions';
 import './user-area.scss';
 
 class UserAreaContainer extends Component {
@@ -15,13 +16,15 @@ class UserAreaContainer extends Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         userDetailsChanged:userDetails=>dispatch(changeUserDetails(userDetails)),
-        changeDetails:()=>dispatch(fetchChangeDetails())
+        changeDetails:()=>dispatch(fetchChangeDetails()),
+        toggleModal:()=>dispatch(toggleChangeUserDetailsModal())
     };
 };
 
 const mapStateToProps = (state) => {
     return {
-        user:state.user
+        user:state.user,
+        modalOpen:state.ui.userDetailsModalOpen
     };
 };
 

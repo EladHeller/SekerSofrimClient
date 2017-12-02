@@ -6,6 +6,7 @@ const UserDetailsTable=({user, userDetailsChanged, modalOpen, toggleModal})=>{
         user[evt.target.id] = evt.target.value;
         userDetailsChanged(user);
     }
+    console.log(modalOpen)
     return (
         <div>
             <table className="table table-condensed details-table" style={{marginBottom: '0px'}}>
@@ -37,13 +38,13 @@ const UserDetailsTable=({user, userDetailsChanged, modalOpen, toggleModal})=>{
                 </tbody>
             </table>
             <Modal isOpen={modalOpen} toggle={toggleModal}>
-                <ModalHeader toggle={toggleModal}>Modal title</ModalHeader>
+                <ModalHeader toggle={toggleModal}>רק רגע...</ModalHeader>
                 <ModalBody>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                האם לשמור את השינויים?
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary" onClick={toggleModal}>Do Something</Button>{' '}
-                    <Button color="secondary" onClick={toggleModal}>Cancel</Button>
+                    <Button onClick={toggleModal}>ביטול</Button>
+                    <Button color="primary" onClick={toggleModal}>שמירה</Button>{' '}
                 </ModalFooter>
           </Modal>
             {/* <div className="modal fade" id="confirm-modal" tabIndex="-1" role="dialog" aria-labelledby="confirmModalLabel">
