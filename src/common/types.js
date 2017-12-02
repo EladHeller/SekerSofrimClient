@@ -1,5 +1,5 @@
 const types = {
-    userLoggingOut:'USER_LOGGING_OUT',
+    succesUserLogedOut:'SUCCES_USER_LOGED_OUT',
     messagesFetchDataSucces:'MESSAGES_FETCH_DATA_SUCCES',
     loadingData: 'LOADING_DATA',
     fetchUserSuccess:'FETCH_USER_SUCCESS',

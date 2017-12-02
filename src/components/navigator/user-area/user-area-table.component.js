@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-const UserDetailsTable=({user, userDetailsChanged, modalOpen, toggleModal})=>{
+const UserDetailsTable=({user, userDetailsChanged, modalOpen, toggleModal, saveUserDetails})=>{
     const userPropChanged= (evt)=>{
         user[evt.target.id] = evt.target.value;
         userDetailsChanged(user);
@@ -44,27 +44,10 @@ const UserDetailsTable=({user, userDetailsChanged, modalOpen, toggleModal})=>{
                 </ModalBody>
                 <ModalFooter>
                     <Button onClick={toggleModal}>ביטול</Button>
-                    <Button color="primary" onClick={toggleModal}>שמירה</Button>{' '}
+                    <Button color="primary" onClick={()=>saveUserDetails(user)}>שמירה</Button>
                 </ModalFooter>
           </Modal>
-            {/* <div className="modal fade" id="confirm-modal" tabIndex="-1" role="dialog" aria-labelledby="confirmModalLabel">
-                <div className="modal-dialog" role="document">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 className="modal-title" id="confirmModalLabel">רק רגע...</h4>
-                        </div>
-                        <div className="modal-body">
-                            האם לשמור את השינויים?
-                        </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-default" data-dismiss="modal">ביטול</button>
-                            <button type="button" className="btn btn-primary" id="saveUserAreaData" data-dismiss="modal">שמירה</button>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
-        </div>
+        </div>  
     );
 };
 

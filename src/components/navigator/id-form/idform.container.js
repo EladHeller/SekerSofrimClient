@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import IdForm from './idform.component';
 import { connect } from 'react-redux';
 import config from '../../../common/config';
-import {fetchSubmit,idTextChanged} from '../../../store/actions/id-login.actions';
+import {fetchIdLogin,idTextChanged} from '../../../store/actions/id-login.actions';
 
 class IdFormContainer extends Component {
     render(){
@@ -13,7 +13,7 @@ class IdFormContainer extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        submit:id=>dispatch(fetchSubmit(padID(id))),
+        submit:id=>dispatch(fetchIdLogin(padID(id))),
         textChanged:id=>dispatch(idTextChanged(padID(id)))
     };
 };

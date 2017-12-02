@@ -2,13 +2,19 @@ import React, { Component } from 'react';
 import UserAreaComponent from './user-area.component';
 import { connect } from 'react-redux';
 import config from '../../../common/config';
-import {fetchChangeDetails, changeUserDetails} from '../../../store/actions/user.actions';
+import {fetchChangeDetails, changeUserDetails, } from '../../../store/actions/user.actions';
 import { toggleChangeUserDetailsModal } from '../../../store/actions/ui.actions';
 import './user-area.scss';
 
 class UserAreaContainer extends Component {
     render(){
-        return <UserAreaComponent modalOpen={this.props.modalOpen} toggleModal={this.props.toggleModal} user={this.props.user} year={config.year} userDetailsChanged={this.props.userDetailsChanged}>
+        return <UserAreaComponent 
+            modalOpen={this.props.modalOpen} 
+            saveUserDetails={this.props.saveUserDetails}
+            toggleModal={this.props.toggleModal} 
+            user={this.props.user} 
+            year={config.year} 
+            userDetailsChanged={this.props.userDetailsChanged}>
         </UserAreaComponent>;
     }
 }
@@ -16,7 +22,7 @@ class UserAreaContainer extends Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         userDetailsChanged:userDetails=>dispatch(changeUserDetails(userDetails)),
-        changeDetails:()=>dispatch(fetchChangeDetails()),
+        saveUserDetails:userDetails=>dispatch(fetchChangeDetails(userDetails)),
         toggleModal:()=>dispatch(toggleChangeUserDetailsModal())
     };
 };

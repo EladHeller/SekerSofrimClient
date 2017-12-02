@@ -4,7 +4,7 @@ import stations from '../../common/stations';
 export const station = (state = {}, action) => {
     let newState;
     switch (action.type) {
-        case types.userLoggingOut:
+        case types.succesUserLogedOut:
             newState = {
                 stationName:stations.ID
             };

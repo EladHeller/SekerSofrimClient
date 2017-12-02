@@ -6,6 +6,9 @@ export const ui = (state = {}, action) => {
         case types.toggleChangeUserDetailsModal:
             newState = Object.assign({},state,{userDetailsModalOpen:!state.userDetailsModalOpen})
             break;
+        case types.successChangeUserDetails:
+            newState = Object.assign({},state,{userDetailsModalOpen:!state.userDetailsModalOpen})
+            break;
         default:
             newState = state;
             break;

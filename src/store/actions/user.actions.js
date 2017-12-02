@@ -12,6 +12,14 @@ class UserFetchAction extends FetchAction{
     }
 }
 
+class UserLogOut extends FetchAction{
+    fetchSuccess(result){
+        return {
+            type:types.succesUserLogedOut
+        };
+    }
+}
+
 class ChangeDetailsFetch extends FetchAction {
     fetchSuccess(result){
         return {
@@ -56,7 +64,5 @@ export const changeUserDetails=(user)=>{
 }
 
 export function userLoggingOut() {
-    return {
-        type: types.userLoggingOut
-    };
+    return new UserLogOut().fetchData(config.rest.logout, 'POST');
 }

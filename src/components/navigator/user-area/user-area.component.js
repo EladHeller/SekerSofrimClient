@@ -1,7 +1,7 @@
 import React from 'react';
 import UserDetailsTable from './user-area-table.component';
 
-const UserArea = ({user, year, userDetailsChanged, modalOpen, toggleModal}) => {
+const UserArea = ({user, year, userDetailsChanged, modalOpen, toggleModal, saveUserDetails}) => {
     let priceArea;
     if (user.award > 0) {
         priceArea = <div>
@@ -20,7 +20,7 @@ const UserArea = ({user, year, userDetailsChanged, modalOpen, toggleModal}) => {
         <hr style={{marginBottom: '10px',marginTop:'10px'}}/>
         <h2 style={{margin:'0px 0px 0px 0px'}}><small style={{color:'black'}}>בכדי לעדכן את שמות ספריך <a href="https://docs.google.com/forms/d/e/1FAIpQLSdkdDEgzh6zvmkUXlPu2ZKhegJGebwWSxtV3ZNtP1wXKbfwyw/viewform?usp=sf_link" target="_blank">לחץ כאן</a>.</small></h2>
         <h4><small>ניתן לעדכן את הפרטים כאן באופן עצמאי, בסיום יש ללחוץ על סימן הV לשמירת השינויים.</small></h4>
-        <UserDetailsTable user={user} userDetailsChanged={userDetailsChanged} modalOpen={modalOpen} toggleModal={toggleModal}></UserDetailsTable>
+        <UserDetailsTable user={user} saveUserDetails={saveUserDetails} userDetailsChanged={userDetailsChanged} modalOpen={modalOpen} toggleModal={toggleModal}></UserDetailsTable>
         <h4 id="msg-to-user"></h4>
     </section>
     );

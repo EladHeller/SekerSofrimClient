@@ -26,7 +26,8 @@
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
     "save-as": "^0.1.8",
-    "whatwg-fetch": "^2.0.3"
+    "whatwg-fetch": "^2.0.3",
+    "xlsx": "^0.11.11"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

@@ -3,7 +3,7 @@ import * as _ from 'lodash';
 
 export function user(state = {}, action) {
     switch (action.type) {
-        case types.userLoggingOut:
+        case types.succesUserLogedOut:
             return {
                 isLoggedIn:false
             };
