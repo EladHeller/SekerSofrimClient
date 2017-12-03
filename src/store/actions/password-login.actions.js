@@ -5,32 +5,8 @@ import {dispatch } from 'redux';
 
 class PasswordLoginFetch extends FetchAction{
     fetchSuccess(result){
-        return {
-            type:types.successPasswordLogin,
-            loginDetails: result
-        };
-    }
-}
-class ResetPasswordFetch extends FetchAction{
-    fetchSuccess(result){
-        const obj = {
-            type:types.successResetPassword,
-            loginDetails: result
-        };
-        console.log(obj);
-        return obj;
-    }
-}
-if (config.isMockMode) {
-    ResetPasswordFetch.prototype.fetchData = function(){
-        return this.fetchSuccess({
-            userExist: true,
-            sendPasswordTo: 'SMS'
-        });
-    }
-    PasswordLoginFetch.prototype.fetchData = function(){
-        return this.fetchSuccess({
-            user:{
+        if (config.isMockMode){
+            result = {user:{
                 award: 3000,
                 firstName: 'משה',
                 lastName:'כהן',
@@ -40,9 +16,27 @@ if (config.isMockMode) {
                 phone:'0541231231',
                 tel:'029929911',
                 email: 'a@a.c'
-            }
-        });
-    };
+            }};
+        }
+        return {
+            type:types.successPasswordLogin,
+            loginDetails: result
+        };
+    }
+}
+class ResetPasswordFetch extends FetchAction{
+    fetchSuccess(result){
+        if (config.isMockMode){
+            result = {
+                userExist: true,
+                sendPasswordTo: 'SMS'
+            };
+        }            
+        return {
+            type:types.successResetPassword,
+            loginDetails: result
+        };
+    }
 }
 
 export const fetchSubmit=(password, ID)=>{

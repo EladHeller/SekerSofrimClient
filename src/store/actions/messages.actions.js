@@ -5,6 +5,13 @@ import {dispatch } from 'redux';
 
 class MessagesFetchAction extends FetchAction {
     fetchSuccess(messages){
+        if (config.isMockMode){
+            messages = [
+                {text:'בדיקה בדיקה בדיקה'},
+                {text:'הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה'},
+                {text:'בדיקה אחרת סתם'}
+            ];
+        }
         return {
             type:types.fetchMessagesSuccess,
             messages
@@ -16,15 +23,6 @@ class MessagesFetchAction extends FetchAction {
             hasError
         };
     }
-}
-
-if (config.isMockMode) {
-    MessagesFetchAction.prototype.fetchData = function(){
-        return this.fetchSuccess([
-                {text:'בדיקה בדיקה בדיקה'},
-                {text:'הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה הודעה ממש ארוכה'},
-                {text:'בדיקה אחרת סתם'}]);
-    };
 }
 
 export const messagesFetchData = ()=>{

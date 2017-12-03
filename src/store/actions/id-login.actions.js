@@ -5,22 +5,20 @@ import {dispatch } from 'redux';
 
 class IdLoginFetch extends FetchAction{
     fetchSuccess(result){
+        if(config.isMockMode) {
+            result = {
+                userExist: false
+                // userExist: true,
+                // hasPassword: true,
+                // passwordSend: true,
+                // sendPasswordTo: 'email'// sms
+            }
+        }
         return {
             type:types.successIdLogin,
             loginDetails: result
         };
     }
-}
-if (config.isMockMode) {
-    IdLoginFetch.prototype.fetchData = function(){
-        return this.fetchSuccess({
-            userExist: false
-            // userExist: true,
-            // hasPassword: true,
-            // passwordSend: true,
-            // sendPasswordTo: 'email'// sms
-        });
-    };
 }
 
 export const fetchIdLogin=(ID)=>{
