@@ -1,28 +1,23 @@
 import React from 'react';
-const MessagesBar = ({messages})=> {
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
+const MessagesBar = ({messages, toggleModal, modalOpen})=> {
     const msgText = getMsgBarText(messages);
     const messagesStyle = getMessageStyle(msgText);
     
     return <div id="messages-container">
-        <div id="messages" style={messagesStyle} data-toggle="modal" data-target="#messagesModal">{msgText}</div>
-        <div className="modal fade" id="messagesModal" tabIndex="-1" role="dialog" aria-labelledby="messagesModalLabel">
-            <div className="modal-dialog" role="document">
-                <div className="modal-content" style={{'borderRadius': 0}}>
-                    <div className="modal-header">
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 className="modal-title" id="messagesModalLabel" style={{'fontWeight': 700}}>הודעות</h4>
-                    </div>
-                    <div className="modal-body">
-                        {messages.map((msg, index)=>{
-                            return <div key={index +1}><b>{index +1}</b> | {msg}<br/></div>;
-                        })}
-                    </div>
-                    <div className="modal-footer">
-                        <button type="button" className="btn btn-primary"  style={{'borderRadius': 0}} data-dismiss="modal">סגור</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div id="messages" style={messagesStyle} onClick={toggleModal}>{msgText}</div>
+        <Modal isOpen={modalOpen} toggle={toggleModal}>
+                <ModalHeader toggle={toggleModal}>הודעות</ModalHeader>
+                <ModalBody>
+                    {messages.map((msg, index)=>{
+                        return <div key={index +1}><b>{index +1}</b> | {msg}<br/></div>;
+                    })}
+                </ModalBody>
+                <ModalFooter>
+                    <Button color="primary" onClick={toggleModal}>סגור</Button>
+                </ModalFooter>
+          </Modal>
     </div>
 }
 const getMsgBarText = (messages)=>{

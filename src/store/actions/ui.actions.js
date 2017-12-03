@@ -5,3 +5,9 @@ export function toggleChangeUserDetailsModal() {
         type: types.toggleChangeUserDetailsModal
     }
 }
+
+export function toggleMessagesModal(){
+    return {
+        type:types.toggleMessagesModal
+    }
+}

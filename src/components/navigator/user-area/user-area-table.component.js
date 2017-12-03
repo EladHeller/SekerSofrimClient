@@ -6,7 +6,6 @@ const UserDetailsTable=({user, userDetailsChanged, modalOpen, toggleModal, saveU
         user[evt.target.id] = evt.target.value;
         userDetailsChanged(user);
     }
-    console.log(modalOpen)
     return (
         <div>
             <table className="table table-condensed details-table" style={{marginBottom: '0px'}}>

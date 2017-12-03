@@ -18,6 +18,7 @@ const types = {
     passwordTextChanged : 'PASSWORD_TEXT_CHANGED',
     successChangeUserDetails:'SUCCESS_CHANGE_USER_DETAILS',
     toggleChangeUserDetailsModal: 'TOGGLE_CHANGE_USER_DETAILS_MODAL',
+    toggleMessagesModal:'TOGGLE_MESSAGES_MODAL',
     fetchSuccess:'FETCH_SUCCES',
     fetchFailed:'FETCH_FAILED',
     hasError:'HAS_ERROR'
