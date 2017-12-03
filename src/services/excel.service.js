@@ -9,8 +9,9 @@ export function excel2json(fileInput, includeHeaders){
                 const data = e.target.result;
                 const workbook = XLSX.read(data, {type: 'binary'});
                 const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-                const options = {raw:true};
+                const options = {};
                 if (!includeHeaders){
+                    options.raw = true;
                     options.header = 1;
                 }
                 const result = XLSX.utils.sheet_to_json(worksheet,options);

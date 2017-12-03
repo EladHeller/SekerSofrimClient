@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AdminAreaComponent from './admin-area.component';
 import { connect } from 'react-redux';
 import config from '../../../common/config';
-import {uploadMessagesFile, downloadUsersExcel } from '../../../store/actions/admin.actions';
+import {uploadMessagesFile, downloadUsersExcel, uploadUsersFile, getChangeDetailsRequests } from '../../../store/actions/admin.actions';
 import './admin-area.scss';
 
 class AdminAreaContainer extends Component {
@@ -14,18 +14,24 @@ class AdminAreaContainer extends Component {
             changeDetailsRequests={[]}>
         </AdminAreaComponent>;
     }
+
+    componentDidMount(){
+
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        uploadUsersFile:file=>dispatch(),
+        uploadUsersFile:file=>dispatch(uploadUsersFile(file)),
         uploadMessagesFile:file=>dispatch(uploadMessagesFile(file)),
-        downloadUsersExcel:()=>dispatch(downloadUsersExcel())
+        downloadUsersExcel:()=>dispatch(downloadUsersExcel()),
+        getChangeDetailsRequests:()=>dispatch(getChangeDetailsRequests()),
     };
 };
 
 const mapStateToProps = (state) => {
     return {
+        changeDetailsRequests: state.admin.changeDetailsRequests
     };
 };
 

@@ -5,11 +5,13 @@ import {station} from './reducers/station.reducer';
 import {idLogin} from './reducers/id-login.reducer';
 import {passwordLogin} from './reducers/password-login.reducer';
 import {ui} from './reducers/ui.reducer';
+import {admin} from './reducers/admin.reducer';
 export default combineReducers({
     user,
     messages,
     station,
     idLogin,
     passwordLogin,
-    ui
+    ui,
+    admin
 });

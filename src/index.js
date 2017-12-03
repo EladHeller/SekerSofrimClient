@@ -4,6 +4,7 @@ import './assets/style/fonts.css';
 import $ from 'jquery';
 import "bootstrap";
 import "babel-polyfill";
+import 'whatwg-fetch';
 import React from "react";
 import { render } from 'react-dom';
 import { fetchConnectedUser } from './store/actions/user.actions';

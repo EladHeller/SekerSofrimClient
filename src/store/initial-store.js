@@ -7,6 +7,9 @@ const initialStore = {
     ], 
     station:{
         stationName: 'Welcome'
+    },
+    admin:{
+        changeDetailsRequests:[]
     }
 };
 export default initialStore;
