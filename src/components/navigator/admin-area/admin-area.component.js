@@ -1,6 +1,6 @@
 import React from 'react';
 
-const adminArea = ({changeDetailsRequests}) => {
+const adminArea = ({changeDetailsRequests, uploadUsersFile, uploadMessagesFile}) => {
     const changeDetailTemplate = changeDetailsRequests.map(req=>{
         return (
         <tr type="trTemplate">
@@ -19,14 +19,20 @@ const adminArea = ({changeDetailsRequests}) => {
     <section id="manageArea">
         <h1><span>ברוכים הבאים <b>לממשק הניהול</b>.</span></h1>
         <h4 style={{color:'#3bb156'}}></h4>
-        <button id="uploadMessages" to="upload" className="success" title="לחיצה להעלאת הקובץ"><span className="glyphicon glyphicon-open"></span>&nbsp;&nbsp;&nbsp;העלה Excel הודעות</button>
-        <button id="uploadUsers" to="upload" className="success" title="לחיצה להעלאת הקובץ"><span className="glyphicon glyphicon-open"></span>&nbsp;&nbsp;&nbsp;העלה Excel משתמשים</button>
-        <button id="downloadUsers" to="download" className="success" title="לחיצה להורדת הקובץ"><span className="glyphicon glyphicon-save"></span>&nbsp;&nbsp;&nbsp;הורד Excel משתמשים</button>
+        <button onClick={()=>triggerClick('uploadMessagesFile')} className="success" title="לחיצה להעלאת הקובץ">
+            <input accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" onChange={evt=>uploadMessagesFile(evt.target.files && evt.target.files[0])} id="uploadMessagesFile" hidden type="file"/>
+            <span className="glyphicon glyphicon-open"></span>&nbsp;&nbsp;&nbsp;העלה Excel הודעות
+        </button>
+        <button id="uploadUsers" onClick={()=>triggerClick('uploadUsersFile')} className="success" title="לחיצה להעלאת הקובץ">
+            <input accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" onChange={evt=>uploadUsersFile(evt.target.files && evt.target.files[0])} id="uploadUsersFile" hidden type="file"/>
+            <span className="glyphicon glyphicon-open"></span>&nbsp;&nbsp;&nbsp;העלה Excel משתמשים
+        </button>
+        <button id="downloadUsers" to="download" className="success" title="לחיצה להורדת הקובץ">
+            <span className="glyphicon glyphicon-save"></span>&nbsp;&nbsp;&nbsp;הורד Excel משתמשים
+        </button>
         <br />
         <br />
         <br />
-        <input id="uploadFile" hidden type="file" style={{display: 'none'}}/>
-        <input id="uploadMessagesFile" hidden type="file" style={{display: 'none'}}/>
         <table className="table table-condensed" style={{marginBottom: '0px'}}>
             <thead>
                 <tr>
@@ -50,4 +56,9 @@ const adminArea = ({changeDetailsRequests}) => {
     </section>
     );
 }
+
+const triggerClick=elementId=>{
+    document.getElementById(elementId).click();
+}
+
 export default adminArea;
