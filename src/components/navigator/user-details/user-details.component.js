@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({sendUserDetails, tryAgain, userDetails, userDetailsChanged})=>{
+export default ({sendUserDetails, tryAgain, userDetails= {}, userDetailsChanged})=>{
     function changeUserDetails(evt){
         userDetails[evt.target.id] = evt.target.value;
         userDetailsChanged(userDetails);

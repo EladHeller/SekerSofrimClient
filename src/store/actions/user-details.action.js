@@ -1,5 +1,5 @@
 import types  from '../../common/types';
-
+import FetchAction from "./fetch.action";
 class RequestUpdateUserDetails extends FetchAction{
     fetchSuccess(result){
         return {

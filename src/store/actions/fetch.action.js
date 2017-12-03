@@ -1,7 +1,7 @@
 const types = require('../../common/types');
 import config  from '../../common/config';
 import { dispatch } from 'redux';
-class FetchAction {
+export default class FetchAction {
     loadingData(isLoading = true) {
         return {
             type: types.loadingData,
@@ -43,5 +43,3 @@ class FetchAction {
         };
     }
 }
-
-export default FetchAction;

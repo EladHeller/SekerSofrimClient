@@ -14,10 +14,11 @@ class IdLoginFetch extends FetchAction{
 if (config.isMockMode) {
     IdLoginFetch.prototype.fetchData = function(){
         return this.fetchSuccess({
-            userExist: true,
-            hasPassword: true,
-            passwordSend: true,
-            sendPasswordTo: 'email'// sms
+            userExist: false
+            // userExist: true,
+            // hasPassword: true,
+            // passwordSend: true,
+            // sendPasswordTo: 'email'// sms
         });
     };
 }

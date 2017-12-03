@@ -6,7 +6,9 @@ import {idLogin} from './reducers/id-login.reducer';
 import {passwordLogin} from './reducers/password-login.reducer';
 import {ui} from './reducers/ui.reducer';
 import {admin} from './reducers/admin.reducer';
+import {userDetails} from './reducers/user-details.reducer';
 export default combineReducers({
+    userDetails,
     user,
     messages,
     station,
