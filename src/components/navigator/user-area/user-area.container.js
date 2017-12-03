@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import UserAreaComponent from './user-area.component';
 import { connect } from 'react-redux';
 import config from '../../../common/config';
-import {fetchChangeDetails, changeUserDetails, } from '../../../store/actions/user.actions';
+import {fetchChangeDetails, changeUserDetails } from '../../../store/actions/user.actions';
 import { toggleChangeUserDetailsModal } from '../../../store/actions/ui.actions';
 import './user-area.scss';
 

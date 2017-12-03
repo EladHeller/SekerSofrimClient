@@ -4,6 +4,7 @@ import ID from './id-form/idform.container';
 import Password from './password-form/passwordform.container';
 import UserArea from './user-area/user-area.container';
 import AdminArea from './admin-area/admin-area.container';
+import UserDetails from './user-details/user-details.container';
 import stations from '../../common/stations';
 
 const RoutesNavigator = ({station}) => {
@@ -26,7 +27,7 @@ const RoutesNavigator = ({station}) => {
             break;
         case stations.UserDetails:
         default:
-            route = <Welcome></Welcome>;
+            route = <UserDetails></UserDetails>;
             break;
     }
 
