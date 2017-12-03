@@ -9,9 +9,8 @@ export function excel2json(fileInput, includeHeaders){
                 const data = e.target.result;
                 const workbook = XLSX.read(data, {type: 'binary'});
                 const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-                const options = {};
+                const options = {raw: true};
                 if (!includeHeaders){
-                    options.raw = true;
                     options.header = 1;
                 }
                 const result = XLSX.utils.sheet_to_json(worksheet,options);
@@ -26,14 +25,8 @@ export function excel2json(fileInput, includeHeaders){
 }
 
 export function json2excel(json, name){
-    const ws = XLSX.utils.json_to_sheet(json);
-    const wb = {}
-    wb.Sheets = {};
-    wb.Props = {};
-    wb.SSF = {};
-    wb.SheetNames = [];
-    wb.SheetNames.push(name);
-    wb.Sheets[name] = ws;
+    const ws = XLSX.utils.aoa_to_sheet (json);
+    const wb = { SheetNames: [name], Sheets: {[name]:ws} };
     const wopts = { bookType:'xlsx', bookSST:false, type:'binary' };
     const wbout = XLSX.write(wb,wopts);
 

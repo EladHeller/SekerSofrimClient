@@ -55,8 +55,7 @@ export function uploadUsersFile(fileInput) {
     return async dispatch => {
         try {
             const users = await excel2json(fileInput, true);
-            console.log(users);
-            //dispatch(new UploadUsers().fetchData(config.rest.manage.updateUsers,'POST',{users}));
+            dispatch(new UploadUsers().fetchData(config.rest.manage.updateUsers,'POST',{users}));
         } catch (e) {
             console.error(e);
             dispatch({
