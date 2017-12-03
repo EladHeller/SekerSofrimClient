@@ -1,6 +1,6 @@
 import React from 'react';
 
-const adminArea = ({changeDetailsRequests, uploadUsersFile, uploadMessagesFile}) => {
+const adminArea = ({changeDetailsRequests, uploadUsersFile, uploadMessagesFile, downloadUsersExcel}) => {
     const changeDetailTemplate = changeDetailsRequests.map(req=>{
         return (
         <tr type="trTemplate">
@@ -27,7 +27,7 @@ const adminArea = ({changeDetailsRequests, uploadUsersFile, uploadMessagesFile})
             <input accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" onChange={evt=>uploadUsersFile(evt.target)} id="uploadUsersFile" hidden type="file"/>
             <span className="glyphicon glyphicon-open"></span>&nbsp;&nbsp;&nbsp;העלה Excel משתמשים
         </button>
-        <button id="downloadUsers" to="download" className="success" title="לחיצה להורדת הקובץ">
+        <button onClick={downloadUsersExcel} id="downloadUsers" to="download" className="success" title="לחיצה להורדת הקובץ">
             <span className="glyphicon glyphicon-save"></span>&nbsp;&nbsp;&nbsp;הורד Excel משתמשים
         </button>
         <br />

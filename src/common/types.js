@@ -4,6 +4,7 @@ const types = {
     loadingData: 'LOADING_DATA',
     fetchUserSuccess:'FETCH_USER_SUCCESS',
     fetchUserFailed:'FETCH_USER_FAILED',
+    fetchUsersSuccess:'FETCH_USERS_SUCCESS',
     fetchMessagesSuccess:'FETCH_MESSAGES_SUCCESS',
     fetchMessagesFailed:'FETCH_MESSAGES_FAILED',
     successIdLogin : 'SUCCESS_ID_LOGIN',

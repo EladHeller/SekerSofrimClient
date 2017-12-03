@@ -1,7 +1,7 @@
-import {successUploadMessages, fetchFailed}  from '../../common/types';
+import {successUploadMessages, fetchUsersSuccess, fetchFailed}  from '../../common/types';
 import FetchAction from './fetch.action';
 import config from '../../common/config';
-import {excel2json} from '../../services/excel.service';
+import {excel2json,json2excel} from '../../services/excel.service';
 import {dispatch } from 'redux';
 class UploadMessages extends FetchAction {
     fetchSuccess(result){
@@ -12,7 +12,17 @@ class UploadMessages extends FetchAction {
     }
 }
 
-export const uploadMessagesFile = (fileInput)=>{
+class FetchUsers extends FetchAction {
+    fetchSuccess(result){
+        json2excel(result, 'Users');
+        return {
+            type:fetchUsersSuccess,
+            changeDetailsResponse: result
+        };
+    }
+}
+
+export function uploadMessagesFile(fileInput) {
     return async dispatch => {
         try {
             const messages = await excel2json(fileInput, false);
@@ -21,4 +31,8 @@ export const uploadMessagesFile = (fileInput)=>{
             console.error(e);
         }
     }
+}
+
+export function downloadUsersExcel() {
+    return new FetchUsers().fetchData(config.rest.manage.getUsers, 'POST');
 }
