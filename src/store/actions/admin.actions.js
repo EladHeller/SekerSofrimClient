@@ -1,4 +1,4 @@
-import {successUploadMessages}  from '../../common/types';
+import {successUploadMessages, fetchFailed}  from '../../common/types';
 import FetchAction from './fetch.action';
 import config from '../../common/config';
 import {excel2json} from '../../services/excel.service';
@@ -12,14 +12,12 @@ class UploadMessages extends FetchAction {
     }
 }
 
-export const uploadMessagesFile = (messagesFile)=>{
+export const uploadMessagesFile = (fileInput)=>{
     return async dispatch => {
         try {
-            const messages = await excel2json(messagesFile, false)
-            console.log(messages);
-            const fetchAction = new UploadMessages();
-            dispatch(fetchAction.fetchData(config.rest.manage.updateMessages,'POST',{messages:messages.map(arr=>arr[0])}));
-        } catch  (e) {
+            const messages = await excel2json(fileInput, false);
+            dispatch(new UploadMessages().fetchData(config.rest.manage.updateMessages,'POST',{messages:messages.map(arr=>arr[0])}));
+        } catch (e) {
             console.error(e);
         }
     }

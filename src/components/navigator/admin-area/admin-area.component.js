@@ -20,11 +20,11 @@ const adminArea = ({changeDetailsRequests, uploadUsersFile, uploadMessagesFile})
         <h1><span>ברוכים הבאים <b>לממשק הניהול</b>.</span></h1>
         <h4 style={{color:'#3bb156'}}></h4>
         <button onClick={()=>triggerClick('uploadMessagesFile')} className="success" title="לחיצה להעלאת הקובץ">
-            <input accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" onChange={evt=>uploadMessagesFile(evt.target.files && evt.target.files[0])} id="uploadMessagesFile" hidden type="file"/>
+            <input accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" onChange={evt=>uploadMessagesFile(evt.target)} id="uploadMessagesFile" hidden type="file"/>
             <span className="glyphicon glyphicon-open"></span>&nbsp;&nbsp;&nbsp;העלה Excel הודעות
         </button>
         <button id="uploadUsers" onClick={()=>triggerClick('uploadUsersFile')} className="success" title="לחיצה להעלאת הקובץ">
-            <input accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" onChange={evt=>uploadUsersFile(evt.target.files && evt.target.files[0])} id="uploadUsersFile" hidden type="file"/>
+            <input accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" onChange={evt=>uploadUsersFile(evt.target)} id="uploadUsersFile" hidden type="file"/>
             <span className="glyphicon glyphicon-open"></span>&nbsp;&nbsp;&nbsp;העלה Excel משתמשים
         </button>
         <button id="downloadUsers" to="download" className="success" title="לחיצה להורדת הקובץ">
