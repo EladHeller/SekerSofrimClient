@@ -8,6 +8,7 @@ const types = {
     fetchConfirmRequestsSucces:'FETCH_CONFIRM_REQUESTS_SUCCESS',
     fetchMessagesSuccess:'FETCH_MESSAGES_SUCCESS',
     requestUpdateUserDetailsSuccess:'REQUEST_UPDATE_USER_DETAILS_SUCCESS',
+    requestUserDetailsChanged:'REQUEST_USER_DETAILS_CHANGED',
     fetchMessagesFailed:'FETCH_MESSAGES_FAILED',
     successIdLogin : 'SUCCESS_ID_LOGIN',
     successPasswordLogin : 'SUCCESS_PASSWORD_LOGIN',
