@@ -29,9 +29,6 @@ class ChangeDetailsFetch extends FetchAction {
     }
 }
 if (config.isMockMode) {
-    ChangeDetailsFetch.prototype.fetchData = function(){
-        return this.fetchSuccess({});
-    }
     UserFetchAction.prototype.fetchData = function(){
             return this.fetchSuccess({user:{award: 3000,
             firstName: 'משה',

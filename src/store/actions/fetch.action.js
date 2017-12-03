@@ -24,18 +24,22 @@ class FetchAction {
 
     fetchData (url, method ='GET', body = undefined) {
         return (dispatch) => {
-            const fetchRequest = new Request(config.rest.serverUrl + url,{method,body:JSON.stringify(body), credentials:'include'});
-            dispatch(this.loadingData(true));
-            fetch(fetchRequest).then((response) => {
-                dispatch(this.loadingData(false));
-                if (!response.ok) {
-                    throw Error(response.statusText);
-                }
-                return response;
-            })
-            .then(response => response.json())
-            .then(result => dispatch(this.fetchSuccess(result)))
-            .catch(() => dispatch(this.fetchFailed(true)));
+            if (config.isMockMode) {
+                dispatch(this.fetchSuccess({}));
+            } else {
+                const fetchRequest = new Request(config.rest.serverUrl + url,{method,body:JSON.stringify(body), credentials:'include'});
+                dispatch(this.loadingData(true));
+                fetch(fetchRequest).then((response) => {
+                    dispatch(this.loadingData(false));
+                    if (!response.ok) {
+                        throw Error(response.statusText);
+                    }
+                    return response;
+                })
+                .then(response => response.json())
+                .then(result => dispatch(this.fetchSuccess(result)))
+                .catch(() => dispatch(this.fetchFailed(true)));
+            }
         };
     }
 }
