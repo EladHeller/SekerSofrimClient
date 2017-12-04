@@ -2,7 +2,7 @@ import types from '../../common/types';
 import stations from '../../common/stations';
 
 export const station = (state = {}, action) => {
-    let newState;
+    let newState = state;
     switch (action.type) {
         case types.succesUserLogedOut:
             newState = {
@@ -18,8 +18,8 @@ export const station = (state = {}, action) => {
         case types.successPasswordLogin:
             newState = fetchPasswordSuccess(action.loginDetails, state);
             break;
-        default:
-            newState = state;
+        case types.changeStation:
+            newState = {stationName: stations[action.station]};
             break;
     }
     return newState;

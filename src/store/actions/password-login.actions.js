@@ -1,7 +1,6 @@
 import types  from '../../common/types';
 import FetchAction from './fetch.action';
 import config from '../../common/config';
-import {dispatch } from 'redux';
 
 class PasswordLoginFetch extends FetchAction{
     fetchSuccess(result){
@@ -39,16 +38,17 @@ class ResetPasswordFetch extends FetchAction{
     }
 }
 
-export const fetchSubmit=(password, ID)=>{
+export function fetchSubmit(password, ID) {
     const fetchAction = new PasswordLoginFetch();
     return fetchAction.fetchData(config.rest.passwordLogin, 'POST', {password, ID});
 }
-export const resetPassword=(ID)=>{
+
+export function resetPassword(ID) {
     const fetchAction = new ResetPasswordFetch();
     return fetchAction.fetchData(config.rest.resetPassword, 'POST', {ID});
 }
 
-export const passwordTextChanged=(password)=>{
+export function passwordTextChanged(password) {
     return {
         type:types.passwordTextChanged,
         passwordText: password

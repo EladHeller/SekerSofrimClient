@@ -23,7 +23,7 @@ export default {
         },
         logout: "logout"
     },
-    isMockMode: true,
+    isMockMode: false,
     year: 2016
 };
 

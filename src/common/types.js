@@ -21,6 +21,7 @@ const types = {
     successChangeUserDetails:'SUCCESS_CHANGE_USER_DETAILS',
     toggleChangeUserDetailsModal: 'TOGGLE_CHANGE_USER_DETAILS_MODAL',
     toggleMessagesModal:'TOGGLE_MESSAGES_MODAL',
+    changeStation:'CHANGE_STATION',
     fetchSuccess:'FETCH_SUCCES',
     fetchFailed:'FETCH_FAILED',
     hasError:'HAS_ERROR'
