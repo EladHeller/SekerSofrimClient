@@ -110,6 +110,15 @@ $(document).ready(function () {
         email: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     };
 
+    calcInformationModal();
+
+    function calcInformationModal () {
+        if (!localStorage.isInformationRead) {
+            $('#trigger-information-modal').click()
+            localStorage.isInformationRead = true
+        }
+    }
+
     function addLoaderCursor (selector) {
         $('.progress').show();
         $('.indeterminate').show();

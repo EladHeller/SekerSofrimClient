@@ -65,6 +65,9 @@ section {
     #manageArea{
         width: 70%;
     }
+    #user-trigger-information-modal {
+        left: -15vw;
+    }    
 }
 @media (max-width: 767px) {
     section,
@@ -73,22 +76,9 @@ section {
     #manageArea {
         width: 90%;
     }
-}
-@media (max-width: 1299px) {
-    #userArea,
-    #userNotExist,
-    #noDetails,
-    #manageArea {
-        width: 90%;
-    }
-}
-@media (min-width: 1300px) {
-    #userArea,
-    #userNotExist,
-    #noDetails,
-    #manageArea {
-        width: 70%;
-    }
+    #user-trigger-information-modal {
+        left: -5vw;
+    }    
 }
 .hide {
     opacity: 0;
@@ -430,4 +420,26 @@ table {
 
 #details-table > tbody > tr>  td, #details-table > thead >tr> th{
     border: 1px solid #aaa;
+}
+
+
+ol#books-types-list {
+    counter-reset: num;
+    direction: rtl;
+}
+ol#books-types-list li {
+    list-style-type: none;
+    counter-increment: num;
+    padding-bottom: 4px;
+}
+
+ol#books-types-list li:before {
+    content: counter(num, hebrew) '.';
+    padding-left: 10px; 
+}
+
+#user-trigger-information-modal {
+    position: absolute;
+    top: 38px;
+    left: -15vw;
 }
