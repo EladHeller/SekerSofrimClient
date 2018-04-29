@@ -65,9 +65,6 @@ section {
     #manageArea{
         width: 70%;
     }
-    #user-trigger-information-modal {
-        left: -15vw;
-    }    
 }
 @media (max-width: 767px) {
     section,
@@ -76,9 +73,6 @@ section {
     #manageArea {
         width: 90%;
     }
-    #user-trigger-information-modal {
-        left: -5vw;
-    }    
 }
 .hide {
     opacity: 0;
@@ -440,6 +434,6 @@ ol#books-types-list li:before {
 
 #user-trigger-information-modal {
     position: absolute;
-    top: 38px;
-    left: -15vw;
+    top: 81px;
+    left: 0px;
 }

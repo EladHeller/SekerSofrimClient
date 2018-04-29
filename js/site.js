@@ -179,6 +179,7 @@ $(document).ready(function () {
                     goToScreen(p.manageArea);
                     ajaxReq(config.manage.getTableRows, null, setTable);
                 } else {
+                    $('#user-trigger-information-modal').show()
                     s.sections.userArea.find('h2 span b').text(res.user.firstName ? " " + res.user.firstName : "");
                     var text;
                     
@@ -470,6 +471,7 @@ $(document).ready(function () {
             var resolve = function () {
                 goToScreen(p.id);
                 s.logout.hide();
+                $('#user-trigger-information-modal').hide()
                 s.sections.userArea.find('#win-text').hide();
             }
 
