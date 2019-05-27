@@ -1,63 +1,19 @@
 function excelFile2Json(file, parser, callback) {
     var reader = new FileReader();
-    var name = file.name;
     reader.onload = function(e) {
         var data = e.target.result;
 
         var workbook = XLSX.read(data, {type: 'binary'});
-        var data = parser(workbook);
+        var sheet = workbook.Sheets[workbook.SheetNames[0]];
+        var data = parser(sheet);
+
         callback(data);
     };
     reader.readAsBinaryString(file);
 }
 
-function workbookToJson(workbook){
-    var sheet = workbook.Sheets[workbook.SheetNames[0]];
-
-    var data = [];
-    var currLetter = 'A';
-    var maxRow = 0;
-    while (currLetter < 'K') {
-        var currKey = sheet[currLetter + '1'].v;
-        var currIndex = 2;
-        
-        var currCell = sheet[currLetter + currIndex];
-        while ((currIndex <= maxRow) || currCell) {
-            if(currIndex > maxRow){
-                maxRow = currIndex;
-            }
-            data[currIndex-2] = data[currIndex-2] || {};
-            var value = currCell && currCell.v;
-            value = value || '';
-            data[currIndex-2][currKey] = value;
-            currIndex++;
-            currCell = sheet[currLetter + currIndex];
-        }
-
-        currLetter = String.fromCharCode(currLetter.charCodeAt(0)+1);
-    }
-    return data;
-}
-
-function workbookToArrays(workbook){
-    var sheet = workbook.Sheets[workbook.SheetNames[0]];
-
-    var data = [];
-    var currLetter = 'A';
-    var currIndex = 1;
-    var lastLetter = 'K';
-    while (sheet[currLetter + currIndex]) {
-        data[currIndex-1] = data[currIndex-1] || [];
-        var currCell = sheet[currLetter + currIndex];
-        while (currLetter <= lastLetter) {
-            data[currIndex-1].push(currCell ? currCell.v : '');
-            currLetter = String.fromCharCode(currLetter.charCodeAt(0)+1);
-            currCell = sheet[currLetter + currIndex];
-        }
-        currLetter = 'A';
-        currIndex++;
-    }
-    return data;
+function excelToArray(sheet) {
+    return XLSX.utils.sheet_to_json(sheet, {header: 1});
 }
 
 function json2ExcelFile(data, fileName){
