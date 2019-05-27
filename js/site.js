@@ -188,6 +188,7 @@ $(document).ready(function () {
 
     var resolveObj = {
         area: function (res) {
+            grecaptcha.reset(passwordCaptcha);
             if (res.user) {
                 s.logout.show('slow');
 
@@ -566,6 +567,7 @@ $(document).ready(function () {
         });
 
         function idResponse(res) {
+            grecaptcha.reset(idCaptcha);
             var screen = p.password;
 
             if (res.userExist) {
@@ -594,6 +596,7 @@ $(document).ready(function () {
             } else {
                 throwAlert(s.sections.id.find('h5'), 'קלט לא תקין. נסה שוב.');
                 s.val[1].id.focus();
+                grecaptcha.reset(idCaptcha);
             }
         }
 
@@ -612,6 +615,7 @@ $(document).ready(function () {
             } else {
                 throwAlert(s.sections.password.find('h5'), 'קלט לא תקין. נסה שוב.');
                 s.val[2].password.focus();
+                grecaptcha.reset(passwordCaptcha);
             };
         };
         s.btn[2].confirm.on("click", function () {
