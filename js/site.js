@@ -1,5 +1,21 @@
 'use strict';
 var saveData;
+var idSubmited;
+var passwordSubmited;
+var idCaptcha;
+var passwordCaptcha;
+var sitekey = '6Lf_uaUUAAAAAKzIFvHy6o-m4n_Nl8QDtPGI1tYr';
+function recaptchaInit() {
+    idCaptcha = grecaptcha.render('id-submit', {
+        sitekey,
+        callback : idSubmited
+    });
+    passwordCaptcha = grecaptcha.render('password-submit', {
+        sitekey,
+        callback : passwordSubmited
+    });
+}
+
 $(document).ready(function () {
     var debugStartScreen = 0;
     var APIUrl = 'https://7npxc1c5ll.execute-api.us-west-2.amazonaws.com/SekerSofrim/';
@@ -549,43 +565,47 @@ $(document).ready(function () {
             }
         });
 
-        s.btn[1].confirm.on("click", function () {
-            function resolve(res) {
-                var screen = p.password;
+        function idResponse(res) {
+            var screen = p.password;
 
-                if (res.userExist) {
-                    if (!res.hasPassword && !res.passwordSend) {
-                        screen = p.noDetails;
-                    } else if (!res.hasPassword && res.passwordSend) {
-                        setTimeout(throwNewPassword, 750, translateSendPasswordTo(res.sendPasswordTo));;
-                        screen = p.password;
-                    }
-                } else {
-                    screen = p.userNotExist;
+            if (res.userExist) {
+                if (!res.hasPassword && !res.passwordSend) {
+                    screen = p.noDetails;
+                } else if (!res.hasPassword && res.passwordSend) {
+                    setTimeout(throwNewPassword, 750, translateSendPasswordTo(res.sendPasswordTo));;
+                    screen = p.password;
                 }
-
-                goToScreen(screen);
+            } else {
+                screen = p.userNotExist;
             }
 
+            goToScreen(screen);
+        }
+        
+        idSubmited = function(captchaData) {
             // CONFIRM - 1
             if (s.btn[1].confirm.hasClass('success')) {
                 var data = {
-                    ID: addZeros(s.val[1].id.val())
+                    ID: addZeros(s.val[1].id.val()),
+                    captchaData
                 }
 
-                ajaxReq(config.id, data, resolve);
+                ajaxReq(config.id, data, idResponse);
             } else {
                 throwAlert(s.sections.id.find('h5'), 'קלט לא תקין. נסה שוב.');
                 s.val[1].id.focus();
-            };
+            }
+        }
+
+        s.btn[1].confirm.on('click', function () {
+            grecaptcha.execute(idCaptcha);
         });
-
-        s.btn[2].confirm.on("click", function () {
-
+        passwordSubmited = function (captchaData) {
             if (s.btn[2].confirm.hasClass('success')) {
                 var data = {
                     ID: addZeros(s.val[1].id.val()),
-                    password: s.val[2].password.val()
+                    password: s.val[2].password.val(),
+                    captchaData
                 }
 
                 ajaxReq(config.password.confirm, data, resolveObj.area);
@@ -593,6 +613,9 @@ $(document).ready(function () {
                 throwAlert(s.sections.password.find('h5'), 'קלט לא תקין. נסה שוב.');
                 s.val[2].password.focus();
             };
+        };
+        s.btn[2].confirm.on("click", function () {
+            grecaptcha.execute(passwordCaptcha);
         });
 
         s.btn[2].reset.on("click", function () {
