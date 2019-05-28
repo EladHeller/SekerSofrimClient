@@ -4,6 +4,8 @@ var idSubmited;
 var passwordSubmited;
 var idCaptcha;
 var passwordCaptcha;
+var passwordRegex = /(?=.{6,})(?=.*[a-zA-Z]+.*)(?=^(?:(?!^\s|\s$).)*$)/;
+
 var sitekey = '6Lf_uaUUAAAAAKzIFvHy6o-m4n_Nl8QDtPGI1tYr';
 function recaptchaInit() {
     idCaptcha = grecaptcha.render('id-submit', {
@@ -169,7 +171,7 @@ $(document).ready(function () {
     function showError(error){
         error = error || '';
         var errorContainer = document.getElementById('error-message');
-            errorContainer.innerHTML='<h4>חלה תקלה במהלך הניווט באתר.</h4><h4>נסה שוב מאוחר יותר.</h4>';
+            errorContainer.innerHTML='<h4>חלה תקלה במהלך הניווט באתר.</h4><h4>נסו שנית מאוחר יותר.</h4>';
         try{
             if (error && error.target && error.target.status === 403) {
                 errorContainer.innerHTML = '<h4>הינכם גולשים , ככל הנראה, באתר מראה.</h4><h4>עיברו לכתובת <a>https://ssofrim.com</a></h4>';
@@ -445,6 +447,14 @@ $(document).ready(function () {
 
         ajaxReq(config.manage.tableRow, data, resolve);
     }
+    $('#save-user-details').on('click', function() {
+        var password = s.sections.userArea.find('tr').find('#password').val()
+        if (!password || password.match(passwordRegex)) {
+            $('#confirmModal').modal();
+        } else {
+            $('#errorModal').modal();
+        }
+    });
 
     $('#saveUserAreaData').on('click', function (event) {
         function resolve(res) {
