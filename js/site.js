@@ -216,7 +216,7 @@ $(document).ready(function () {
                     s.sections.userArea.find('#lastName').val(res.user.lastName);
                     s.sections.userArea.find('#pseudonym').val(res.user.pseudonym);
                     s.sections.userArea.find('#id').val(res.user.ID);
-                    s.sections.userArea.find('#password').val(res.user.password);
+                    s.sections.userArea.find('#password').val('');
                     s.sections.userArea.find('#phone').val(res.user.phone);
                     s.sections.userArea.find('#tel').val(res.user.tel);
                     s.sections.userArea.find('#email').val(res.user.email);
@@ -437,7 +437,6 @@ $(document).ready(function () {
             firstName: row.find('[type="firstName"] input').val(),
             lastName: row.find('[type="lastName"] input').val(),
             pseudonym: row.find('[type="pseudonym"] input').val(),
-            //password: row.find('[type="password"] input').val(),
             ID: row.find('[type="id"] input').val(),
             phone: row.find('[type="phone"] input').val(),
             tel: row.find('[type="tel"] input').val(),
