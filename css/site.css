@@ -164,11 +164,11 @@ h5 {
 
 .navbar img {
     display: inline;
-    height: 40px;
+    height: 45px;
     float: left;
     margin-right: 30px;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 .navbar h2 {
     display: inline-table;
