@@ -21,6 +21,8 @@ function recaptchaInit() {
 $(document).ready(function () {
     var debugStartScreen = 0;
     var APIUrl = 'https://7npxc1c5ll.execute-api.us-west-2.amazonaws.com/SekerSofrim/';
+    // var APIUrl = 'https://1tmm0szfph.execute-api.us-west-2.amazonaws.com/seker_sofrim_test/';
+    // var APIUrl = 'http://localhost:3001/';
     // JavaScript source code
     var config = {
         messages: "getmessages",
