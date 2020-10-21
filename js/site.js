@@ -7,6 +7,7 @@ var passwordCaptcha;
 var passwordRegex = /(?=.{6,})(?=.*[a-zA-Z]+.*)(?=^(?:(?!^\s|\s$).)*$)/;
 
 var sitekey = '6Lf_uaUUAAAAAKzIFvHy6o-m4n_Nl8QDtPGI1tYr';
+//var sitekey = '6Lcm5dkZAAAAABCHotivprp5TLX01tPskfvQ2AaT';
 function recaptchaInit() {
     idCaptcha = grecaptcha.render('id-submit', {
         sitekey,
