@@ -7,7 +7,7 @@ var passwordCaptcha;
 var passwordRegex = /(?=.{6,})(?=.*[a-zA-Z]+.*)(?=^(?:(?!^\s|\s$).)*$)/;
 
 var sitekey = '6Lf_uaUUAAAAAKzIFvHy6o-m4n_Nl8QDtPGI1tYr';
-//var sitekey = '6Lcm5dkZAAAAABCHotivprp5TLX01tPskfvQ2AaT';
+// var sitekey = '6Lcm5dkZAAAAABCHotivprp5TLX01tPskfvQ2AaT';
 function recaptchaInit() {
     idCaptcha = grecaptcha.render('id-submit', {
         sitekey,
@@ -205,7 +205,7 @@ $(document).ready(function () {
                     s.sections.userArea.find('h2 span b').text(res.user.firstName ? " " + res.user.firstName : "");
                     var text;
                     
-                    if (res.user.award == null || res.user.award == undefined) {
+                    if (res.user.award < 0) {
                         text = 'נכון להיום, טרם התקבלו תוצאות.';
                     } else if (res.user.award == 0) {
                         text = 'לצערנו סך השאלות ספריך בשנת 2018 לא הגיע לרף המינימאלי הדרוש לקבלת זכאות לתשלומים ממשרד התרבות.';
